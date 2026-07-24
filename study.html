@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>소방안전관리자 2급 · 학습반</title>
+<title>소방안전관리자 2급 </title>
 <style>
 :root{
   --ink:#161A1F;
@@ -221,6 +221,19 @@ pre.schema .s{color:#7FD1A6}
 }
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
+.card h3{display:flex;align-items:flex-start;gap:8px}
+.card h3 .th-t{flex:1;min-width:0}
+.th-tools{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.th-btn{background:none;border:1px solid var(--line);border-radius:7px;padding:3px 8px;font-size:13px;line-height:1;color:var(--text-dim)}
+.th-btn:hover{border-color:var(--ink);color:var(--text)}
+.edited-badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#8A6D1A;background:#FFF3C4;border:1px solid #EAD98F;border-radius:5px;padding:2px 6px}
+.th-editform .th-hin{width:100%;box-sizing:border-box;font-family:inherit;font-weight:700;font-size:16px;padding:9px 12px;border:1.5px solid var(--ink);border-radius:8px;margin-bottom:8px;background:var(--card)}
+.th-editform .th-bin{width:100%;box-sizing:border-box;font-family:var(--mono);font-size:13.5px;line-height:1.65;padding:12px;border:1.5px solid var(--ink);border-radius:8px;background:var(--card);resize:vertical}
+.th-hint{font-size:12.5px;color:var(--text-dim);margin:6px 0 0}
+mark.uhl{background:#B9F6CA;padding:0 1px;border-radius:2px;cursor:pointer;box-shadow:0 1px 0 #7BC98F}
+mark.uhl:hover{background:#8EE7A6}
+#hlBar{display:none;position:absolute;z-index:60;background:var(--ink);border-radius:9px;padding:4px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+#hlBar button{background:none;border:0;color:#fff;font-size:13.5px;padding:6px 12px;white-space:nowrap}
 .search-in{width:100%;font-size:16px;padding:13px 16px;border:1.5px solid var(--ink);border-radius:10px;background:var(--card);margin-bottom:20px;font-family:inherit}
 .sr-group{margin-bottom:26px}
 .sr-group>.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--text-dim);margin-bottom:8px;text-transform:uppercase}
@@ -287,7 +300,7 @@ mark{background:#FFE9A8;color:inherit;padding:0 1px;border-radius:2px}
 <div class="shell">
   <nav class="nav" id="nav">
     <div class="nav-head">
-      <p class="kicker">FIRE SAFETY MANAGER · GRADE 2</p>
+      <p class="kicker">made by bless</p>
       <h1>소방안전관리자 2급 학습반</h1>
       <div class="meter">
         <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
@@ -305,6 +318,7 @@ mark{background:#FFE9A8;color:inherit;padding:0 1px;border-radius:2px}
     <div class="wrap" id="view"></div>
   </div>
 </div>
+<div id="hlBar"><button data-hladd>🖊 형광펜 긋기</button></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -1048,6 +1062,24 @@ let THEORY = {
 무거우면(LPG) 아래·가까이(4m), 가벼우면(LNG) 위·멀리(8m)`}
   ],
   ch4:[
+{h:'피난시설 · 방화시설의 정의', body:`**피난시설** — 건축법에 따라 건축물에 설치되는, 피난에 사용되는 시설
+· **계단**: 직통계단 · 피난계단 · 특별피난계단
+· **복도**
+· **출입구** (비상구 포함)
+· **옥상광장**, **피난안전구역**
+· 그 밖의 피난시설 (경사로, 피난용 승강기 등)
+
+**계단의 구분** — 안전 수준 순서
+· **직통계단**: 어떤 층에서든 **피난층·지상까지 곧바로 이어지는** 계단
+· **피난계단**: 직통계단에 **내화구조 + 방화문** 등 안전 구조를 갖춘 것
+· **특별피난계단**: 계단 진입 전 **부속실(전실·노대)을 거쳐** 들어가는 구조 — 연기 유입을 한 번 더 차단, 가장 안전
+
+**방화시설** — 화재 확산을 막는 시설
+· **방화문, 자동방화셔터**
+· **내화구조의 벽·바닥** 등 방화구획을 이루는 시설
+
+**혼동 주의**: 완강기·구조대·유도등·비상조명등은 **피난시설이 아니라 소방시설(피난구조설비)**입니다. "피난시설에 해당하지 않는 것" 문제의 단골 정답이 완강기·유도등입니다.`},
+
 {h:'방화구획의 기준', body:`**방화구획**: 화염·연기 확산을 막기 위해 내화구조의 바닥·벽과 방화문·방화셔터 등으로 구획 (주요구조부가 내화구조·불연재료인 연면적 1,000㎡ 초과 건축물에 적용)
 
 **면적별 구획** — 스프링클러 설치 시 3배 완화가 핵심
@@ -1564,6 +1596,9 @@ let QS = [
 {id:'q408',ch:'ch4',tag:'law',q:'복도에 물건을 쌓아 피난에 지장을 준 자에 대한 처분은?',o:['100만원 이하 벌금','300만원 이하 과태료','500만원 이하 과태료','1년 이하 징역'],a:1,e:'피난시설·방화구획·방화시설 관련 금지행위는 300만원 이하 과태료(1차 100/2차 200/3차 300)입니다.'},
 
 /* ---------- 5. 소방시설 ---------- */
+{id:'q409',ch:'ch4',q:'다음 중 건축법상 피난시설에 해당하지 않는 것은?',o:['직통계단','복도','옥상광장','완강기'],a:3,e:'피난시설은 계단·복도·출입구(비상구)·옥상광장·피난안전구역 등 건축물의 시설입니다. 완강기·유도등은 소방시설(피난구조설비)입니다.'},
+{id:'q410',ch:'ch4',q:'계단 진입 전 부속실(전실)을 거쳐 들어가도록 하여 연기 유입을 차단하는 계단은?',o:['직통계단','피난계단','특별피난계단','옥외계단'],a:2,e:'특별피난계단은 부속실을 경유하는 구조로 가장 안전합니다. 직통계단 < 피난계단 < 특별피난계단 순으로 안전 수준이 높아집니다.'},
+
 {id:'q501',ch:'ch5',q:'소형소화기의 설치 기준(보행거리)으로 옳은 것은?',o:['각 층마다 보행거리 20m 이내','각 층마다 보행거리 30m 이내','각 층마다 보행거리 50m 이내','층수와 관계없이 1개'],a:0,e:'소형 20m 이내, 대형 30m 이내.'},
 {id:'q502',ch:'ch5',q:'B급·C급 화재에 모두 적응성이 있고 잔재가 남지 않는 소화기는?',o:['물소화기','이산화탄소소화기','강화액소화기','산·알칼리소화기'],a:1,e:'이산화탄소소화기는 질식·냉각 효과가 있고 오염이 없어 전기실·전산실에 적합합니다.'},
 {id:'q503',ch:'ch5',q:'옥내소화전 노즐 선단의 방수압력 기준은?',o:['0.1MPa 이상 0.7MPa 이하','0.17MPa 이상 0.7MPa 이하','0.25MPa 이상 1.0MPa 이하','0.35MPa 이상 1.2MPa 이하'],a:1,e:'옥내 0.17~0.7MPa / 옥외 0.25~0.7MPa / 스프링클러 0.1~1.2MPa.'},
@@ -1661,7 +1696,7 @@ let QS = [
 {id:'a104',ch:'ap1',q:'소방계획의 주요원리에 해당하지 않는 것은?',o:['종합적 안전관리','통합적 안전관리','지속적 발전모델(PDCA)','개별적 안전관리'],a:3,e:'주요원리는 종합적 안전관리, 통합적 안전관리, 지속적 발전모델 3가지입니다.'},
 {id:'a105',ch:'ap1',q:'소방계획의 작성원칙으로 옳지 않은 것은?',o:['실현가능한 계획일 것','관계인이 참여할 것','작성-검토-승인으로 구조화할 것','완벽하고 이상적인 계획을 우선할 것'],a:3,e:'이상적 완벽함보다 실현가능성과 실행이 우선입니다. 4원칙: 실현가능, 관계인 참여, 구조화, 실행 우선.'},
 {id:'a106',ch:'ap1',q:'소방계획서의 주요내용에 해당하지 않는 것은?',o:['대상물의 위치·구조·연면적 등 일반현황','화재예방을 위한 자체점검계획','소방관서의 화재안전조사 실시 계획','자위소방대의 구성·운영·교육'],a:2,e:'화재안전조사는 소방관서장(소방청장·본부장·서장)의 권한으로 관계인이 세우는 소방계획의 내용이 아닙니다.'},
-{id:'a107',ch:'ap1',q:'소방계획서의 주요내용으로 옳지 않은 것은?',o:['용도별 방화구획 및 피난시설 현황','규모별 방화구획 및 피난계획','화기취급의 감독에 관한 사항','소방훈련·교육에 관한 계획'],a:1,e:'방화구획·피난계획은 규모별이 아니라 용도별로 작성합니다. 단어 바꿔치기 함정입니다.'},
+{id:'a107',ch:'ap1',q:'소방계획서의 주요내용으로 옳지 않은 것은?',o:['화기취급의 감독에 관한 사항','규모별 방화구획·피난시설 현황 및 피난계획','자위소방대 및 초기대응체계의 구성·운영','소방훈련·교육에 관한 계획'],a:1,e:'방화구획·피난시설 현황과 피난계획은 규모별이 아니라 용도별로 작성합니다. 옳은 보기들 사이에 단어만 바꾼 함정이 숨는 유형입니다.'},
 {id:'a201',ch:'ap2',q:'성인 심폐소생술에서 가슴압박과 인공호흡의 비율은?',o:['15:2','30:2','5:1','30:1'],a:1,e:'가슴압박 30회 : 인공호흡 2회.'},
 {id:'a202',ch:'ap2',q:'성인 심폐소생술의 가슴압박 속도로 옳은 것은?',o:['분당 40~60회','분당 60~80회','분당 100~120회','분당 150회 이상'],a:2,e:'분당 100~120회, 깊이 약 5cm(6cm 초과 금지).'},
 {id:'a203',ch:'ap2',q:'자동심장충격기(AED) 사용법으로 옳지 않은 것은?',o:['리듬 분석 중에는 환자에게서 손을 뗀다','패드는 오른쪽 빗장뼈 아래와 왼쪽 젖꼭지 아래 옆구리에 부착','충격 버튼을 누르기 전 아무도 환자를 만지지 않게 한다','충격 후에는 심폐소생술을 중단한다'],a:3,e:'충격 후 즉시 가슴압박을 재개하고 2분 후 다시 분석합니다.'},
@@ -1690,7 +1725,7 @@ const Store={
 /* =========================================================
    3. 상태
    ========================================================= */
-let S={ ans:{}, flag:{}, memo:{} };           // ans[qid]={p:선택,ok:정오}
+let S={ ans:{}, flag:{}, memo:{}, thEdit:{}, hl:{} };           // ans[qid]={p:선택,ok:정오}
 let view={kind:'chapter',ch:'ch1',tab:'theory'};
 let session=null;                     // 종합풀이 세션
 
@@ -1774,6 +1809,34 @@ function renderNav(){
 /* =========================================================
    5. 문제 카드
    ========================================================= */
+function renderBody(key,raw){
+  let h=esc(raw).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  const hls=(S.hl&&S.hl[key])||[];
+  hls.forEach(function(txt){
+    const et=esc(txt);
+    const pat=et.split('').map(function(ch){return ch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('(?:<[^>]*>)*');
+    try{
+      h=h.replace(new RegExp(pat,'g'),function(m){
+        return '<mark class="uhl" data-hl="'+encodeURIComponent(txt)+'" title="탭하면 형광펜을 지웁니다">'+m+'</mark>';
+      });
+    }catch(err){}
+  });
+  return h;
+}
+function thCard(chId,i){
+  const base=THEORY[chId][i];
+  const key=chId+'|'+base.h;
+  const o=S.thEdit&&S.thEdit[key];
+  const t=o||base;
+  let h='<div class="card" id="th-'+chId+'-'+i+'">';
+  h+='<h3><span class="n">'+String(i+1).padStart(2,'0')+'</span><span class="th-t">'+esc(t.h)+'</span>';
+  h+='<span class="th-tools">'+(o?'<span class="edited-badge">수정됨</span>':'')
+    +'<button class="th-btn" data-thedit="'+chId+':'+i+'" title="이 섹션 수정">✏️ 수정</button></span></h3>';
+  h+='<div class="body">'+renderBody(key,t.body)+'</div>';
+  h+=memoWrap(key);
+  return h+'</div>';
+}
+
 function memoWrap(key){
   const v=S.memo&&S.memo[key];
   let inner;
@@ -1813,13 +1876,14 @@ function searchRes(qraw){
   CH.forEach(function(c){
     (THEORY[c.id]||[]).forEach(function(t,i){
       if(tn>=40) return;
-      const plain=(t.h+' '+t.body.replace(/\*\*/g,'')).toLowerCase();
+      const eff=(S.thEdit&&S.thEdit[c.id+'|'+t.h])||t;
+      const plain=(eff.h+' '+eff.body.replace(/\*\*/g,'')).toLowerCase();
       if(plain.indexOf(lq)<0) return;
       tn++;
       th+='<button class="sres" data-jumpth="'+c.id+':'+i+'">'
-        +'<span class="sr-t">'+hl(t.h,q)+'</span>'
+        +'<span class="sr-t">'+hl(eff.h,q)+'</span>'
         +'<span class="sr-c">'+esc(c.title)+' · 이론 '+(i+1)+'</span>'
-        +'<span class="sr-s">'+snip(t.body,q)+'</span></button>';
+        +'<span class="sr-s">'+snip(eff.body,q)+'</span></button>';
     });
   });
   if(th) out+='<div class="sr-group"><div class="label">이론 ('+tn+')</div>'+th+'</div>';
@@ -1922,10 +1986,7 @@ function viewChapter(){
         +'전달해 주실 강의 내용을 <code>THEORY.'+c.id+'</code> 에 넣으면 이 자리에 표시됩니다.<br>'
         +'좌측 <b>데이터 관리</b>에서 JSON으로 붙여넣어도 됩니다.</div>';
     } else {
-      h+='<div class="theory">'+th.map((t,i)=>
-        '<div class="card" id="th-'+c.id+'-'+i+'"><h3><span class="n">'+String(i+1).padStart(2,'0')+'</span>'+esc(t.h)+'</h3>'
-        +'<div class="body">'+esc(t.body).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')+'</div>'
-        +memoWrap(c.id+'|'+t.h)+'</div>').join('')+'</div>';
+      h+='<div class="theory">'+th.map(function(t,i){return thCard(c.id,i);}).join('')+'</div>';
     }
   }
   else if(view.tab==='quiz'){
@@ -2069,9 +2130,26 @@ function go(target){
   closeNav(); render();
 }
 document.addEventListener('click',async e=>{
-  const t=e.target.closest('[data-go],[data-tab],[data-pick],[data-flag],[data-reset],[data-resettag],[data-start],[data-endsession],[data-retrywrong],[data-clearall],[data-import],[data-export],[data-jumpth],[data-jumpq],[data-memoedit],[data-memosave],[data-memocancel],[data-memodel]');
-  if(!t) return;
+  const t=e.target.closest('[data-go],[data-tab],[data-pick],[data-flag],[data-reset],[data-resettag],[data-start],[data-endsession],[data-retrywrong],[data-clearall],[data-import],[data-export],[data-jumpth],[data-jumpq],[data-memoedit],[data-memosave],[data-memocancel],[data-memodel],[data-thedit],[data-thsave],[data-thcancel],[data-threstore],[data-hladd]');
 
+  const mk=e.target.closest('mark.uhl');
+  if(mk&&!t){
+    const card=mk.closest('.card');
+    if(card){
+      const p=card.id.split('-'); const ch=p[1], idx=+p[2];
+      const key=ch+'|'+THEORY[ch][idx].h;
+      const txt=decodeURIComponent(mk.dataset.hl);
+      if(S.hl&&S.hl[key]){
+        S.hl[key]=S.hl[key].filter(function(x){return x!==txt;});
+        if(!S.hl[key].length) delete S.hl[key];
+        await Store.save(S);
+        card.outerHTML=thCard(ch,idx);
+        toast('형광펜을 지웠습니다');
+      }
+    }
+    return;
+  }
+  if(!t) return;
   if(t.dataset.go){ go(t.dataset.go); return; }
   if(t.dataset.tab){ view.tab=t.dataset.tab; render(); return; }
 
@@ -2122,6 +2200,67 @@ document.addEventListener('click',async e=>{
     toast('메모를 지웠습니다'); return;
   }
 
+  if(t.dataset.thedit){
+    const p=t.dataset.thedit.split(':'); const ch=p[0], i=+p[1];
+    const base=THEORY[ch][i], key=ch+'|'+base.h;
+    const o=S.thEdit&&S.thEdit[key];
+    const eff=o||base;
+    const card=document.getElementById('th-'+ch+'-'+i);
+    card.innerHTML='<div class="th-editform">'
+      +'<input class="th-hin" value="'+esc(eff.h)+'" placeholder="섹션 제목">'
+      +'<textarea class="th-bin" rows="16" placeholder="이론 내용">'+esc(eff.body)+'</textarea>'
+      +'<p class="th-hint">**단어** 처럼 별표 두 개로 감싸면 굵은 강조로 표시됩니다. 수정본은 이 기기에만 저장되며 원본 파일은 바뀌지 않습니다.</p>'
+      +'<div class="memo-acts">'
+      +'<button class="btn small" data-thsave="'+ch+':'+i+'">저장</button>'
+      +'<button class="btn ghost small" data-thcancel="'+ch+':'+i+'">취소</button>'
+      +(o?'<button class="btn ghost small danger" data-threstore="'+ch+':'+i+'">원본 복원</button>':'')
+      +'</div></div>';
+    card.querySelector('.th-hin').focus();
+    return;
+  }
+  if(t.dataset.thsave){
+    const p=t.dataset.thsave.split(':'); const ch=p[0], i=+p[1];
+    const base=THEORY[ch][i], key=ch+'|'+base.h;
+    const card=document.getElementById('th-'+ch+'-'+i);
+    const nh=card.querySelector('.th-hin').value.trim();
+    const nb=card.querySelector('.th-bin').value;
+    if(!nh||!nb.trim()){ toast('제목과 내용을 입력해 주세요'); return; }
+    if(nh===base.h&&nb===base.body){ if(S.thEdit) delete S.thEdit[key]; }
+    else { if(!S.thEdit) S.thEdit={}; S.thEdit[key]={h:nh,body:nb}; }
+    await Store.save(S);
+    card.outerHTML=thCard(ch,i);
+    toast('이론을 수정했습니다');
+    return;
+  }
+  if(t.dataset.thcancel){
+    const p=t.dataset.thcancel.split(':');
+    const card=document.getElementById('th-'+p[0]+'-'+p[1]);
+    card.outerHTML=thCard(p[0],+p[1]);
+    return;
+  }
+  if(t.dataset.threstore){
+    const p=t.dataset.threstore.split(':'); const ch=p[0], i=+p[1];
+    const key=ch+'|'+THEORY[ch][i].h;
+    if(S.thEdit) delete S.thEdit[key];
+    await Store.save(S);
+    document.getElementById('th-'+ch+'-'+i).outerHTML=thCard(ch,i);
+    toast('원본으로 복원했습니다');
+    return;
+  }
+  if('hladd' in t.dataset){
+    if(!pendHl) return;
+    if(!S.hl) S.hl={};
+    const arr=S.hl[pendHl.key]=S.hl[pendHl.key]||[];
+    if(arr.indexOf(pendHl.text)<0) arr.push(pendHl.text);
+    await Store.save(S);
+    const card=document.getElementById('th-'+pendHl.ch+'-'+pendHl.i);
+    if(card) card.outerHTML=thCard(pendHl.ch,pendHl.i);
+    if(window.getSelection) window.getSelection().removeAllRanges();
+    hideHlBar();
+    toast('형광펜으로 표시했습니다');
+    return;
+  }
+
   if(t.dataset.pick){
     const q=QS.find(x=>x.id===t.dataset.pick); if(!q||S.ans[q.id]) return;
     const p=+t.dataset.i;
@@ -2163,7 +2302,7 @@ document.addEventListener('click',async e=>{
   }
   if(t.dataset.clearall){
     if(!confirm('모든 풀이 기록과 표시를 지웁니다. 계속할까요?')) return;
-    S={ans:{},flag:{},memo:(S.memo||{})}; session=null; await Store.save(S); render(); toast('전체 기록을 초기화했습니다 (메모는 유지)');
+    S={ans:{},flag:{},memo:(S.memo||{}),thEdit:(S.thEdit||{}),hl:(S.hl||{})}; session=null; await Store.save(S); render(); toast('전체 기록을 초기화했습니다 (메모·이론수정·형광펜은 유지)');
     return;
   }
   if(t.dataset.import){
@@ -2198,6 +2337,34 @@ document.addEventListener('click',async e=>{
   }
 });
 
+/* 형광펜: 이론 본문 텍스트 선택 감지 */
+let pendHl=null, selT=null;
+function hideHlBar(){ const b=document.getElementById('hlBar'); if(b) b.style.display='none'; pendHl=null; }
+function checkSel(){
+  const bar=document.getElementById('hlBar');
+  const sel=window.getSelection&&window.getSelection();
+  if(!sel||sel.isCollapsed||!sel.rangeCount){ hideHlBar(); return; }
+  const txt=sel.toString().trim();
+  if(txt.length<2||txt.length>200){ hideHlBar(); return; }
+  let node=sel.anchorNode; if(node&&node.nodeType===3) node=node.parentElement;
+  const body=node&&node.closest?node.closest('.theory .card .body'):null;
+  if(!body){ hideHlBar(); return; }
+  const card=body.closest('.card');
+  const p=card.id.split('-'); const ch=p[1], i=+p[2];
+  if(!THEORY[ch]||!THEORY[ch][i]) return;
+  pendHl={key:ch+'|'+THEORY[ch][i].h, ch:ch, i:i, text:txt};
+  const r=sel.getRangeAt(0).getBoundingClientRect();
+  bar.style.display='flex';
+  bar.style.top=Math.max(8,(window.scrollY||window.pageYOffset)+r.top-46)+'px';
+  bar.style.left=Math.max(8,(window.scrollX||window.pageXOffset)+r.left+r.width/2-56)+'px';
+}
+document.addEventListener('selectionchange',function(){ clearTimeout(selT); selT=setTimeout(checkSel,300); });
+(function(){
+  const b=document.getElementById('hlBar');
+  if(b) b.addEventListener('mousedown',function(e){ e.preventDefault(); });
+  if(b) b.addEventListener('touchstart',function(e){ e.preventDefault(); e.target.click(); },{passive:false});
+})();
+
 /* 통합검색 입력 */
 document.addEventListener('input',function(e){
   if(e.target&&e.target.id==='searchIn'){
@@ -2221,6 +2388,8 @@ document.getElementById('scrim').addEventListener('click',closeNav);
   if(saved&&saved.ans) S=saved;
   if(!S.flag) S.flag={};
   if(!S.memo) S.memo={};
+  if(!S.thEdit) S.thEdit={};
+  if(!S.hl) S.hl={};
   render();
 })();
 </script>
