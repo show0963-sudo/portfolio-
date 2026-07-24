@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>소방안전관리자 2급 </title>
+<title>소방안전관리자 2급 · 학습반</title>
 <style>
 :root{
   --ink:#161A1F;
@@ -230,6 +230,13 @@ pre.schema .s{color:#7FD1A6}
 .th-editform .th-hin{width:100%;box-sizing:border-box;font-family:inherit;font-weight:700;font-size:16px;padding:9px 12px;border:1.5px solid var(--ink);border-radius:8px;margin-bottom:8px;background:var(--card)}
 .th-editform .th-bin{width:100%;box-sizing:border-box;font-family:var(--mono);font-size:13.5px;line-height:1.65;padding:12px;border:1.5px solid var(--ink);border-radius:8px;background:var(--card);resize:vertical}
 .th-hint{font-size:12.5px;color:var(--text-dim);margin:6px 0 0}
+.autorow{display:flex;align-items:center;gap:10px;margin:0 0 14px;flex-wrap:wrap}
+.autochip{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;color:var(--text-dim)}
+.autochip.on{border-color:var(--ink);color:var(--text);background:#EAF6EC}
+.autohint{font-size:12px;color:var(--text-dim)}
+@media (max-width:880px){ .autohint{display:none} }
+.qdg{margin:4px 0 14px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;justify-content:center}
+.qdg svg{width:100%;height:auto}
 mark.uhl{background:#B9F6CA;padding:0 1px;border-radius:2px;cursor:pointer;box-shadow:0 1px 0 #7BC98F}
 mark.uhl:hover{background:#8EE7A6}
 #hlBar{display:none;position:absolute;z-index:60;background:var(--ink);border-radius:9px;padding:4px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
@@ -1675,9 +1682,9 @@ let QS = [
 {id:'q570',ch:'ch5',tag:'calc',q:'위락시설의 바닥면적이 600㎡일 때 필요한 소화기구의 최소 능력단위는? (내화·난연 조건 아님)',o:['10단위','20단위','30단위','6단위'],a:1,e:'위락시설은 30㎡마다 1단위. 600 ÷ 30 = 20단위.'},
 {id:'q571',ch:'ch5',tag:'calc',q:'주요구조부가 내화구조이고 실내마감이 난연재료인 근린생활시설(바닥면적 1,000㎡)의 최소 능력단위는?',o:['10단위','5단위','20단위','2단위'],a:1,e:'근생 기준 100㎡ → 내화+난연이면 2배(200㎡) 적용. 1,000 ÷ 200 = 5단위.'},
 {id:'q572',ch:'ch5',tag:'calc',q:'공동주택 바닥면적 800㎡(일반 구조)에 능력단위 A3 소화기를 배치할 때 최소 개수는?',o:['2개','3개','4개','8개'],a:1,e:'공동주택 100㎡당 1단위 → 8단위 필요. 8 ÷ 3 = 2.67 → 올림 3개.'},
-{id:'q573',ch:'ch5',q:'[그림상황] 동력제어반: 절환스위치 "자동", 기동표시등 소등, 정지표시등 녹색 점등. 이 상태의 판단은?',o:['평상시 정상 상태이다','펌프가 고장난 상태이다','펌프가 기동 중인 상태이다','전원이 차단된 상태이다'],a:0,e:'평상시 = 절환스위치 자동 + 기동등 소등 + 정지등 녹색 점등. 모두 정상입니다.'},
-{id:'q574',ch:'ch5',q:'[그림상황] 점검 중 감시제어반 선택스위치가 "수동", 주펌프 스위치가 "정지"에 놓여 있는 것을 발견했다. 올바른 조치는?',o:['그대로 둔다','선택스위치를 자동(연동) 위치로 복구한다','전원을 차단한다','정지 위치로 유지하고 표지만 부착한다'],a:1,e:'수동·정지 위치면 화재 시 펌프가 자동 기동하지 않습니다. 점검 후 자동(연동) 복구가 필수 — 최다 지적 결함입니다.'},
-{id:'q575',ch:'ch5',q:'[그림상황] 동력제어반에서 기동표시등이 적색 점등, 정지표시등이 소등되어 있다. 현재 상태는?',o:['평상시 대기 상태','펌프가 기동(운전) 중','예비전원으로 절환된 상태','도통시험 중'],a:1,e:'기동 시 = 기동등 적색 점등 + 정지등 소등. 배관 압력 저하로 압력스위치가 동작해 펌프가 돌고 있는 상태입니다.'},
+{id:'q573',ch:'ch5',dg:'mcc-normal',q:'그림과 같은 동력제어반의 상태(절환스위치·표시등)에 대한 판단으로 옳은 것은?',o:['평상시 정상 상태이다','펌프가 고장난 상태이다','펌프가 기동 중인 상태이다','전원이 차단된 상태이다'],a:0,e:'평상시 = 절환스위치 자동 + 기동등 소등 + 정지등 녹색 점등. 모두 정상입니다.'},
+{id:'q574',ch:'ch5',dg:'svp-wrong',q:'그림은 점검 중 발견한 감시제어반의 스위치 상태이다. 올바른 조치는?',o:['그대로 둔다','선택스위치를 자동(연동) 위치로 복구한다','전원을 차단한다','정지 위치로 유지하고 표지만 부착한다'],a:1,e:'수동·정지 위치면 화재 시 펌프가 자동 기동하지 않습니다. 점검 후 자동(연동) 복구가 필수 — 최다 지적 결함입니다.'},
+{id:'q575',ch:'ch5',dg:'mcc-run',q:'그림과 같이 동력제어반의 기동표시등이 적색으로 점등되고 정지표시등이 소등되어 있다. 현재 상태는?',o:['평상시 대기 상태','펌프가 기동(운전) 중','예비전원으로 절환된 상태','도통시험 중'],a:1,e:'기동 시 = 기동등 적색 점등 + 정지등 소등. 배관 압력 저하로 압력스위치가 동작해 펌프가 돌고 있는 상태입니다.'},
 
 {id:'c001',ch:'ch5',tag:'calc',q:'지상 6층 건축물에 옥내소화전이 1층 4개, 2층 3개, 3~6층 각 2개 설치되어 있다. 수원의 최소 저수량은?',o:['2.6㎥','5.2㎥','7.8㎥','10.4㎥'],a:1,e:'29층 이하는 N 최대 2개. 2 × 2.6 = 5.2㎥. 설치 개수 4개를 그대로 곱해 10.4로 답하는 것이 가장 흔한 실수입니다.'},
 {id:'c002',ch:'ch5',tag:'calc',q:'지상 35층 건축물에 옥내소화전이 가장 많은 층에 4개 설치되어 있다. 수원의 최소 저수량은?',o:['10.4㎥','15.6㎥','20.8㎥','26.0㎥'],a:2,e:'30~49층은 40분 기준(5.2㎥)이고 N은 최대 5개까지 인정. 4 × 5.2 = 20.8㎥.'},
@@ -1918,6 +1925,72 @@ function searchRes(qraw){
   return out;
 }
 
+function _lamp(x,y,r,fill,label,lit){
+  var g='<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+fill+'" stroke="#666" stroke-width="1.5"/>';
+  if(lit) g+='<circle cx="'+x+'" cy="'+y+'" r="'+(r+4)+'" fill="none" stroke="'+fill+'" stroke-width="2" opacity="0.5"/>';
+  if(label) g+='<text x="'+x+'" y="'+(y-r-6)+'" font-size="11" text-anchor="middle" fill="#222" font-weight="700">'+label+'</text>';
+  return g;
+}
+function _selector(x,y,pos){
+  var g='<circle cx="'+x+'" cy="'+y+'" r="20" fill="#3a3a3a" stroke="#111" stroke-width="1.5"/>';
+  g+='<text x="'+(x-30)+'" y="'+(y-20)+'" font-size="9" text-anchor="middle" fill="#222">수동</text>';
+  g+='<text x="'+x+'" y="'+(y-27)+'" font-size="9" text-anchor="middle" fill="#222">정지</text>';
+  g+='<text x="'+(x+30)+'" y="'+(y-20)+'" font-size="9" text-anchor="middle" fill="#222" font-weight="700">자동</text>';
+  var ang = pos==='manual' ? -135 : (pos==='stop' ? -90 : -45);
+  var rad=ang*Math.PI/180;
+  g+='<line x1="'+x+'" y1="'+y+'" x2="'+(x+16*Math.cos(rad))+'" y2="'+(y+16*Math.sin(rad))+'" stroke="#fff" stroke-width="4" stroke-linecap="round"/>';
+  return g;
+}
+function mccSVG(run){
+  var W=330,H=310;
+  var g='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:330px">';
+  g+='<rect x="4" y="4" width="'+(W-8)+'" height="'+(H-8)+'" rx="10" fill="#E8564A" stroke="#B03A30" stroke-width="2"/>';
+  g+='<rect x="90" y="16" width="150" height="26" rx="4" fill="#fff"/><text x="'+(W/2)+'" y="34" font-size="14" text-anchor="middle" font-weight="800" fill="#222">동 력 제 어 반</text>';
+  g+=_lamp(W/2,68,10,'#C62828','POWER',true);
+  var cols=[{x:100,name:'주펌프'},{x:230,name:'충압펌프'}];
+  for(var k=0;k<cols.length;k++){
+    var x=cols[k].x;
+    g+='<text x="'+x+'" y="102" font-size="12" text-anchor="middle" font-weight="800" fill="#fff">'+cols[k].name+'</text>';
+    g+=_selector(x,140,'auto');
+    g+='<text x="'+x+'" y="180" font-size="10" text-anchor="middle" fill="#fff">기 동</text>';
+    g+=_lamp(x,200,13, run?'#D32F2F':'#ECECEC', '', run);
+    g+='<text x="'+x+'" y="230" font-size="10" text-anchor="middle" fill="#fff">정 지</text>';
+    g+=_lamp(x,250,13, run?'#ECECEC':'#43A047', '', !run);
+    g+='<text x="'+x+'" y="280" font-size="10" text-anchor="middle" fill="#fff">펌프기동</text>';
+    g+=_lamp(x,296,9, run?'#D32F2F':'#ECECEC', '', run);
+  }
+  return g+'</svg>';
+}
+function svpSVG(){
+  var W=330,H=200;
+  var g='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:330px">';
+  g+='<rect x="4" y="4" width="'+(W-8)+'" height="'+(H-8)+'" rx="10" fill="#EDEBF3" stroke="#8E86A8" stroke-width="2"/>';
+  g+='<rect x="85" y="14" width="160" height="24" rx="4" fill="#6C6390"/><text x="'+(W/2)+'" y="31" font-size="13" text-anchor="middle" font-weight="800" fill="#fff">감 시 제 어 반</text>';
+  g+='<text x="85" y="66" font-size="11" text-anchor="middle" fill="#333" font-weight="700">선택스위치</text>';
+  g+='<text x="52" y="92" font-size="9.5" fill="#333">수동 ◀</text>';
+  g+='<text x="52" y="112" font-size="9.5" fill="#333">정지</text>';
+  g+='<text x="52" y="132" font-size="9.5" fill="#333">연동(자동)</text>';
+  g+='<circle cx="110" cy="108" r="17" fill="#cfcbdc" stroke="#777"/>';
+  g+='<line x1="110" y1="108" x2="97" y2="92" stroke="#333" stroke-width="5" stroke-linecap="round"/>';
+  g+='<text x="240" y="66" font-size="11" text-anchor="middle" fill="#333" font-weight="700">주펌프</text>';
+  g+='<text x="205" y="95" font-size="9.5" fill="#333">기동</text>';
+  g+='<text x="205" y="135" font-size="9.5" fill="#333">정지 ◀</text>';
+  g+='<rect x="232" y="85" width="16" height="52" rx="8" fill="#cfcbdc" stroke="#777"/>';
+  g+='<circle cx="240" cy="126" r="10" fill="#555"/>';
+  g+='<text x="'+(W/2)+'" y="182" font-size="10.5" text-anchor="middle" fill="#7A2E28">▲ 점검 중 발견된 스위치 상태</text>';
+  return g+'</svg>';
+}
+const DIAGRAMS={
+  'mcc-normal': mccSVG(false),
+  'mcc-run': mccSVG(true),
+  'svp-wrong': svpSVG()
+};
+
+function autoChip(){
+  const on=(S.autoNext!==false);
+  return '<div class="autorow"><button class="autochip'+(on?' on':'')+'" data-autonext>'+(on?'▶ 자동 이동 ON':'⏸ 자동 이동 OFF')+'</button><span class="autohint">답을 고르면 다음 문제로 자동 스크롤 (오답은 해설 읽을 시간 후 이동)</span></div>';
+}
+
 function qCard(q,idx){
   const a=S.ans[q.id];
   const cls=a?(a.ok?' ok':' no'):'';
@@ -1928,7 +2001,9 @@ function qCard(q,idx){
   if(q.tag==='law') h+='<span class="qtag law">법령</span>';
   if(a&&!a.ok) h+='<span class="qtag wrong">오답</span>';
   h+='<button class="qflag'+(S.flag[q.id]?' on':'')+'" data-flag="'+q.id+'">'+(S.flag[q.id]?'★ 표시됨':'☆ 표시')+'</button>';
-  h+='</div><div class="qbody"><p class="qtext">'+esc(q.q)+'</p><div class="opts">';
+  h+='</div><div class="qbody"><p class="qtext">'+esc(q.q)+'</p>';
+  if(q.dg&&DIAGRAMS[q.dg]) h+='<div class="qdg">'+DIAGRAMS[q.dg]+'</div>';
+  h+='<div class="opts">';
   q.o.forEach((op,i)=>{
     let oc='';
     if(a){ if(i===q.a) oc=' correct'; else if(i===a.p) oc=' picked-wrong'; }
@@ -1944,7 +2019,7 @@ function qCard(q,idx){
 }
 function qList(list,emptyMsg){
   if(!list.length) return '<div class="empty"><strong>아직 문제가 없습니다</strong>'+esc(emptyMsg||'좌측 <데이터 관리>에서 문제를 추가하세요.')+'</div>';
-  return list.map(qCard).join('');
+  return autoChip()+list.map(qCard).join('');
 }
 function statBar(list,extra){
   const done=list.filter(q=>solved(q.id)).length;
@@ -2130,7 +2205,7 @@ function go(target){
   closeNav(); render();
 }
 document.addEventListener('click',async e=>{
-  const t=e.target.closest('[data-go],[data-tab],[data-pick],[data-flag],[data-reset],[data-resettag],[data-start],[data-endsession],[data-retrywrong],[data-clearall],[data-import],[data-export],[data-jumpth],[data-jumpq],[data-memoedit],[data-memosave],[data-memocancel],[data-memodel],[data-thedit],[data-thsave],[data-thcancel],[data-threstore],[data-hladd]');
+  const t=e.target.closest('[data-go],[data-tab],[data-pick],[data-flag],[data-reset],[data-resettag],[data-start],[data-endsession],[data-retrywrong],[data-clearall],[data-import],[data-export],[data-jumpth],[data-jumpq],[data-memoedit],[data-memosave],[data-memocancel],[data-memodel],[data-thedit],[data-thsave],[data-thcancel],[data-threstore],[data-hladd],[data-autonext]');
 
   const mk=e.target.closest('mark.uhl');
   if(mk&&!t){
@@ -2264,12 +2339,40 @@ document.addEventListener('click',async e=>{
   if(t.dataset.pick){
     const q=QS.find(x=>x.id===t.dataset.pick); if(!q||S.ans[q.id]) return;
     const p=+t.dataset.i;
-    S.ans[q.id]={p:p,ok:p===q.a};
+    const ok=(p===q.a);
+    S.ans[q.id]={p:p,ok:ok};
     await Store.save(S);
     const card=document.getElementById('card-'+q.id);
     const idx=[...document.querySelectorAll('.qcard')].indexOf(card);
     card.outerHTML=qCard(q,idx<0?0:idx);
     renderNav();
+    if(S.autoNext!==false){
+      clearTimeout(autoT);
+      autoT=setTimeout(function(){
+        const cur=document.getElementById('card-'+q.id);
+        if(!cur) return;
+        let nxt=cur.nextElementSibling;
+        while(nxt&&!(nxt.classList&&nxt.classList.contains('qcard')&&!nxt.classList.contains('ok')&&!nxt.classList.contains('no'))){
+          nxt=nxt.nextElementSibling;
+        }
+        if(nxt&&nxt.scrollIntoView){
+          nxt.scrollIntoView({behavior:'smooth',block:'start'});
+          nxt.classList.add('hit');
+          setTimeout(function(){nxt.classList.remove('hit');},1200);
+        } else if(!nxt){
+          const end=document.querySelector('.result');
+          if(end&&end.scrollIntoView) end.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      }, ok?650:2400);
+    }
+    return;
+  }
+  if('autonext' in t.dataset){
+    S.autoNext=(S.autoNext===false);
+    await Store.save(S);
+    t.classList.toggle('on',S.autoNext!==false);
+    t.textContent=(S.autoNext!==false?'▶ 자동 이동 ON':'⏸ 자동 이동 OFF');
+    toast(S.autoNext!==false?'정답 후 다음 문제로 자동 이동합니다':'자동 이동을 껐습니다');
     return;
   }
   if(t.dataset.flag){
@@ -2338,7 +2441,7 @@ document.addEventListener('click',async e=>{
 });
 
 /* 형광펜: 이론 본문 텍스트 선택 감지 */
-let pendHl=null, selT=null;
+let pendHl=null, selT=null, autoT=null;
 function hideHlBar(){ const b=document.getElementById('hlBar'); if(b) b.style.display='none'; pendHl=null; }
 function checkSel(){
   const bar=document.getElementById('hlBar');
