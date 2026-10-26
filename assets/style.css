@@ -250,3 +250,48 @@ footer .wrap{border-top:1px solid var(--navy-2);padding-top:20px;display:flex;ju
 .closing .closing-mail{margin-top:28px;background:var(--navy-accent);color:var(--navy);max-width:100%;overflow-wrap:anywhere}
 .closing .closing-mail:hover{background:var(--on-navy)}
 @media (max-width:480px){.hero-vis{padding:18px}.hero-vis .photo{width:120px}.row{padding:9px 12px;gap:8px}.row .k{width:48px}}
+
+/* v3: 대표 사례 · GA 표 */
+#numbers{padding:48px 0}
+.pcases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pcase{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--shadow)}
+.pcase h3{font-size:20px;font-weight:900;margin:10px 0 14px;letter-spacing:-.01em}
+.pcase dl{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px 12px;font-size:15px}
+.pcase dt{font-weight:800;color:var(--blue);font-size:13px;padding-top:2px}
+.pcase dd{color:var(--body)}
+.pcase dd b{color:var(--ink)}
+@media (max-width:1000px){.pcases{grid-template-columns:1fr}}
+.ga{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ga-row{display:grid;grid-template-columns:180px minmax(0,1fr) minmax(0,1fr);gap:16px;padding:16px 24px;border-top:1px solid var(--line);font-size:15px;color:var(--body)}
+.ga-row:first-child{border-top:0}
+.ga-row b{color:var(--ink)}
+.ga-head{background:var(--paper-2);font-size:13px;font-weight:800;color:var(--muted);padding-top:12px;padding-bottom:12px}
+@media (max-width:760px){
+  .ga-head{display:none}
+  .ga-row{grid-template-columns:1fr;gap:4px;padding:16px}
+  .ga-row span[data-k]::before{content:attr(data-k);display:inline-block;width:64px;font-size:12px;font-weight:800;color:var(--blue)}
+}
+.ways.three-up{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1000px){.ways.three-up{grid-template-columns:1fr}.ways.three-up .way{border-right:0;border-bottom:1px solid var(--line)}.ways.three-up .way:last-child{border-bottom:0}}
+footer{padding-top:24px}
+/* v3: 한글 라벨은 고정폭 글꼴 대신 본문 글꼴로 */
+.mlabel,.row .k,.brand small{font-family:var(--sans);letter-spacing:.04em}
+.stat .n small{font-family:var(--sans);letter-spacing:0}
+
+/* v3.1: 대표 사례 카드 - 2단, 머리 · 본문 · 결과 띠 */
+.pcases{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.pcase{padding:0;display:flex;flex-direction:column;overflow:hidden;border-radius:20px}
+.pcase-top{padding:28px 28px 22px;border-bottom:1px solid var(--line)}
+.pcase-no{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--sky);color:var(--blue);font-weight:900;font-size:14px}
+.pcase-top h3{font-size:22px;font-weight:900;margin:14px 0 4px;letter-spacing:-.01em}
+.pcase-role{font-size:14px;color:var(--muted)}
+.pcase-body{padding:22px 28px;display:grid;gap:18px;flex:1}
+.pstep{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:baseline}
+.pstep p,.presult p{font-size:15.5px;color:var(--body);line-height:1.65}
+.ptag{display:inline-block;font-size:12px;font-weight:800;color:var(--blue);background:var(--sky);border-radius:999px;padding:3px 0;text-align:center;width:56px}
+.presult{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:baseline;margin:0 20px 20px;padding:16px 8px 16px 8px;background:var(--navy);border-radius:14px}
+.presult .ptag{background:var(--navy-accent);color:var(--navy)}
+.presult p{color:var(--on-navy)}
+.presult b{color:#fff}
+@media (max-width:900px){.pcases{grid-template-columns:1fr}}
+@media (max-width:420px){.pcase-top{padding:22px 20px 18px}.pcase-body{padding:18px 20px}.presult{margin:0 12px 12px}}

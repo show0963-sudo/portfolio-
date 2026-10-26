@@ -6,215 +6,285 @@
 <meta name="robots" content="noindex, nofollow">
 <title>배은총 포트폴리오</title>
 <meta name="description" content="총무 · 경영지원 7년 배은총. 기준이 없는 일에 기준을 세우고, 반복되는 일은 시스템으로 만듭니다.">
-<meta name="theme-color" content="#2743d8">
+<meta name="theme-color" content="#060916">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
-<script>
-// 첫 그림 전에 저장된 테마를 적용(깜빡임 방지)
-try { var t = localStorage.getItem("pf_theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="assets/v3.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+<div class="sky" aria-hidden="true"></div>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 
 <header class="topbar">
   <div class="in">
-    <a class="brand" href="#top">배은총<small>총무 · 경영지원</small></a>
+    <a class="brand" href="#top"><i aria-hidden="true">배</i>배은총<small>총무 · 경영지원</small></a>
     <nav class="nav" aria-label="구역">
-      <a href="#cases">대표 사례</a>
-      <a href="#ga">GA 업무</a>
-      <a href="#way" class="opt">일하는 방식</a>
-      <a href="#career">경력</a>
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="어두운 화면으로 바꾸기">
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
+      <a href="#cases">주요 성과</a>
+      <a href="#way">일하는 방식</a>
+      <a href="#work" class="opt">하는 일</a>
+      <a href="#ax" class="opt">AX 도입</a>
+      <a href="#contact">연락</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ① 첫 화면 -->
+<!-- 첫 화면 -->
 <div class="hero" id="top">
   <div class="wrap">
-    <div class="grid">
+    <div class="hero-grid">
       <div>
-        <div class="mlabel">총무 · 경영지원 7년</div>
-        <h1>기준이 없는 일에<br><span class="b">기준을 세웁니다.</span></h1>
-        <p class="lead">
-          관련 부서와 함께 자산관리 체계를 세웠고, 반복되는 총무 업무는
-          <b>사내 업무 플랫폼(Work OS)</b>으로 옮겨 구성원들이 Slack에서 함께 쓰고 있습니다.
+        <span class="eb r">총무 · 경영지원 7년</span>
+        <h1 class="r" style="--i:1">기준이 없는 일에<br><span class="grad">기준을 세웁니다.</span></h1>
+        <p class="lead r" style="--i:2">
+          관련 부서와 함께 규정과 체계를 세우고, 반복되는 총무 업무는
+          <b>사내 업무 플랫폼 Work OS</b>에 모아 구성원들과 함께 쓰고 있습니다.
         </p>
-        <div class="cta-row">
-          <a class="btn pri" href="#cases">대표 사례 보기</a>
-          <a class="btn sec" href="mailto:qodmsrhkd@naver.com">메일 보내기</a>
+        <div class="pil r" style="--i:3">
+          <div style="color:var(--c1)"><i></i><b>자산관리 TF</b><span>리드</span></div>
+          <div style="color:var(--c2)"><i></i><b>조직문화발전위원회</b><span>위원장</span></div>
+          <div style="color:var(--c3)"><i></i><b>Work OS</b><span>기획 · 운영</span></div>
+        </div>
+        <div class="cta r" style="--i:4">
+          <a class="btn pri" href="#cases">주요 성과 보기</a>
+          <a class="btn sec" href="#contact">연락하기</a>
         </div>
       </div>
-      <div class="hero-vis">
-        <div class="id">
-          <picture>
-            <source srcset="assets/profile.webp" type="image/webp">
-            <img class="photo" src="assets/profile.jpg" width="360" height="480" alt="배은총 프로필 사진">
-          </picture>
-          <div class="who">
-            <div class="mlabel">PROFILE</div>
-            <b>배은총</b>
-            <span>총무팀 선임매니저</span>
-          </div>
+      <div class="gather" role="img" aria-label="자산 · 인허가 · 규정 · 계약 · 정산 · 안전보건 · 복리후생 · 조직문화 · Work OS · AX 낱말이 가운데로 모여 배은총 프로필 사진이 되는 그림">
+        <svg class="g-rings" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".25"/>
+          <g class="spinr"><circle cx="50" cy="50" r="29" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".25" stroke-dasharray=".8 1.8"/></g>
+          <g class="spin"><circle cx="90" cy="50" r=".9" fill="#fff"/><circle cx="21.7" cy="78.3" r=".6" fill="#cfe0ff"/><circle cx="35" cy="13" r=".5" fill="#cfe0ff"/></g>
+        </svg>
+        <div class="g-core" aria-hidden="true">
+          <span class="g-glow"></span>
+          <picture><source srcset="assets/profile.webp" type="image/webp"><img src="assets/profile.jpg" width="240" height="320" alt=""></picture>
         </div>
-        <div class="rows">
-          <div class="row"><span class="k">경력</span><span class="v">총무 · 구매 · 자산 · 안전보건 약 7년</span></div>
-          <div class="row"><span class="k">리드</span><span class="v">자산관리 체계 구축 TF</span></div>
-          <div class="row"><span class="k">조직</span><span class="v">조직문화발전위원회 위원장</span></div>
-          <div class="row"><span class="k">기획</span><span class="v">사내 업무 플랫폼 · 전사 AX 도입</span></div>
-        </div>
+        <div class="g-name" aria-hidden="true"><b>배은총</b><span>총무 · 경영지원</span></div>
+        <span class="w" style="--c:var(--c1);--sx:-8%;--sy:22%;--fx:50%;--fy:10%;--d:0s">자산</span>
+        <span class="w" style="--c:var(--c2);--sx:108%;--sy:4%;--fx:73.5%;--fy:17.6%;--d:.06s">규정</span>
+        <span class="w" style="--c:var(--c3);--sx:112%;--sy:46%;--fx:88%;--fy:37.6%;--d:.12s">Work OS</span>
+        <span class="w" style="--c:var(--c1);--sx:110%;--sy:88%;--fx:88%;--fy:62.4%;--d:.18s">인허가</span>
+        <span class="w" style="--c:var(--c2);--sx:66%;--sy:112%;--fx:73.5%;--fy:82.4%;--d:.24s">조직문화</span>
+        <span class="w" style="--c:var(--c3);--sx:18%;--sy:110%;--fx:50%;--fy:90%;--d:.3s">AX</span>
+        <span class="w" style="--c:var(--c1);--sx:-12%;--sy:74%;--fx:26.5%;--fy:82.4%;--d:.36s">계약</span>
+        <span class="w" style="--c:var(--c2);--sx:-14%;--sy:46%;--fx:12%;--fy:62.4%;--d:.42s">안전보건</span>
+        <span class="w" style="--c:var(--c3);--sx:30%;--sy:-12%;--fx:12%;--fy:37.6%;--d:.48s">복리후생</span>
+        <span class="w" style="--c:var(--c1);--sx:82%;--sy:-10%;--fx:26.5%;--fy:17.6%;--d:.54s">정산</span>
       </div>
+    </div>
+
+    <div class="stats" aria-label="숫자로 보는 경력">
+      <div class="card stat r" style="--tc:var(--c1)"><div class="n"><span data-count="7">7</span><small>년</small></div><div class="t">총무 · 경영지원</div><div class="d">인허가 · 자산 · 구매 · 안전보건</div></div>
+      <div class="card stat r" style="--tc:var(--c1);--i:1"><div class="n"><span data-count="4">4</span><small>종</small></div><div class="t">AI 자동화 실증</div><div class="d">전사 추진안 발의 · AX 도입 기획</div></div>
+      <div class="card stat r" style="--tc:var(--c2);--i:2"><div class="n"><span data-count="10">10</span>+<small>종</small></div><div class="t">규정 · 지침 제 · 개정</div><div class="d">안전보건 · 자산 · 출장 · 업무환경 등</div></div>
+      <div class="card stat r" style="--tc:var(--c3);--i:3"><div class="n"><span data-count="4">4</span>+<small>건</small></div><div class="t">TF 리드</div><div class="d">자산관리 · 근무복 · 출장 · 산업안전</div></div>
     </div>
   </div>
 </div>
 
-<!-- ② 숫자 -->
-<section id="numbers" class="alt" aria-label="숫자로 보는 경력">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat"><div class="n num">7<small>년</small></div><div class="t">총무 · 경영지원</div><div class="d">인허가 · 자산 · 구매 · 안전보건</div></div>
-      <div class="stat"><div class="n num">0<small>→1</small></div><div class="t">자산관리 규정 · 대장</div><div class="d">없던 체계를 만들고 전 사업장 전수 실사</div></div>
-      <div class="stat"><div class="n num">0<small>건</small></div><div class="t">출장 정산 누락</div><div class="d">출장 문서와 기록을 1:1로 자동 대조</div></div>
-      <div class="stat"><div class="n num">4<small>개 부서</small></div><div class="t">자산 프로세스 재설계</div><div class="d">구매 · 원가 · 재무 · 총무 역할 정리</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ③ 대표 사례 -->
+<!-- 대표 사례 -->
 <section id="cases" aria-labelledby="h-cases">
   <div class="wrap">
     <div class="sec-head">
-      <div>
-        <div class="mlabel">대표 사례</div>
-        <h2 id="h-cases">문제, 한 일, 결과</h2>
-      </div>
+      <span class="eb r">주요 성과</span>
+      <h2 id="h-cases" class="r" style="--i:1">중요한 일을, <span class="em">끝까지</span></h2>
     </div>
-    <div class="pcases">
-      <article class="pcase">
-        <div class="mlabel">CASE 01</div>
-        <h3>자산관리 체계 구축</h3>
-        <dl>
-          <dt>문제</dt><dd>전담자 · 규정 · 자산대장이 하나도 없었습니다.</dd>
-          <dt>한 일</dt><dd>TF를 이끌며 관련 부서와 규정을 만들고, 전 사업장 실사와 담당자 교육을 함께 진행했습니다.</dd>
-          <dt>결과</dt><dd><b>TF가 끝난 뒤에도 돌아가는 상시 운영 체계</b>가 자리 잡았습니다.</dd>
-        </dl>
+    <div class="cases">
+      <article class="card case r" style="--tc:var(--c2)">
+        <header class="case-top"><span class="k" style="--kc:var(--c2)">CASE 01 · 체계</span><h3>자산관리 체계 구축</h3><p>TF 리드 · 4개 부서 협업</p></header>
+        <div class="case-body">
+          <div class="step"><span class="tag">문제</span><p>전담자 · 규정 · 자산대장이 없었습니다.</p></div>
+          <div class="step"><span class="tag">한 일</span><p>관련 부서와 규정을 만들고, 전 사업장 실사와 담당자 교육을 함께 진행했습니다.</p></div>
+          <div class="flow4" aria-label="규정 제정, 전수 실사, 담당자 교육, 상시 운영 순서">
+            <div style="--n:0;--dc:var(--c1)"><span>1</span><b>규정 제정</b></div>
+            <div style="--n:1;--dc:#7B8CFF"><span>2</span><b>전수 실사</b></div>
+            <div style="--n:2;--dc:var(--c2)"><span>3</span><b>담당자 교육</b></div>
+            <div style="--n:3;--dc:var(--c3)"><span>4</span><b>상시 운영</b></div>
+          </div>
+        </div>
+        <div class="result"><span class="tag">결과</span><p>TF가 끝난 뒤에도 돌아가는 <b>상시 운영 체계</b></p></div>
       </article>
-      <article class="pcase">
-        <div class="mlabel">CASE 02</div>
-        <h3>사내 업무 플랫폼 Work OS</h3>
-        <dl>
-          <dt>문제</dt><dd>경비 · 출장 데이터를 매달 ERP에서 손으로 조회하고 엑셀로 맞춰 봤습니다.</dd>
-          <dt>한 일</dt><dd>ERP 데이터가 자동으로 모이게 하고, 흩어진 총무 업무를 한 화면으로 모았습니다.</dd>
-          <dt>결과</dt><dd><b>출장 정산 누락 0건</b>, 손으로 맞춰 보던 일이 줄었습니다.</dd>
-        </dl>
-      </article>
-      <article class="pcase">
-        <div class="mlabel">CASE 03</div>
-        <h3>Slack 업무 비서 '카르만'</h3>
-        <dl>
-          <dt>문제</dt><dd>새 시스템은 따로 배워야 해서 잘 쓰지 않습니다.</dd>
-          <dt>한 일</dt><dd>Work OS를 회사 Slack에 연결해, 쓰던 메신저에서 질문 · 할 일 · 정산 · 알림을 처리하게 했습니다.</dd>
-          <dt>결과</dt><dd><b>출장 중에도 메신저에서 바로 정산</b>하고, 동료들의 의견으로 계속 다듬고 있습니다.</dd>
-        </dl>
+      <article class="card case r" style="--tc:var(--c3);--i:1">
+        <header class="case-top"><span class="k" style="--kc:var(--c3)">CASE 02 · 시스템</span><h3>사내 업무 플랫폼 Work OS</h3><p>기획 · 운영 · 전사 도입</p></header>
+        <div class="case-body">
+          <div class="step"><span class="tag">문제</span><p>경비 · 출장 데이터를 매달 ERP에서 손으로 조회하고 엑셀로 맞춰 봤습니다.</p></div>
+          <div class="step"><span class="tag">한 일</span><p>ERP 데이터가 자동으로 모이게 하고, 흩어진 총무 업무를 한 화면에 모았습니다.</p></div>
+          <div class="ringbox">
+            <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FC3FF"/><stop offset="1" stop-color="#3DDC97"/></linearGradient></defs><circle class="rbg" cx="60" cy="60" r="48"/><circle class="rfg" cx="60" cy="60" r="48"/></svg><div class="ct"><b>0<small>건</small></b><span>누락</span></div></div>
+            <p><b>출장 문서와 기록을 1:1 대조</b>자동 수집한 데이터로 빠진 건이 없는지 매일 확인합니다.</p>
+          </div>
+        </div>
+        <div class="result"><span class="tag">결과</span><p>매달 손으로 하던 조회 · 대조가 <b>자동 확인</b>으로</p></div>
       </article>
     </div>
-    <figure class="clip">
-      <video src="assets/workspace_ax.mp4" poster="assets/workspace_ax_poster.jpg" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="서류에 묻혀 있던 직원이 시스템 도입 뒤 화면 위 요약으로 일하고 퇴근하는 장면"></video>
-      <figcaption><b>도입 전과 후</b> · 소개 영상 (19초, 소리 없음)</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ④ GA 업무 -->
-<section id="ga" class="alt" aria-labelledby="h-ga">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="mlabel">GA 업무</div>
-        <h2 id="h-ga">맡아 온 일</h2>
-      </div>
-    </div>
-    <div class="ga" role="table" aria-label="GA 업무 영역별 경험">
-      <div class="ga-row ga-head" role="row">
-        <span role="columnheader">영역</span><span role="columnheader">주요 업무</span><span role="columnheader">시스템화</span>
-      </div>
-      <div class="ga-row" role="row">
-        <b role="cell">자산 · 비품</b>
-        <span role="cell" data-k="업무">자산관리 체계 구축 TF 리드</span>
-        <span role="cell" data-k="시스템">자산 · 비품 대장</span>
-      </div>
-      <div class="ga-row" role="row">
-        <b role="cell">사무공간 · 임대차</b>
-        <span role="cell" data-k="업무">사업장 개설 · 이전, 임대차 관리</span>
-        <span role="cell" data-k="시스템">임대차 대장</span>
-      </div>
-      <div class="ga-row" role="row">
-        <b role="cell">조직문화 · 근태</b>
-        <span role="cell" data-k="업무">조직문화발전위원회 위원장, 근태 관리</span>
-        <span role="cell" data-k="시스템">근태 · 위원회 운영</span>
-      </div>
-      <div class="ga-row" role="row">
-        <b role="cell">복리후생 · 정산</b>
-        <span role="cell" data-k="업무">경조 · 복리후생 운영, 지출 정산</span>
-        <span role="cell" data-k="시스템">경조금 · 경비 정산</span>
-      </div>
-      <div class="ga-row" role="row">
-        <b role="cell">관공서 · 인허가</b>
-        <span role="cell" data-k="업무">화약류 저장소 설치 허가(관할 경찰서), 공장등록, 폐기물 · 환경 신고, 안전보건 실무</span>
-        <span role="cell" data-k="시스템">안전보건 · 설비 관리</span>
-      </div>
+    <div class="wins">
+      <div class="card r" style="--tc:var(--c1)"><span class="k">운영</span><b>사업장 구축과 인허가</b><p>신규 사업장의 설비 · 인테리어부터 공장등록, 시설 설치 인허가까지 관계 기관과 협의해 마무리했습니다.</p></div>
+      <div class="card r" style="--tc:var(--c2);--i:1"><span class="k" style="--kc:var(--c2)">체계</span><b>규정 · 지침 10종 이상</b><p>안전보건 · 자산 · 출장 · 업무환경 등, 기준이 비어 있던 곳을 문서로 채웠습니다.</p></div>
+      <div class="card r" style="--tc:var(--c3);--i:2"><span class="k" style="--kc:var(--c3)">조율</span><b>구성원 안건, 핵심만 남기기</b><p>위원회에 올라온 안건 6건을 사실 확인해 4건은 바로 정리하고, 경영진 결정이 필요한 1건으로 좁혀 올렸습니다.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ⑤ 일하는 방식 -->
+<!-- 일하는 방식 -->
 <section id="way" aria-labelledby="h-way">
   <div class="wrap">
     <div class="sec-head">
-      <div>
-        <div class="mlabel">일하는 방식</div>
-        <h2 id="h-way">세 가지만 지킵니다</h2>
-      </div>
+      <span class="eb r" style="--ebc:var(--c3)">일하는 방식</span>
+      <h2 id="h-way" class="r" style="--i:1">이렇게 <span class="em" style="--emc:var(--c3)">일합니다</span></h2>
     </div>
-    <div class="ways three-up">
-      <div class="way"><div class="no">01</div><h3>불편은 그날 고칩니다</h3><p>동료가 말한 불편을 그날 고쳐서 돌려줍니다.</p></div>
-      <div class="way"><div class="no">02</div><h3>결정은 사람이 합니다</h3><p>AI는 초안까지만 씁니다. 실행 · 결재 버튼은 사람이 누릅니다.</p></div>
-      <div class="way"><div class="no">03</div><h3>작게 시작해 조직으로 넓힙니다</h3><p>전사 AX 도입을 90일 단계로 나눠, 측정한 결과로 확산을 결정합니다.</p></div>
+    <div class="ways">
+      <article class="card way r" style="--tc:var(--c1)">
+        <span class="no">01</span><h3>기준이 없으면 먼저 세웁니다</h3>
+        <p>매뉴얼이 없는 일을 맡으면 규정과 절차부터 만들고, 담당자가 바뀌어도 돌아가게 합니다.</p>
+        <div class="ex"><span>예</span>자산관리: 규정 제정 → 전수 실사 → 담당자 교육 → 상시 운영</div>
+      </article>
+      <article class="card way r" style="--tc:var(--c1);--i:1">
+        <span class="no">02</span><h3>이해관계를 조율해 끝까지 갑니다</h3>
+        <p>여러 부서와 기관이 얽힌 일일수록 역할을 먼저 나누고, 결론이 날 때까지 챙깁니다.</p>
+        <div class="ex"><span>예</span>구매 · 원가 · 재무 · 총무 4개 부서의 자산 업무 역할 재정립</div>
+      </article>
+      <article class="card way r" style="--tc:var(--c2);--i:2">
+        <span class="no">03</span><h3>반복되는 일은 시스템으로 바꿉니다</h3>
+        <p>매달 손으로 하던 조회 · 대조를 자동화하고, 구성원이 말한 불편은 빠르게 고쳐 돌려줍니다.</p>
+        <div class="ex"><span>예</span>ERP 경비 · 출장 데이터 자동 수집, 출장 정산 누락 0건 확인</div>
+      </article>
+      <article class="card way r" style="--tc:var(--c3);--i:3">
+        <span class="no">04</span><h3>결정은 사람이, 기록은 남깁니다</h3>
+        <p>도구는 초안까지만 맡기고 판단 · 결재는 사람이 합니다. 결정한 내용은 문서로 남깁니다.</p>
+        <div class="ex"><span>예</span>AI 활용 규정(안): 사람의 최종 결정, AI는 초안까지</div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ⑥ 경력 · 연락 -->
-<section id="career" class="alt" aria-labelledby="h-career">
+<!-- 하는 일: 세 갈래 -->
+<section id="work" aria-labelledby="h-work">
   <div class="wrap">
     <div class="sec-head">
-      <div>
-        <div class="mlabel">경력</div>
-        <h2 id="h-career">약 7년</h2>
+      <span class="eb r">하는 일</span>
+      <h2 id="h-work" class="r" style="--i:1">운영하고, <span class="em" style="--emc:var(--c2)">기준을 세우고</span>, <span class="em" style="--emc:var(--c3)">시스템으로</span> 남깁니다</h2>
+    </div>
+    <div class="pillars">
+      <article class="card pillar r" style="--tc:var(--c1)">
+        <span class="k" style="--kc:var(--c1)">01 · 운영</span>
+        <h3>현장을 굴러가게<small>사업장 · 관공서 · 계약 · 정산</small></h3>
+        <ul>
+          <li>신규 사업장 <b>구축과 입주</b></li>
+          <li>공장 등 시설 설치 <b>인허가</b>, 공장등록, 폐기물 · 환경 신고</li>
+          <li>계약 · 구매 · 정산, 기업 보험 · BCP 정비</li>
+          <li>사택 · 복리후생 · 법인차량 운영</li>
+        </ul>
+      </article>
+      <article class="card pillar r" style="--tc:var(--c2);--i:1">
+        <span class="k" style="--kc:var(--c2)">02 · 체계</span>
+        <h3>기준을 문서로<small>규정 · TF · 위원회</small></h3>
+        <ul>
+          <li>자산관리 체계 구축 <b>TF 리드</b></li>
+          <li>조직문화발전위원회 <b>위원장</b></li>
+          <li>규정 · 지침 <b>10종 이상</b> 제 · 개정</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">안전보건관리</span><span class="chip">산업안전보건위원회</span><span class="chip">위험성평가</span>
+          <span class="chip">자산관리</span><span class="chip">출장여비</span><span class="chip">사택관리</span><span class="chip">근무복</span>
+          <span class="chip">업무환경관리</span><span class="chip">폐기물 처리</span><span class="chip">환경조건 관리</span>
+        </div>
+      </article>
+      <article class="card pillar r" style="--tc:var(--c3);--i:2">
+        <span class="k" style="--kc:var(--c3)">03 · 시스템</span>
+        <h3>반복을 자동으로<small>Work OS · 데이터 · AX</small></h3>
+        <ul>
+          <li>사내 업무 플랫폼 <b>Work OS</b> 기획 · 운영</li>
+          <li>ERP 경비 · 출장 데이터 <b>자동 수집</b>과 누락 대조</li>
+          <li>구매 효율화: B2B 구매 · MRO 활성화</li>
+          <li>전사 <b>AX 도입</b> 기획 · 운영 준비</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 흐름 -->
+<section id="flow" aria-labelledby="h-flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eb r" style="--ebc:var(--c2)">흐름</span>
+      <h2 id="h-flow" class="r" style="--i:1">걸어온 <span class="em" style="--emc:var(--c2)">4년</span></h2>
+      <p class="r" style="--i:2">해마다 무엇을 세우고 바꿨는지 정리했습니다.</p>
+    </div>
+    <div class="tl">
+      <div class="yr r" style="--nc:var(--c1)"><div class="y">2023</div><h3>기반 정비</h3><ul><li>전자결재 정착, 월간 보고 정례화</li><li>전사 IT 장비 · 라이선스 정비</li><li>안전보건 규정 3종 제정</li></ul></div>
+      <div class="yr r" style="--nc:#7B8CFF;--i:1"><div class="y">2024</div><h3>사업장 구축</h3><ul><li>신규 사업장 설비 · 인테리어 · 공장등록</li><li>시설 인허가 · 공사 · 설비 계약</li><li>BCP 도입, 기업 보험 정비</li></ul></div>
+      <div class="yr r" style="--nc:var(--c2);--i:2"><div class="y">2025</div><h3>자산 체계화 · 구매 효율화</h3><ul><li>자산관리 TF → 규정 제 · 개정 → 전수 실사</li><li>구매 흐름 ERP 연동, MRO 활성화</li><li>업무환경관리 지침 개정</li></ul></div>
+      <div class="yr r" style="--nc:var(--c3);--i:3"><div class="y">2026</div><h3>규정 · 안전 · 시스템</h3><ul><li>자산 바코드 · 식별표 도입</li><li>폐기물 · 환경조건 기준 제정, 신규 오피스 개설</li><li>Work OS 운영, AX 도입 기획</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- AX 도입 -->
+<section id="ax" aria-labelledby="h-ax">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eb r" style="--ebc:var(--c2)">AX 도입</span>
+      <h2 id="h-ax" class="r" style="--i:1">세 가지 문제를, <span class="grad">세 가지 방향으로</span></h2>
+      <p class="r" style="--i:2">Work OS를 운영하며 본 문제를 바탕으로 전사 AX 도입을 기획하고 운영을 준비하고 있습니다.</p>
+    </div>
+    <div class="pd">
+      <div class="pd-row r">
+        <div class="card"><span class="k" style="--kc:var(--sub)">문제</span><b>반복 업무</b><p>조회 · 대조 · 서류 작성에 시간이 쓰입니다.</p></div>
+        <div class="arw" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 15H26M19 8l7 7-7 7"/><path class="fl" d="M4 15H26"/></svg></div>
+        <div class="card hl" style="--hc:var(--c1)"><span class="k" style="--kc:var(--c1)">방향</span><b>AI와 함께 일한다</b><p>조회 · 대조 · 초안은 AI가 돕고, 판단과 결재는 사람이 합니다.</p></div>
+      </div>
+      <div class="pd-row r" style="--i:1">
+        <div class="card"><span class="k" style="--kc:var(--sub)">문제</span><b>흩어진 도구</b><p>ERP · 그룹웨어 · 메일 · 엑셀 · 메신저를 오가며 맥락이 끊깁니다.</p></div>
+        <div class="arw" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 15H26M19 8l7 7-7 7"/><path class="fl" d="M4 15H26"/></svg></div>
+        <div class="card hl" style="--hc:var(--c2)"><span class="k" style="--kc:var(--c2)">방향</span><b>한 화면에서 일한다</b><p>흩어진 업무를 한 곳에 모으고, 쓰던 메신저에서도 이어서 씁니다.</p></div>
+      </div>
+      <div class="pd-row r" style="--i:2">
+        <div class="card"><span class="k" style="--kc:var(--sub)">문제</span><b>AI 경험 격차</b><p>쓰는 사람만 쓰고, 방법이 부서 밖으로 퍼지지 않습니다.</p></div>
+        <div class="arw" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 15H26M19 8l7 7-7 7"/><path class="fl" d="M4 15H26"/></svg></div>
+        <div class="card hl" style="--hc:var(--c3)"><span class="k" style="--kc:var(--c3)">방향</span><b>현업이 직접 만든다</b><p>현업이 절차를 설명해 도구로 만들고, 점검을 거쳐 함께 씁니다.</p></div>
       </div>
     </div>
+    <div class="pilot">
+      <article class="card pv phases r">
+        <div><span class="k">90일 파일럿 · 설계</span>
+        <h3>작게 시작해, <span class="em">숫자로 결정</span></h3></div>
+        <div class="dd">
+          <div class="d" style="--dc:var(--c1);--n:0"><span class="dot"><small>DAY</small>30</span><b>준비</b><p>규정 · 서버 · 테스터</p></div>
+          <div class="d" style="--dc:var(--c2);--n:1"><span class="dot"><small>DAY</small>60</span><b>확산</b><p>부서별 활용 · 보완</p></div>
+          <div class="d" style="--dc:var(--c3);--n:2"><span class="dot"><small>DAY</small>90</span><b>결정</b><p>절감 시간 측정 · 확산</p></div>
+        </div>
+        <ul class="rules"><li><b>AI 활용 규정(안)</b> 사람이 최종 결정, AI는 초안까지</li><li><b>데이터 등급</b> 민감 자료는 등급별로 AI 사용 제한</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 경력 · 영상 · 연락 -->
+<section id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eb r" style="--ebc:var(--c3)">경력</span>
+      <h2 class="r" style="--i:1">약 7년, <span class="em" style="--emc:var(--c3)">총무 · 경영지원</span></h2>
+    </div>
     <div class="career">
-      <ol class="tl">
-        <li>
-          <div class="when">현재</div>
-          <h3>총무팀 선임매니저</h3>
-          <p>제조 · 연구 기업의 총무 · 경영지원. 자산 · 사업장 · 관공서 인허가 · 복리후생 운영, 사내 업무 시스템과 AX 도입 기획.</p>
-        </li>
-        <li><div class="when">이전</div><h3>구매 · 총무</h3></li>
-        <li><div class="when">이전</div><h3>마케팅</h3></li>
-        <li><div class="when">시작</div><h3>계약 · 출고</h3></li>
-      </ol>
-      <aside class="contact">
-        <div class="mlabel">CONTACT</div>
-        <h3>연락 주세요.</h3>
-        <a class="link" href="mailto:qodmsrhkd@naver.com">메일 · qodmsrhkd@naver.com <span aria-hidden="true">→</span></a>
-        <a class="link" href="tech.html">Work OS 기술 노트 <span aria-hidden="true">→</span></a>
+      <div class="card r" style="--tc:var(--c3)"><span class="when" style="--kc:var(--c3)">현재</span><h3>총무팀 선임매니저</h3><p>총무 · 경영지원 전반</p></div>
+      <div class="card r" style="--i:1"><span class="when">이전</span><h3>구매 · 총무</h3><p>구매 발주 · 입고 · 정산</p></div>
+      <div class="card r" style="--i:2"><span class="when">시작</span><h3>계약 · 출고</h3><p>차량 계약 · 출고 관리</p></div>
+    </div>
+    <div class="finale">
+      <figure class="mfr r">
+        <div class="bar3" aria-hidden="true"><i style="background:#ff6b6b"></i><i style="background:#ffc75a"></i><i style="background:#3ddc97"></i><span>도입 전과 후 · 소개 영상</span></div>
+        <video src="assets/workspace_ax.mp4" poster="assets/workspace_ax_poster.jpg" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="서류에 묻혀 있던 직원이 시스템 도입 뒤 화면 위 요약으로 일하고 퇴근하는 장면 (19초, 소리 없음)"></video>
+      </figure>
+      <aside class="card hl contact r" style="--hc:var(--c2);--i:1">
+        <span class="eb" style="--ebc:var(--c2)">연락</span>
+        <h3 id="h-contact">함께 이야기<br>나누고 싶습니다.</h3>
+        <a href="mailto:qodmsrhkd@naver.com">qodmsrhkd@naver.com <span aria-hidden="true">→</span></a>
+        <a href="tech.html">Work OS 기술 노트 <span aria-hidden="true">→</span></a>
       </aside>
     </div>
   </div>
@@ -228,5 +298,28 @@ try { var t = localStorage.getItem("pf_theme"); if (t === "light" || t === "dark
   </div>
 </footer>
 <script src="assets/main.js"></script>
+<script>
+// 스크롤 등장 - 화면에 들어온 .r 에 in 을 붙인다(지원 안 하면 바로 보이게)
+(function () {
+  var els = [].slice.call(document.querySelectorAll(".r"));
+  if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  els.forEach(function (e) { io.observe(e); });
+  // 숫자 올라가기 - 감싼 .r 이 보일 때 0부터 목표값까지
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  [].forEach.call(document.querySelectorAll("[data-count]"), function (el) {
+    var to = +el.getAttribute("data-count"), host = el.closest(".r") || el;
+    if (reduce || !("IntersectionObserver" in window)) return;
+    el.textContent = "0";
+    var o = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return; o.disconnect();
+      var t0 = null, dur = 1200;
+      (function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); })(performance.now());    }, { threshold: 0.3 });
+    o.observe(host);
+  });
+})();
+</script>
 </body>
 </html>
