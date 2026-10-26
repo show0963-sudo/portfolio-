@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Work OS 기술 노트</title>
+<meta name="description" content="현업에서 직접 만드는 AX 빌더 배은총. 총무 실무 위에 사내 업무 플랫폼 Work OS 의 기술 노트입니다.">
+<meta name="theme-color" content="#2743d8">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+// 첫 그림 전에 저장된 테마를 적용(깜빡임 방지)
+try { var t = localStorage.getItem("pf_theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="topbar">
+  <div class="in">
+    <a class="brand" href="index.html">← 배은총<small>WORK OS 기술 노트</small></a>
+    <nav class="nav" aria-label="구역">
+      <a href="#numbers">숫자</a>
+      <a href="#workspace">Work OS</a>
+      <a href="#platform">플랫폼</a>
+      <a href="#features" class="opt">기능</a>
+      <a href="#pilot">AX 파일럿</a>
+      <a href="#way" class="opt">일하는 방식</a>
+      <a href="#career">경력</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="어두운 화면으로 바꾸기">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="mlabel">AX BUILDER · 총무 · 경영지원</div>
+        <h1>현업에서 직접 만드는<br><span class="b">AX 빌더.</span></h1>
+        <p class="lead">
+          총무는 조직이 굴러가는 구조를 설계하는 일이라고 믿습니다. 약 7년간 기준이 없던 업무에 규정과 프로세스를 세워 왔고,
+          지금은 그 위에 <b>사내 업무 플랫폼 Work OS 를 기획 · 운영</b>합니다.
+          흩어진 ERP 데이터를 내재화하고, 대화 · 메일 · 업무관리와 AI 에이전트를 한 화면에 묶었습니다.
+          <b>AI 는 초안까지, 결정은 사람이</b> 합니다.
+        </p>
+        <div class="cta-row">
+          <a class="btn pri" href="#workspace">Work OS 보기</a>
+          <a class="btn sec" href="#pilot">AX 파일럿 기획</a>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <div class="id">
+          <picture>
+            <source srcset="assets/profile.webp" type="image/webp">
+            <img class="photo" src="assets/profile.jpg" width="360" height="480" alt="배은총 프로필 사진">
+          </picture>
+          <div class="who">
+            <div class="mlabel">PROFILE</div>
+            <b>배은총</b>
+            <span>AX 빌더 · 총무 · 경영지원</span>
+          </div>
+        </div>
+        <div class="rows">
+          <div class="row"><span class="k">NOW</span><span class="v">총무팀 선임매니저 (총무 · 경영지원)</span></div>
+          <div class="row"><span class="k">BUILD</span><span class="v">사내 업무 플랫폼 Work OS 기획 · 운영</span></div>
+          <div class="row"><span class="k">PLAN</span><span class="v">전사 AX 90일 파일럿 기획 · 제안</span></div>
+          <div class="row"><span class="k">BASE</span><span class="v">총무 · 구매 · 자산 · 안전보건 약 7년</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NUMBERS ================= -->
+<section id="numbers" class="alt" aria-labelledby="h-numbers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">BY THE NUMBERS</div>
+        <h2 id="h-numbers">플랫폼의 크기</h2>
+      </div>
+      <p>현업의 요구로 기획하고 운영합니다. 숫자는 소스 저장소에서 직접 센 것만 적었습니다.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n num">78<small>일</small></div><div class="t">첫 소스부터 지금까지</div><div class="d">2026-07-28 → 2026-10-13</div></div>
+      <div class="stat"><div class="n num">26<small>만 줄</small></div><div class="t">직접 쓴 코드</div><div class="d">Python 약 17.6만 줄 · JavaScript 약 9만 줄</div></div>
+      <div class="stat"><div class="n num">72<small>화면</small></div><div class="t">PC · 폰 144 화면 자동 점검</div><div class="d">전 화면 순회 점검에서 페이지 오류 0</div></div>
+      <div class="stat"><div class="n num">1,000<small>+ API</small></div><div class="t">서버 API 경로</div><div class="d">프레임워크 없이 표준 라이브러리 라우팅</div></div>
+      <div class="stat"><div class="n num">311<small>표</small></div><div class="t">데이터베이스 표</div><div class="d">SQLite 하나에 업무 데이터 내재화</div></div>
+      <div class="stat"><div class="n num">29<small>개</small></div><div class="t">기본 AI 에이전트</div><div class="d">42개를 기능 묶음으로 다시 정리</div></div>
+      <div class="stat"><div class="n num">171<small>편</small></div><div class="t">설계 · 결정 문서</div><div class="d">기능마다 왜 · 무엇을 · 어떻게를 기록</div></div>
+      <div class="stat"><div class="n num">13<small>편</small></div><div class="t">기능 안내 영상</div><div class="d">자막 · 음성 포함, 화면 첫 진입 때 재생</div></div>
+    </div>
+    <p class="note">기준일 2026-10-13. 회사 업무 데이터의 건수 · 금액은 싣지 않았습니다.</p>
+  </div>
+</section>
+
+<!-- ================= WORKSPACE CASE ================= -->
+<section id="workspace" aria-labelledby="h-ws">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">FEATURED PROJECT</div>
+        <h2 id="h-ws">Work OS · 사내 업무 플랫폼</h2>
+      </div>
+      <p>ERP 경비 · 출장 데이터를 내재화하는 작은 대시보드로 시작해, 전 직원이 함께 쓰는 업무 + AI 플랫폼으로 넓혔습니다.</p>
+    </div>
+    <div class="flow">
+      <article class="step">
+        <div class="no">01 · PROBLEM</div>
+        <h3>문제</h3>
+        <ul>
+          <li><b>반복 업무</b> · 경비 · 출장 데이터가 ERP 안에 있어 매달 사람이 손으로 조회하고 대사</li>
+          <li><b>흩어진 도구</b> · ERP, 그룹웨어, 메일, 엑셀, 메신저를 오가며 맥락이 끊김</li>
+          <li><b>AI 경험 격차</b> · 쓰는 사람만 쓰고 방법이 부서 밖으로 퍼지지 않음</li>
+        </ul>
+      </article>
+      <article class="step">
+        <div class="no">02 · APPROACH</div>
+        <h3>접근</h3>
+        <ul>
+          <li><b>API 우선, 스크래핑은 최후</b> · 화면이 부르는 내부 API 를 찾아 직접 호출</li>
+          <li><b>의존성 최소</b> · 순수 Python 표준 라이브러리 + SQLite + vanilla JS</li>
+          <li><b>현업 요구 → 당일 판</b> · 쓰는 사람의 말로 고치고 바로 배포</li>
+          <li><b>AI 는 초안까지</b> · 쓰기 · 발송 · 상신은 언제나 사람</li>
+        </ul>
+      </article>
+      <article class="step">
+        <div class="no">03 · BUILD</div>
+        <h3>만든 것</h3>
+        <ul>
+          <li><b>데이터 파이프라인</b> · ERP 읽기 전용 수집, 자정 배치, 실행마다 감사 기록</li>
+          <li><b>업무 화면 72종</b> · 대화 · 메일 · 일정 · 업무관리 · 정산 · 안전보건 · 설비 등</li>
+          <li><b>AI 에이전트 플랫폼</b> · 통합 비서, 에이전트 스튜디오, 자동화, MCP</li>
+          <li><b>배포</b> · 단일 exe 하나로 서버 · 직원 PC 자동 분기, 폰은 PWA</li>
+        </ul>
+      </article>
+      <article class="step">
+        <div class="no">04 · RESULT</div>
+        <h3>결과</h3>
+        <ul>
+          <li><b>브라우저 없이</b> 파이썬 단독으로 ERP 동기화 실증</li>
+          <li><b>출장 누락 대사</b> · 출장 문서와 출장 기록 1:1 대조, 누락 0 확인</li>
+          <li><b>청구 자동 매칭</b> · 제목 추측 대신 문서 간 구조화 참조로 연결</li>
+          <li><b>본문 파싱</b> 문서당 약 0.65초, 파서가 바뀌면 옛 값 자동 재수집</li>
+          <li>플랫폼 경험을 바탕으로 <b>전사 AX 90일 파일럿</b> 기획</li>
+        </ul>
+      </article>
+    </div>
+    <div class="band">
+      <p>"데이터를 옮겨 적는 일은 시스템이, 판단과 책임은 사람이."</p>
+      <span>Work OS 의 모든 쓰기는 확인 카드 · 초안까지만. ERP 에는 읽기 전용입니다.</span>
+    </div>
+    <figure class="clip">
+      <video src="assets/workspace_ax.mp4" poster="assets/workspace_ax_poster.jpg" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="AX 전과 후를 보여 주는 소개 영상. 서류에 묻혀 있던 직원이 AX 적용 뒤 태블릿과 화면 위 요약으로 일하고 퇴근하는 장면"></video>
+      <figcaption><b>AX 전과 후</b> · AI 영상 도구로 직접 만든 소개 영상 (19초, 소리 없음). 화면 속 UI 는 흐리게 처리했습니다.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= PLATFORM ================= -->
+<section id="platform" class="alt" aria-labelledby="h-platform">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">PLATFORM</div>
+        <h2 id="h-platform">하나의 운영 기반 위에 모든 화면과 에이전트</h2>
+      </div>
+      <p>화면 · 대화 · 에이전트가 같은 권한 · 데이터 등급 · 감사 · 비용 한도를 거칩니다. 새 기능은 이 기반에 꽂기만 하면 됩니다.</p>
+    </div>
+    <figure class="arch">
+      <svg class="arch-desktop" viewBox="0 0 1100 620" role="img" aria-labelledby="archT archD">
+        <title id="archT">Work OS 플랫폼 구조</title>
+        <desc id="archD">사용자 접점(PC 앱, 브라우저, 휴대폰)에서 프론트(대화, 업무 화면, 공통 UI 키트)를 거쳐 운영 기반(권한, 데이터 등급, 확인 카드, 감사, 비용 한도, 보안 점검)을 지나 에이전트, 데이터, AI 게이트웨이로 이어지고, 바깥의 MCP 도구, ERP, 메일 · 일정, AI 모델과 연결되는 구조.</desc>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="s-arrow" d="M0 0L10 5L0 10z"/></marker>
+        </defs>
+        <!-- row labels -->
+        <text class="s-m" x="20" y="52">CLIENTS</text>
+        <text class="s-m" x="20" y="156">FRONT</text>
+        <text class="s-m" x="20" y="292">CORE</text>
+        <text class="s-m" x="20" y="440">SERVICES</text>
+        <text class="s-m" x="20" y="572">EXTERNAL</text>
+        <!-- row1 clients -->
+        <rect class="s-chip" x="170" y="20" width="290" height="56" rx="10"/>
+        <text class="s-t" x="315" y="45" text-anchor="middle">PC 앱 (단일 exe)</text>
+        <text class="s-s" x="315" y="64" text-anchor="middle">서버 · 직원 PC 자동 분기 · 자기 업데이트</text>
+        <rect class="s-chip" x="480" y="20" width="290" height="56" rx="10"/>
+        <text class="s-t" x="625" y="45" text-anchor="middle">브라우저</text>
+        <text class="s-s" x="625" y="64" text-anchor="middle">사내망 · 외부 접속 자동 전환</text>
+        <rect class="s-chip" x="790" y="20" width="290" height="56" rx="10"/>
+        <text class="s-t" x="935" y="45" text-anchor="middle">휴대폰 (PWA)</text>
+        <text class="s-s" x="935" y="64" text-anchor="middle">웹 푸시 알림 · QR 현장 점검</text>
+        <path class="s-line" d="M625 78 V106" marker-end="url(#ah)"/>
+        <!-- row2 front -->
+        <rect class="s-box2" x="170" y="110" width="910" height="88" rx="14"/>
+        <rect class="s-chip" x="186" y="124" width="282" height="60" rx="10"/>
+        <text class="s-t" x="327" y="150" text-anchor="middle">대화 · 통합 비서</text>
+        <text class="s-s" x="327" y="170" text-anchor="middle">채널 · DM · 스레드 · @에이전트</text>
+        <rect class="s-chip" x="484" y="124" width="282" height="60" rx="10"/>
+        <text class="s-t" x="625" y="150" text-anchor="middle">업무 화면 72종</text>
+        <text class="s-s" x="625" y="170" text-anchor="middle">메일 · 일정 · 업무관리 · 정산 · 안전 · 설비</text>
+        <rect class="s-chip" x="782" y="124" width="282" height="60" rx="10"/>
+        <text class="s-t" x="923" y="150" text-anchor="middle">공통 UI 키트</text>
+        <text class="s-s" x="923" y="170" text-anchor="middle">표 · 카드 · 엑셀 · 모달 · 디자인 토큰</text>
+        <path class="s-line" d="M625 200 V226" marker-end="url(#ah)"/>
+        <!-- row3 core -->
+        <rect class="s-core" x="170" y="230" width="910" height="124" rx="14"/>
+        <text class="s-tw" x="190" y="258">운영 기반 · 하나의 기준</text>
+        <text class="s-sw" x="1060" y="258" text-anchor="end">모든 화면 · 대화 · 에이전트 호출이 여기를 지난다</text>
+        <g>
+          <rect class="s-chip2" x="190" y="272" width="279" height="32" rx="8"/><text class="s-sw" x="329" y="293" text-anchor="middle">권한 · 공개 범위 · 메뉴 등급</text>
+          <rect class="s-chip2" x="485" y="272" width="279" height="32" rx="8"/><text class="s-sw" x="624" y="293" text-anchor="middle">데이터 등급 S / A / B / C 강제</text>
+          <rect class="s-chip2" x="780" y="272" width="279" height="32" rx="8"/><text class="s-sw" x="919" y="293" text-anchor="middle">쓰기 = 확인 카드 (사람이 실행)</text>
+          <rect class="s-chip2" x="190" y="312" width="279" height="32" rx="8"/><text class="s-sw" x="329" y="333" text-anchor="middle">감사 기록 · 실행 기록</text>
+          <rect class="s-chip2" x="485" y="312" width="279" height="32" rx="8"/><text class="s-sw" x="624" y="333" text-anchor="middle">AI 사용량 · 팀 / 개인 한도</text>
+          <rect class="s-chip2" x="780" y="312" width="279" height="32" rx="8"/><text class="s-sw" x="919" y="333" text-anchor="middle">보안 점검 (정적 분석 · 레드팀)</text>
+        </g>
+        <path class="s-line" d="M315 356 V378" marker-end="url(#ah)"/>
+        <path class="s-line" d="M625 356 V378" marker-end="url(#ah)"/>
+        <path class="s-line" d="M935 356 V378" marker-end="url(#ah)"/>
+        <!-- row4 services -->
+        <rect class="s-box" x="170" y="382" width="290" height="112" rx="14"/>
+        <text class="s-t" x="190" y="412">에이전트 = 메뉴 + 도구</text>
+        <text class="s-s" x="190" y="436">업무 화면으로 열고, 대화 · 메일</text>
+        <text class="s-s" x="190" y="456">어디서든 도구로 부른다</text>
+        <text class="s-s" x="190" y="476">MCP 서버 · 클라이언트 표준</text>
+        <rect class="s-box" x="480" y="382" width="290" height="112" rx="14"/>
+        <text class="s-t" x="500" y="412">데이터 · 서버 1대</text>
+        <text class="s-s" x="500" y="436">SQLite 311표 · UPSERT 원칙</text>
+        <text class="s-s" x="500" y="456">자정 배치 + 수동 새로고침</text>
+        <text class="s-s" x="500" y="476">신선도 배지 · 실패는 화면에</text>
+        <rect class="s-box" x="790" y="382" width="290" height="112" rx="14"/>
+        <text class="s-t" x="810" y="412">AI 게이트웨이</text>
+        <text class="s-s" x="810" y="436">기능별 모델 배정 · 쓴 만큼 과금</text>
+        <text class="s-s" x="810" y="456">민감 자료는 국내 처리 모델만</text>
+        <text class="s-s" x="810" y="476">개인정보 가림 · 보낸 기록</text>
+        <!-- row5 external -->
+        <rect class="s-chip" x="170" y="540" width="214" height="56" rx="10"/>
+        <text class="s-t" x="277" y="564" text-anchor="middle">외부 MCP 도구</text>
+        <text class="s-s" x="277" y="583" text-anchor="middle">법령 · 논문 · 공공 데이터</text>
+        <rect class="s-chip" x="400" y="540" width="214" height="56" rx="10"/>
+        <text class="s-t" x="507" y="564" text-anchor="middle">ERP</text>
+        <text class="s-s" x="507" y="583" text-anchor="middle">내부 API · 읽기 전용</text>
+        <rect class="s-chip" x="630" y="540" width="214" height="56" rx="10"/>
+        <text class="s-t" x="737" y="564" text-anchor="middle">메일 · 일정</text>
+        <text class="s-s" x="737" y="583" text-anchor="middle">사내 메일 · 외부 캘린더</text>
+        <rect class="s-chip" x="860" y="540" width="214" height="56" rx="10"/>
+        <text class="s-t" x="967" y="564" text-anchor="middle">AI 모델</text>
+        <text class="s-s" x="967" y="583" text-anchor="middle">국내 · 해외 · 로컬 OCR</text>
+        <path class="s-dash" d="M277 538 V516 H315 V498" marker-end="url(#ah)"/>
+        <path class="s-dash" d="M507 538 V516 H600 V498" marker-end="url(#ah)"/>
+        <path class="s-dash" d="M737 538 V516 H650 V498" marker-end="url(#ah)"/>
+        <path class="s-dash" d="M967 538 V516 H935 V498" marker-end="url(#ah)"/>
+      </svg>
+
+      <svg class="arch-mobile" viewBox="0 0 360 720" role="img" aria-labelledby="archTm">
+        <title id="archTm">Work OS 플랫폼 구조 (세로)</title>
+        <defs>
+          <marker id="ahm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="s-arrow" d="M0 0L10 5L0 10z"/></marker>
+        </defs>
+        <text class="s-m" x="20" y="16">CLIENTS</text>
+        <rect class="s-chip" x="20" y="24" width="320" height="50" rx="10"/>
+        <text class="s-t" x="180" y="46" text-anchor="middle">PC 앱 · 브라우저 · 휴대폰</text>
+        <text class="s-s" x="180" y="64" text-anchor="middle">단일 exe · 자동 전환 · PWA 푸시</text>
+        <path class="s-line" d="M180 76 V96" marker-end="url(#ahm)"/>
+        <text class="s-m" x="20" y="112">FRONT</text>
+        <rect class="s-box2" x="20" y="120" width="320" height="58" rx="12"/>
+        <text class="s-t" x="180" y="144" text-anchor="middle">대화 · 업무 화면 72종</text>
+        <text class="s-s" x="180" y="164" text-anchor="middle">공통 UI 키트 · 디자인 토큰</text>
+        <path class="s-line" d="M180 180 V200" marker-end="url(#ahm)"/>
+        <text class="s-m" x="20" y="216">CORE</text>
+        <rect class="s-core" x="20" y="224" width="320" height="168" rx="12"/>
+        <text class="s-tw" x="36" y="250">운영 기반 · 하나의 기준</text>
+        <rect class="s-chip2" x="36" y="264" width="140" height="32" rx="8"/><text class="s-sw" x="106" y="285" text-anchor="middle">권한 · 공개 범위</text>
+        <rect class="s-chip2" x="184" y="264" width="140" height="32" rx="8"/><text class="s-sw" x="254" y="285" text-anchor="middle">데이터 등급 강제</text>
+        <rect class="s-chip2" x="36" y="304" width="140" height="32" rx="8"/><text class="s-sw" x="106" y="325" text-anchor="middle">확인 카드</text>
+        <rect class="s-chip2" x="184" y="304" width="140" height="32" rx="8"/><text class="s-sw" x="254" y="325" text-anchor="middle">감사 기록</text>
+        <rect class="s-chip2" x="36" y="344" width="140" height="32" rx="8"/><text class="s-sw" x="106" y="365" text-anchor="middle">AI 사용 한도</text>
+        <rect class="s-chip2" x="184" y="344" width="140" height="32" rx="8"/><text class="s-sw" x="254" y="365" text-anchor="middle">보안 점검</text>
+        <path class="s-line" d="M180 394 V414" marker-end="url(#ahm)"/>
+        <text class="s-m" x="20" y="430">SERVICES</text>
+        <rect class="s-box" x="20" y="438" width="320" height="50" rx="10"/>
+        <text class="s-t" x="36" y="460">에이전트 = 메뉴 + 도구</text>
+        <text class="s-s" x="36" y="478">MCP 서버 · 클라이언트 표준</text>
+        <rect class="s-box" x="20" y="496" width="320" height="50" rx="10"/>
+        <text class="s-t" x="36" y="518">데이터 · 서버 1대</text>
+        <text class="s-s" x="36" y="536">SQLite · 자정 배치 · 신선도 배지</text>
+        <rect class="s-box" x="20" y="554" width="320" height="50" rx="10"/>
+        <text class="s-t" x="36" y="576">AI 게이트웨이</text>
+        <text class="s-s" x="36" y="594">모델 배정 · 국내 처리 · 개인정보 가림</text>
+        <text class="s-m" x="20" y="630">EXTERNAL</text>
+        <rect class="s-chip" x="20" y="638" width="154" height="34" rx="8"/><text class="s-s" x="97" y="660" text-anchor="middle">외부 MCP · 공공 데이터</text>
+        <rect class="s-chip" x="186" y="638" width="154" height="34" rx="8"/><text class="s-s" x="263" y="660" text-anchor="middle">ERP (읽기 전용)</text>
+        <rect class="s-chip" x="20" y="680" width="154" height="34" rx="8"/><text class="s-s" x="97" y="702" text-anchor="middle">메일 · 일정</text>
+        <rect class="s-chip" x="186" y="680" width="154" height="34" rx="8"/><text class="s-s" x="263" y="702" text-anchor="middle">AI 모델 · 로컬 OCR</text>
+      </svg>
+      <figcaption class="arch-legend">
+        <div><b>프론트는 공통 키트 하나</b>새 목록 · 현황 화면은 같은 표 · 카드 · 엑셀 · 모달 키트로만 만들어, 화면마다 다시 구현하지 않습니다.</div>
+        <div><b>운영 기반이 규칙을 강제</b>권한 · 데이터 등급 · 확인 카드 · 감사 · 비용 한도를 서버가 지킵니다. 화면이 잊어도 서버가 막습니다.</div>
+        <div><b>MCP 표준으로 연결</b>사내 도구와 외부 도구가 같은 규격이라, 나중에 다른 플랫폼으로 옮겨도 그대로 이어 씁니다.</div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features" aria-labelledby="h-features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">WHAT I BUILT</div>
+        <h2 id="h-features">기능 묶음</h2>
+      </div>
+      <p>현업이 매일 여는 업무 화면부터, AI · 데이터 연동 · 보안 · 배포까지 현업과 함께 다듬어 왔습니다.</p>
+    </div>
+    <div class="groups">
+      <article class="grp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div>
+        <h3>업무</h3>
+        <p class="sub">한 화면에서 보고, 쓰고, 맡기는 일상 업무</p>
+        <div class="tags">
+          <span class="tag">대화 (채널 · DM · 스레드)</span><span class="tag">메일</span><span class="tag">일정 · 회의실 예약</span>
+          <span class="tag">회의록 (녹음 → 결정 · 할 일)</span><span class="tag">업무관리 · 위클리 · KPI</span><span class="tag">지출정산 · 출장 여비</span>
+          <span class="tag">자금계획</span><span class="tag">입사자 관리</span><span class="tag">인사정보</span><span class="tag">안전보건</span>
+          <span class="tag">설비관리 (CMMS)</span><span class="tag">자산 · 비품 · 재고</span><span class="tag">IT · SW 관리</span><span class="tag">계약관리</span>
+        </div>
+      </article>
+      <article class="grp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div>
+        <h3>AI</h3>
+        <p class="sub">에이전트를 쓰고, 현업이 직접 만든다</p>
+        <div class="tags">
+          <span class="tag">통합 비서 (질문 하나로 여러 도구)</span><span class="tag">에이전트 스튜디오 (코드 없이 3단계)</span>
+          <span class="tag">말로 만드는 업무 자동화 · 예약 실행</span><span class="tag">자료생성 (HTML 애니메이션 PT · PPT)</span>
+          <span class="tag">같이 만들기 (실시간 공동 편집 + AI 수정)</span><span class="tag">문서 AI 읽기 (서류 → 입력 칸)</span>
+          <span class="tag">대화 요약 → 보고서 · 메일 초안</span><span class="tag">MCP 서버 · 클라이언트</span>
+        </div>
+      </article>
+      <article class="grp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6M5 11.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/></svg></div>
+        <h3>데이터 연동</h3>
+        <p class="sub">ERP 데이터를 브라우저 없이 내재화</p>
+        <div class="tags">
+          <span class="tag">ERP 내부 API 직접 호출 (읽기 전용)</span><span class="tag">자정 배치 + 수동 새로고침</span>
+          <span class="tag">모든 실행 감사 기록</span><span class="tag">출장 누락 1:1 대사</span><span class="tag">청구서 ↔ 출장 참조 자동 매칭</span>
+          <span class="tag">파서 판 관리 → 옛 값 자동 재수집</span><span class="tag">ERP 세션 자동 유지</span><span class="tag">수기 확정값은 재수집이 덮지 않음</span>
+        </div>
+      </article>
+      <article class="grp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg></div>
+        <h3>공간 · 3D</h3>
+        <p class="sub">사업장 · 자리 · 장비를 그림으로 관리</p>
+        <div class="tags">
+          <span class="tag">사업장 지도 관제</span><span class="tag">배치 스튜디오 (2D · 3D 자리 · 장비)</span>
+          <span class="tag">자리 ↔ 전산장비 연결</span><span class="tag">3D 도면 그리기</span><span class="tag">가상 회의실</span><span class="tag">QR 현장 점검</span>
+        </div>
+      </article>
+      <article class="grp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.6-3.4 8.4-8 9-4.6-.6-8-4.4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>보안</h3>
+        <p class="sub">AI 를 쓰되, 자료가 새지 않게</p>
+        <div class="tags">
+          <span class="tag">데이터 등급 S · A · B · C 서버 강제</span><span class="tag">설계 자료는 AI 금지</span>
+          <span class="tag">인사 · 급여 자료는 국내 처리 모델만</span><span class="tag">개인정보 자동 가림</span>
+          <span class="tag">로컬 OCR 로 보안 표시 탐지 (외부 전송 없음)</span><span class="tag">쓰기는 확인 카드</span>
+          <span class="tag">정적 분석 (SAST)</span><span class="tag">AI 레드팀 (LLM Top 10 기반)</span><span class="tag">시험서버 메일 샌드박스</span>
+        </div>
+      </article>
+      <article class="grp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
+        <h3>배포 · 운영</h3>
+        <p class="sub">같은 exe 하나를 전 직원에게</p>
+        <div class="tags">
+          <span class="tag">단일 exe · 서버 / 클라이언트 자동 판별</span><span class="tag">앱 자기 업데이트</span>
+          <span class="tag">휴대폰 PWA + 웹 푸시</span><span class="tag">외부 접속 터널 · 사내망이면 사내 주소로</span>
+          <span class="tag">판마다 구조도 등록 (화면 → API → 모듈 → 표)</span><span class="tag">전 화면 자동 점검</span><span class="tag">데이터 신선도 배지</span>
+        </div>
+      </article>
+      <article class="grp wide">
+        <div class="mlabel">COMMON LAYER</div>
+        <div class="cols">
+          <div>
+            <h3>공통 기능 · 한 번 만들고 모두가 쓴다</h3>
+            <p class="sub" style="margin-bottom:0">알림 · 첨부 · 재고 · 권한 · ERP 초안 작성 같은 기능을 표준 모듈 하나로 만들고, 새 업무 화면은 그 모듈을 꽂아 씁니다. 알림 수신자와 할 일 담당자는 설정에만 두어, 코드가 사람을 정하지 않습니다.</p>
+          </div>
+          <div>
+            <h3>공통 UI · 디자인 시스템</h3>
+            <p class="sub" style="margin-bottom:0">색 · 글꼴 · 간격은 디자인 토큰으로만 씁니다. 목록 화면의 검색 · 필터 칩 · 빈 상태 · 상세 창 패턴과 요약 표를 키트 하나로 통일했고, 요약 항목은 개인이 고르고 기본값은 관리자가 정합니다.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PILOT ================= -->
+<section id="pilot" class="alt" aria-labelledby="h-pilot">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">AX 90-DAY PILOT</div>
+        <h2 id="h-pilot">조직으로 넓히는 AX 90일 파일럿</h2>
+      </div>
+      <p>만든 도구를 조직의 역량으로 바꾸는 계획입니다. 작게 시작하고, 숫자로 검증하고, 90일 뒤 확산 여부를 결정합니다.</p>
+    </div>
+    <div class="pilot">
+      <div class="panel">
+        <div class="mlabel">PROBLEM → DIRECTION</div>
+        <h3>세 가지 문제, 세 가지 지향점</h3>
+        <div class="three">
+          <div><b>반복 업무</b><span>→ AI 와 함께 일한다. AI 가 조회 · 대사 · 초안까지 돕고 판단 · 결재는 사람이</span></div>
+          <div><b>흩어진 도구</b><span>→ AI Native 업무 환경. 흩어진 도구를 한 화면에서 AI 와 함께 실행</span></div>
+          <div><b>AI 경험 격차</b><span>→ AI 를 직접 만든다. 현업이 절차를 설명해 도구 · 에이전트로 만들고 보안 점검 뒤 공유</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="mlabel">COST CONTROL</div>
+        <h3>비용은 예측하고 통제한다</h3>
+        <div class="three">
+          <div><b>쓴 만큼</b><span>사람 수가 아니라 실제 사용량으로 과금되는 구조를 선택</span></div>
+          <div><b>한도</b><span>월 상한 · 팀 · 개인 한도를 두고 넘으면 자동 차단</span></div>
+          <div><b>기존 자원</b><span>놀고 있는 사내 서버를 먼저 쓰고, 클라우드는 사용량을 보고 검토</span></div>
+          <div><b>종속 최소</b><span>만드는 것(화면 · 규칙 · 권한)과 빌리는 것(모델 · 개발 엔진 · 상용 MCP)을 나누고 MCP 표준으로 연결</span></div>
+        </div>
+      </div>
+      <div class="panel full">
+        <div class="mlabel">DAY 30 / 60 / 90</div>
+        <h3>30일 단위 3단계</h3>
+        <div class="timeline">
+          <div class="day"><div class="d">DAY 30</div><b>준비</b><p>정책 수립 · 규정 정리 · 서버 위치와 기준 AI 모델 결정 · 베타 테스터 준비</p></div>
+          <div class="day"><div class="d">DAY 60</div><b>활성화 · 고도화</b><p>활성도 확보 · 부서별 에이전트 연계 · 권한과 규정 다듬기</p></div>
+          <div class="day"><div class="d">DAY 90</div><b>측정 · 결정</b><p>절감 시간 결산 · 챔피언 선정 · 확산 또는 축소 결정</p></div>
+        </div>
+        <div class="people" style="margin-top:20px" aria-label="사람 구성">
+          <span class="pill">운영 (PM · 인프라 · 보안)</span><span class="ar">+</span>
+          <span class="pill">제작형 테스터</span><span class="ar">+</span>
+          <span class="pill">사용 · 피드백형 테스터</span><span class="ar">→</span>
+          <span class="pill">챔피언 · 부서 확산의 멘토</span>
+        </div>
+      </div>
+    </div>
+    <div class="band">
+      <p>"반복은 AI 에게, 사람은 더 중요한 일에."</p>
+      <span>기획 · 발표 자료 · 시연 영상 · 안내 영상 13편까지 직접 만들었습니다.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WAY OF WORKING ================= -->
+<section id="way" aria-labelledby="h-way">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">HOW I WORK</div>
+        <h2 id="h-way">일하는 방식</h2>
+      </div>
+      <p>현업의 말에서 시작해, 당일 판으로 돌려주고, 겪은 문제는 원칙으로 남깁니다.</p>
+    </div>
+    <div class="ways">
+      <div class="way"><div class="no">01</div><h3>현업 요구 → 당일 반영</h3><p>쓰는 사람이 한 말을 그대로 받아 그날 고치고 배포합니다. 요구 · 결정은 날짜와 함께 설계 문서에 남깁니다.</p></div>
+      <div class="way"><div class="no">02</div><h3>판 관리</h3><p>판마다 바뀐 화면 · API · 모듈 · 표를 구조도 등록부에 한 줄 더합니다. 등록부에 없는 DB 변화는 화면이 경고합니다.</p></div>
+      <div class="way"><div class="no">03</div><h3>시험 자동화</h3><p>운영과 분리된 시험서버에서 브라우저 자동화로 화면을 돌립니다. 전 화면을 PC · 폰으로 순회해 오류를 잡고 빌드합니다.</p></div>
+      <div class="way"><div class="no">04</div><h3>보안 원칙</h3><p>ERP 는 읽기 전용, AI 쓰기는 확인 카드까지, 민감 자료는 등급으로 막습니다. 실패는 조용히 넘기지 않고 화면에 띄웁니다.</p></div>
+    </div>
+    <div class="rules" aria-label="운영 원칙">
+      <div class="rule"><span class="k">R1</span><span><b>날짜는 한 시간대로.</b> 날짜가 하루 밀리지 않게 날짜 계산은 한 함수만 씁니다.</span></div>
+      <div class="rule"><span class="k">R2</span><span><b>결과는 실행 표시를 확인한 뒤 적재.</b> 지난 실행의 결과를 다시 싣지 않습니다.</span></div>
+      <div class="rule"><span class="k">R3</span><span><b>지우고 다시 넣지 않고 갱신만.</b> 쌓인 데이터와 사람이 확정한 값은 재수집이 덮지 않습니다.</span></div>
+      <div class="rule"><span class="k">R4</span><span><b>시험서버는 메일 · 외부 호출을 막은 채로만.</b> 시험 데이터가 바깥으로 나가지 않게 이중으로 막습니다.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EARLIER CASES ================= -->
+<section id="cases" class="alt" aria-labelledby="h-cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">FOUNDATION</div>
+        <h2 id="h-cases">AX 의 바탕이 된 총무 실무</h2>
+      </div>
+      <p>규정과 프로세스를 세운 경험이 있어서, 무엇을 시스템으로 만들어야 하는지 압니다.</p>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <div class="mlabel">CASE 01</div>
+        <h3>시설 · 공장 인허가와 법규 대응</h3>
+        <p>화약류 간이저장소 설치 허가(기술검토부터 관할 경찰서 허가까지), 공장등록, 신규 사무실 · 사업장 개설, 폐기물 · 환경 법령 대응을 실무로 완결했습니다.</p>
+        <dl><dt>연계</dt><dd>산업안전보건위원회 · 위험성평가 · 시설보안</dd></dl>
+      </article>
+      <article class="case">
+        <div class="mlabel">CASE 02</div>
+        <h3>자산관리 체계 구축 TF 리드</h3>
+        <p>전담자 · 규정 · 자산대장이 없던 상태에서 유형자산관리 체계를 세웠습니다. 규정 제정, 전 사업장 전수 실사, 담당자 교육, 유휴자산 처분, 상시 운영 이관까지 완주했습니다.</p>
+        <dl><dt>역할</dt><dd>TF LEAD (자산관리자)</dd><dt>산출</dt><dd>규정 · 전수 실사 · 처분 · 자산 포털 · 상시 운영</dd></dl>
+      </article>
+      <article class="case">
+        <div class="mlabel">CASE 03</div>
+        <h3>수기 대장을 시스템으로</h3>
+        <p>검사번호만 넣으면 ERP 에서 수입검사 데이터를 모아 검사대장이 채워지고, 보고서 · 부적합(NCR) · 업체평가까지 한 화면에서 관리하는 웹 앱을 만들어 설치 없는 단독 프로그램으로 배포했습니다.</p>
+        <dl><dt>배포</dt><dd>단독 실행 EXE · 자동 증분 동기화</dd></dl>
+      </article>
+      <article class="case">
+        <div class="mlabel">CASE 04</div>
+        <h3>전사 AI 자동화 추진안 "불편함은 AI 에게"</h3>
+        <p>부서별 창구가 반복 업무의 불편을 상시 접수하고, 우선순위를 정해 AI 구현 · 전문가 · 해커톤 등 수단을 배정해 실서비스로 만드는 순환 체계를 설계 · 발의했습니다. 이 제안이 Work OS 와 AX 파일럿으로 이어졌습니다.</p>
+        <dl><dt>실증</dt><dd>출장경비 자동청구 · 계약 지출 · 구매이력 · 회의록 AI</dd></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<section id="stack" aria-labelledby="h-stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">STACK</div>
+        <h2 id="h-stack">기술 스택</h2>
+      </div>
+      <p>설치와 의존성을 줄이는 쪽을 고릅니다. 회사 PC 한 대에서 오래 돌아가야 하기 때문입니다.</p>
+    </div>
+    <div class="stack">
+      <div class="stk"><h3>Backend</h3><ul><li><b>Python</b> 표준 라이브러리 (프레임워크 없음)</li><li><b>SQLite</b> 단일 DB · 트랜잭션 · UPSERT</li><li>자체 HTTP 라우팅 · 스케줄러 · 감사 기록</li></ul></div>
+      <div class="stk"><h3>Frontend</h3><ul><li><b>Vanilla JS</b> · 공통 UI 키트</li><li>CSS 디자인 토큰 · 다크 모드</li><li>three.js 기반 3D 배치 · 도면</li><li>PWA · 서비스 워커 · 웹 푸시</li></ul></div>
+      <div class="stk"><h3>AI</h3><ul><li><b>MCP</b> 서버 · 클라이언트</li><li>모델 라우팅 게이트웨이 · 기능별 모델 배정</li><li>Windows 내장 OCR (로컬)</li><li>Claude Code 로 개발</li></ul></div>
+      <div class="stk"><h3>Ops · Test</h3><ul><li><b>Playwright</b> 화면 자동 점검</li><li>PyInstaller 단일 exe 배포</li><li>Cloudflare 터널 외부 접속</li><li>정적 분석 · AI 레드팀</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAREER ================= -->
+<section id="career" class="alt" aria-labelledby="h-career">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mlabel">CAREER</div>
+        <h2 id="h-career">경력</h2>
+      </div>
+      <p>계약 · 출고와 마케팅, 구매 · 총무를 거쳐 지금의 총무 · 경영지원까지 약 7년.</p>
+    </div>
+    <div class="career">
+      <ol class="tl">
+        <li>
+          <div class="when">현재</div>
+          <h3>총무팀 선임매니저</h3>
+          <p>제조 · 연구 기업의 총무 · 경영지원. 인허가 · 안전보건 · 자산 · 구매 운영, 자산관리 TF 리드, 사내 업무 플랫폼 Work OS 기획 · 운영, 전사 AX 90일 파일럿 기획.</p>
+        </li>
+        <li>
+          <div class="when">이전</div>
+          <h3>구매 · 총무</h3>
+        </li>
+        <li>
+          <div class="when">이전</div>
+          <h3>마케팅</h3>
+        </li>
+        <li>
+          <div class="when">시작</div>
+          <h3>계약 · 출고</h3>
+        </li>
+      </ol>
+      <aside class="contact">
+        <div class="mlabel">CONTACT</div>
+        <h3>당신의 조직을 위한 시스템을 함께 만듭니다.</h3>
+        <p>기준이 없으면 세우고, 반복 업무는 시스템으로 만들고, AI 는 초안까지 맡깁니다.</p>
+        <a class="link" href="mailto:qodmsrhkd@naver.com">메일 · qodmsrhkd@naver.com <span aria-hidden="true">→</span></a>
+        <a class="link" href="https://github.com/show0963-sudo" rel="noopener">GitHub · show0963-sudo <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-label="마무리">
+  <div class="wrap">
+    <h2>현업의 불편에서 시작해<br>플랫폼으로 끝냅니다.</h2>
+    <p>AI 는 초안까지, 결정은 사람이.</p>
+    <a class="btn pri closing-mail" href="mailto:qodmsrhkd@naver.com">메일 보내기 · qodmsrhkd@naver.com</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 배은총</span>
+    <span>이 사이트에는 회사 내부 데이터 · 화면을 싣지 않았습니다.</span>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
