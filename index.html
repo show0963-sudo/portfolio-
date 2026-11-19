@@ -1,324 +1,1084 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="ko" data-font="c">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>배은총 포트폴리오</title>
-<meta name="description" content="총무 · 경영지원 7년 배은총. 기준이 없는 일에 기준을 세우고, 반복되는 일은 시스템으로 만듭니다.">
-<meta name="theme-color" content="#060916">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="assets/v3.css">
-<script>document.documentElement.classList.add("js")</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>배은총 · 포트폴리오</title>
+<meta name="description" content="사람과 AI 사이를 잇는 일. 총무 실무자가 직접 만든 사내 업무 플랫폼 Work OS 를 더미 자료로 직접 써 볼 수 있습니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap">
+<style>
+html,body{background:#f4f3ef}
+:root{--bg:#f4f3ef;--ink:#17171a;--sub:#5b5d64;--mut:#93959c;--line:rgba(23,23,26,.1);--line2:rgba(23,23,26,.22);--acc:#3554e8;--warm:#d9694f;--ok:#0e7553;--sans:"Pretendard Variable","Pretendard","Malgun Gothic",system-ui,sans-serif;--serif:"Gowun Batang","Nanum Myeongjo",serif;--mono:var(--sans);--sw:400;--head:var(--sans);--hw:500;--ease:cubic-bezier(.2,.8,.2,1)}
+html[data-font="b"]{--sans:"Gothic A1","Malgun Gothic",system-ui,sans-serif;--serif:"Nanum Myeongjo","Gowun Batang",serif}
+html[data-font="c"]{--head:var(--serif);--hw:400}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit}
+::selection{background:var(--ink);color:var(--bg)}
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+main,header,footer{position:relative;z-index:2}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.m{font-size:12px;letter-spacing:.01em;color:var(--mut);font-variant-numeric:tabular-nums}
+.no{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--mut)}
+.no b{font-family:var(--serif);font-weight:var(--sw);font-size:38px;line-height:1;color:var(--ink);letter-spacing:-.02em}
+/* soft glow round the thing to notice (same colours as the ring on the first screen); it sits behind the cards, so only a faint rim shows */
+.halo{position:fixed;left:0;top:0;z-index:1;pointer-events:none;border-radius:40px;opacity:0;will-change:transform,width,height,opacity;filter:blur(30px);background:conic-gradient(from 210deg,rgba(255,176,130,.7),rgba(255,232,160,.55),rgba(160,232,205,.55),rgba(138,176,255,.7),rgba(206,170,255,.6),rgba(255,176,130,.7))}
+/* water-drop pointer */
+.drop{position:fixed;left:0;top:0;z-index:80;pointer-events:none;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95) 0 9%,rgba(255,255,255,.28) 22%,rgba(255,255,255,.05) 58%,rgba(120,150,255,.12) 100%);
+  -webkit-backdrop-filter:blur(1.5px) saturate(170%) brightness(1.06);backdrop-filter:blur(1.5px) saturate(170%) brightness(1.06);
+  box-shadow:inset 0 -3px 6px rgba(60,80,160,.16),inset 0 2px 3px rgba(255,255,255,.9),0 6px 14px -6px rgba(30,40,90,.35);border:1px solid rgba(255,255,255,.65);
+  transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease);will-change:transform}
+.drop.on{width:58px;height:58px;margin:-29px 0 0 -29px;-webkit-backdrop-filter:blur(0) saturate(190%) brightness(1.1);backdrop-filter:blur(0) saturate(190%) brightness(1.1)}
+.drop.dn{width:20px;height:20px;margin:-10px 0 0 -10px}
+.drop2{position:fixed;left:0;top:0;z-index:79;pointer-events:none;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.9),rgba(255,255,255,.15) 60%,rgba(120,150,255,.14));border:1px solid rgba(255,255,255,.6);box-shadow:0 3px 8px -4px rgba(30,40,90,.4);will-change:transform}
+@media (hover:none){.drop,.drop2{display:none}}
+.drop,.drop2{opacity:0;transition:opacity .35s,width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease)}.drop.show{opacity:1}
+/* top */
+header.hud{position:fixed;left:0;right:0;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;transition:background .4s,padding .4s;border-bottom:1px solid transparent}
+header.hud.s{padding:13px 40px;background:rgba(244,243,239,.72);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);border-bottom-color:var(--line)}
+header.hud b{font-weight:500;font-size:15px;letter-spacing:.02em}
+header.hud nav{display:flex;gap:30px;font-size:13.5px;align-items:center}
+header.hud nav a{color:var(--sub);transition:color .2s}
+header.hud nav a:hover{color:var(--ink)}
+header.hud nav a.k{color:var(--bg);background:var(--ink);border-radius:999px;padding:8px 16px}
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:110px 0 44px;position:relative}
+.stage{position:relative;min-height:260px}
+.ring{position:absolute;left:50%;top:50%;width:min(36vw,420px);aspect-ratio:1;translate:calc(-50% + var(--px,0px)) calc(-50% + var(--py,0px));border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 210deg,rgba(255,176,130,.6),rgba(255,232,160,.45),rgba(160,232,205,.5),rgba(138,176,255,.62),rgba(206,170,255,.5),rgba(255,176,130,.6));
+  -webkit-mask:radial-gradient(closest-side,transparent 63%,#000 67%,#000 77%,transparent 100%);mask:radial-gradient(closest-side,transparent 63%,#000 67%,#000 77%,transparent 100%);filter:blur(13px);opacity:.9;animation:spin 46s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+.who{position:absolute;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:4px;pointer-events:none}
+.who.l{left:0}.who.r{right:0;text-align:right}
+.who b{font-family:var(--serif);font-weight:400;font-size:17px}
+.copy{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end;padding-top:30px}
+.hero h1{font-family:var(--head);font-size:clamp(36px,5.6vw,82px);line-height:1.14;letter-spacing:-.035em;font-weight:var(--hw);margin:0}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 i{display:block;font-style:normal;transform:translateY(108%);animation:rise 1.1s var(--ease) forwards}
+.hero h1 span:nth-child(2) i{animation-delay:.14s}
+.hero h1 em{font-style:normal;font-family:var(--serif);font-weight:400;letter-spacing:-.045em;word-spacing:-.12em}
+.hero p{color:var(--sub);font-size:16.5px;margin:0 0 6px;font-weight:300;opacity:0;animation:fade 1s .6s forwards}
+.stats{display:flex;margin-top:40px;border-top:1px solid var(--line);opacity:0;animation:fade 1s .8s forwards}
+.stats div{flex:1;padding:16px 0 0}
+.stats div+div{padding-left:24px;border-left:1px solid var(--line)}
+.stats b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.01em}
+.stats span{font-size:12.5px;color:var(--mut)}
+@keyframes rise{to{transform:none}}@keyframes fade{to{opacity:1}}
+section{padding:130px 0}
+.sh{display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:end;margin-bottom:46px}
+.sh h2{font-family:var(--head);font-size:clamp(26px,3.3vw,46px);letter-spacing:-.03em;font-weight:var(--hw);margin:0;line-height:1.2}
+.sh h2 em{font-style:normal;font-family:var(--serif);font-weight:400}
+.sh p{color:var(--sub);margin:0;max-width:34ch;font-size:14.5px;font-weight:300}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+/* Work OS window */
+.os{border-radius:20px;background:rgba(251,250,247,.82);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);border:1px solid rgba(255,255,255,.9);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 60px 120px -60px rgba(30,40,90,.45),0 20px 40px -30px rgba(30,40,90,.3);overflow:hidden}
+.os-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--mut)}
+.os-bar i{width:9px;height:9px;border-radius:50%;background:var(--line2);display:block}
+.os-bar b{font-weight:400;margin-left:8px}
+.os-bar span{margin-left:auto;display:flex;align-items:center;gap:7px}
+.os-bar span::before{content:"";width:6px;height:6px;border-radius:50%;background:#e2a93b}
+.os-body{display:grid;grid-template-columns:186px 1fr;min-height:560px}
+.os-side{border-right:1px solid var(--line);padding:16px 10px;display:flex;flex-direction:column;gap:3px}
+.os-logo{display:flex;align-items:center;gap:9px;padding:4px 10px 14px;font-weight:600;letter-spacing:-.01em}
+.os-logo svg{width:22px;height:22px}
+.os-side button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:none;padding:9px 11px;border-radius:10px;font-size:14px;color:var(--sub);cursor:pointer;transition:background .2s,color .2s}
+.os-side button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.os-side button:hover{background:rgba(23,23,26,.05);color:var(--ink)}
+.os-side button.on{background:var(--ink);color:var(--bg)}
+.os-side button em{margin-left:auto;font-style:normal;font-size:11px;background:rgba(53,84,232,.12);color:var(--acc);border-radius:999px;padding:0 7px}
+.os-side button.on em{background:rgba(255,255,255,.2);color:#fff}
+.os-user{margin-top:auto;padding:10px;border:1px solid var(--line);border-radius:12px;font-size:12.5px;color:var(--mut)}
+.os-user b{display:block;color:var(--ink);font-weight:500;font-size:13.5px}
+.os-main{padding:26px 28px;min-width:0}
+.view{display:none}
+.view.on{display:block;animation:vin .45s var(--ease)}
+@keyframes vin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.vh{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:18px}
+.vh h3{font-size:21px;margin:0;font-weight:600;letter-spacing:-.02em}
+.vh p{margin:2px 0 0;color:var(--sub);font-size:13.5px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;padding:9px 17px;font-size:13.5px;font-weight:500;cursor:pointer;transition:opacity .2s;white-space:nowrap}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ask{border-radius:18px;padding:30px;background:linear-gradient(120deg,#2d49d6,#5b6ff0 60%,#8a7df2);color:#fff;position:relative;overflow:hidden}
+.ask::after{content:"";position:absolute;right:-60px;top:-80px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
+.ask h3{font-size:24px;margin:0 0 16px;font-weight:500;letter-spacing:-.02em}
+.ask .in{display:flex;gap:8px;background:#fff;border-radius:999px;padding:5px 5px 5px 18px;max-width:520px;position:relative;z-index:1}
+.ask input{flex:1;border:0;outline:0;background:none;color:var(--ink);font-size:14.5px;min-width:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}
+.chips button{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;transition:background .2s}
+.chips button:hover{background:rgba(255,255,255,.28)}
+.hcards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.hc{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(255,255,255,.6);font-size:13px;color:var(--sub)}
+.hc b{display:block;color:var(--ink);font-size:14px;margin-bottom:8px;font-weight:600}
+.hc div{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-top:1px solid var(--line)}
+.hc div span:last-child{color:var(--mut);white-space:nowrap}
+.think{display:none;align-items:center;gap:9px;font-size:13.5px;font-weight:500;margin:14px 0}
+.think.on{display:inline-flex}
+.think .t{background:linear-gradient(90deg,var(--sub) 0%,var(--sub) 40%,var(--acc) 50%,var(--sub) 60%,var(--sub) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 1.8s linear infinite}
+.think i{display:inline-flex;gap:3px}.think i b{width:4px;height:4px;border-radius:50%;background:var(--acc);animation:dot 1.1s infinite ease-in-out}.think i b:nth-child(2){animation-delay:.18s}.think i b:nth-child(3){animation-delay:.36s}
+@keyframes shim{from{background-position:120% 0}to{background-position:-100% 0}}@keyframes dot{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-2px)}}
+.done{display:none;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:rgba(14,117,83,.09);color:var(--ok);font-size:13.5px;font-weight:500;margin-top:12px}
+.done.on{display:flex;animation:vin .4s var(--ease)}
+.done svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.done small{color:var(--sub);font-weight:400;margin-left:auto}
+.two{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
+.rows{display:grid;gap:7px;align-content:start}
+.rows label{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:11px;padding:10px 12px;font-size:13.5px;cursor:pointer;color:var(--sub);background:rgba(255,255,255,.55);transition:.2s}
+.rows label:has(input:checked){border-color:var(--ink);color:var(--ink)}
+.rows input{width:15px;height:15px;accent-color:#17171a}
+.rows b{font-weight:500;font-size:13.5px;font-variant-numeric:tabular-nums}
+.rows small{display:block;color:var(--mut);font-size:11.5px}
+.panel{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(255,255,255,.7);min-height:260px;font-size:13.5px}
+.panel .big{font-family:var(--serif);font-size:30px;letter-spacing:-.01em;margin:2px 0 6px}
+table.dr{width:100%;border-collapse:collapse;font-size:13px}
+table.dr th,table.dr td{border-bottom:1px solid var(--line);padding:7px 5px;text-align:left;color:var(--sub)}
+table.dr th{color:var(--mut);font-weight:400;font-size:11.5px}
+table.dr td:last-child,table.dr th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+table.dr td[contenteditable]{outline:0;border-radius:4px}table.dr td[contenteditable]:focus{background:rgba(53,84,232,.08);color:var(--ink)}
+table.dr td .ai{font-size:10.5px;color:var(--acc);border:1px solid rgba(53,84,232,.3);border-radius:999px;padding:0 6px;margin-left:5px;white-space:nowrap}
+.wave{height:58px;display:flex;align-items:center;gap:3px;overflow:hidden}
+.wave i{flex:1;min-width:2px;border-radius:2px;background:var(--line2);height:12%;transition:height .12s}
+.wave.live i{background:var(--warm)}
+.rec-row{display:flex;align-items:center;gap:12px;margin-top:10px}
+.rec-row .tm{font-variant-numeric:tabular-nums;font-size:13.5px;color:var(--sub)}
+.dotr{width:9px;height:9px;border-radius:50%;background:var(--warm);animation:dot 1s infinite}
+.script{margin-top:12px;color:var(--sub);display:grid;gap:6px;max-height:190px;overflow:auto}
+.script p{margin:0;animation:vin .4s var(--ease)}.script b{color:var(--ink);font-weight:500;margin-right:6px}
+.panel h4{margin:0 0 6px;font-size:12px;color:var(--mut);font-weight:400}
+.panel ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px;color:var(--sub)}
+.panel li.c{display:flex;gap:9px;align-items:flex-start;cursor:pointer}
+.panel li.c i{flex:none;width:15px;height:15px;border:1px solid var(--line2);border-radius:4px;margin-top:3px;display:grid;place-items:center;font-style:normal;font-size:10px;color:#fff}
+.panel li.c.x{color:var(--mut);text-decoration:line-through}.panel li.c.x i{background:var(--ok);border-color:var(--ok)}
+.panel li.c small{margin-left:auto;color:var(--acc);white-space:nowrap}
+.empty{color:var(--mut);padding:44px 0;text-align:center}
+.nl{display:flex;gap:8px;background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:5px 5px 5px 16px;margin-bottom:10px}
+.nl input{flex:1;border:0;outline:0;background:none;font-size:14px;min-width:0}
+.ex{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.ex button{border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:999px;padding:4px 12px;font-size:12.5px;color:var(--sub);cursor:pointer}
+.ex button:hover{border-color:var(--line2);color:var(--ink)}
+.cal{display:grid;grid-template-columns:42px repeat(5,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.6);font-size:12px}
+.cal .hd{padding:8px;text-align:center;color:var(--sub);border-bottom:1px solid var(--line);border-left:1px solid var(--line);font-size:12.5px}
+.cal .hd:first-child{border-left:0}
+.cal .col{position:relative;border-left:1px solid var(--line);height:306px;background:repeating-linear-gradient(180deg,transparent 0 33px,var(--line) 33px 34px)}
+.cal .tcol{position:relative;height:306px}
+.cal .tcol span{position:absolute;right:6px;font-size:10.5px;color:var(--mut);translate:0 -50%;font-variant-numeric:tabular-nums}
+.cal .tcol span:first-child{translate:0 2px}
+.ev{position:absolute;left:4px;right:4px;border-radius:8px;padding:4px 7px;background:rgba(23,23,26,.07);color:var(--ink);overflow:hidden;line-height:1.35;font-size:11.5px;border:1px solid transparent}
+.ev small{display:block;color:var(--sub);font-size:10.5px}
+.ev.new{background:rgba(53,84,232,.14);border-color:rgba(53,84,232,.4);animation:pop .5s var(--ease)}
+.ev.todo{background:rgba(217,105,79,.13);border-color:rgba(217,105,79,.4)}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+/* modules */
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.mlist{border-top:1px solid var(--line)}
+.mrow{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:19px 4px;border-bottom:1px solid var(--line);cursor:pointer;transition:padding .35s var(--ease),color .25s;color:var(--mut)}
+.mrow.on,.mrow:hover{color:var(--ink);padding-left:14px}
+.mrow h3{font-size:clamp(16px,1.6vw,20px);font-weight:400;margin:0;letter-spacing:-.015em}
+.mrow .ar{opacity:0;transform:translateX(-6px);transition:.3s var(--ease);font-family:var(--serif)}
+.mrow.on .ar{opacity:1;transform:none}
+.mcard{position:sticky;top:110px;border:1px solid rgba(255,255,255,.9);border-radius:20px;padding:30px;background:rgba(251,250,247,.75);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);min-height:310px;box-shadow:0 40px 80px -50px rgba(30,40,90,.4)}
+.mcard h3{font-size:24px;margin:10px 0 18px;font-weight:500;letter-spacing:-.02em}
+.mcard dl{margin:0;display:grid;grid-template-columns:50px 1fr;gap:12px 14px;font-size:14.5px}
+.mcard dt{color:var(--mut)}.mcard dd{margin:0;color:var(--sub);font-weight:300}
+.mcard dd.r{color:var(--ink);font-family:var(--serif);font-size:16px}
+.mgrp{font-size:12px;color:var(--mut);padding:22px 4px 8px;border-bottom:1px solid var(--line)}
+.mgrp:first-child{padding-top:10px}
+.mrow{padding:15px 4px}
+.mcard .mwas{margin:0 0 14px;color:var(--mut);font-size:14px;font-weight:300;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.mcard .mwas::before{content:"기존 ";color:#a8452f;font-size:12px}
+.mhow{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px;color:var(--sub);font-size:14.5px;font-weight:300}
+.mhow li{display:grid;grid-template-columns:14px 1fr;gap:8px;align-items:baseline}
+.mhow li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink);transform:translateY(-3px)}
+.mres{font-family:var(--serif);font-size:19px;letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+.mcard{min-height:440px;padding:36px}.mcard h3{font-size:28px}.mcard .mwas{font-size:15px}.mhow{font-size:16px;gap:10px}.mres{font-size:22px}
+/* road */
+.road{position:relative;padding-left:160px}
+.road::before{content:"";position:absolute;left:170px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.road .fill{position:absolute;left:170px;top:8px;width:1px;height:0;background:var(--ink)}
+.st{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px 44px;padding:0 0 50px 48px}
+.st::before{content:"";position:absolute;left:6px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--line2);transition:.5s}
+.st.in::before{background:var(--ink);border-color:var(--ink);box-shadow:0 0 0 6px rgba(23,23,26,.07)}
+.st .yr{position:absolute;left:-160px;top:4px;width:140px;text-align:right}
+.st h3{font-size:clamp(18px,2vw,25px);margin:0;font-weight:400;letter-spacing:-.015em}
+.st h3 small{display:block;font-size:13px;color:var(--mut);margin-top:4px}
+.st p{margin:0;color:var(--sub);font-size:14.5px;font-weight:300}
+.st p em{display:block;font-style:normal;font-family:var(--serif);color:var(--ink);margin-top:6px;font-size:15px}
+.way{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.way div{padding:28px 24px 34px 0;border-bottom:1px solid var(--line)}
+.way div+div{padding-left:24px;border-left:1px solid var(--line)}
+.way h3{font-size:18px;margin:14px 0 6px;font-weight:500;letter-spacing:-.01em}
+.way p{margin:0;color:var(--sub);font-size:14px;font-weight:300}
+.end{min-height:78vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px}
+.end h2{font-family:var(--head);font-size:clamp(32px,5.4vw,80px);line-height:1.14;letter-spacing:-.035em;font-weight:var(--hw);margin:0}
+.end h2 em{font-style:normal;font-family:var(--serif);font-weight:400;color:var(--sub)}
+.end .btn{padding:14px 26px;font-size:15px}
+footer{padding:26px 0 60px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* more tabs */
+.advh{font-size:12px;color:var(--mut);margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+.adv{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.adv div{font-size:12.5px;color:var(--sub);background:rgba(23,23,26,.035);border-radius:11px;padding:11px 13px;line-height:1.5}
+.adv b{display:block;color:var(--ink);font-weight:600;font-size:13px;margin-bottom:2px}
+.vh .bts{display:flex;gap:8px;flex-wrap:wrap}
+.btn.g{background:transparent;color:var(--ink);border-color:var(--line2)}
+.sumline{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin:-6px 0 14px}
+.sumline b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.rows label.sel{border-color:var(--ink);color:var(--ink);background:rgba(255,255,255,.9)}
+.mt{display:block;height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:6px}
+.mt i{display:block;height:100%;border-radius:3px;background:var(--ink);transition:width .5s var(--ease)}
+.mt.w i{background:var(--warm)}
+.ck{list-style:none;margin:10px 0 14px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;color:var(--sub)}
+.ck li{display:flex;gap:7px;align-items:center}
+.ck li::before{content:"";width:14px;height:14px;border-radius:50%;border:1px solid var(--line2);flex:none}
+.ck li.y{color:var(--ink)}.ck li.y::before{background:var(--ok);border-color:var(--ok);box-shadow:inset 0 0 0 3px #fff}
+.tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid var(--line2);display:grid;gap:9px}
+.tl li{position:relative;color:var(--sub);animation:vin .4s var(--ease)}
+.tl li::before{content:"";position:absolute;left:-18px;top:7px;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+.panel ul.tl{margin:0;padding:0 0 0 18px;border-left:1px solid var(--line2);gap:10px}.panel ul.tl li::before{left:-22.5px}.panel ul.tl li{display:block}.panel ul.ck{margin:14px 0 16px;display:grid}
+.tl b{color:var(--ink);font-weight:600;margin-right:6px}.tl small{display:block;color:var(--mut);font-size:11.5px;font-variant-numeric:tabular-nums}
+.qrs{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:9px}
+.qr{border:1px solid var(--line2);border-radius:10px;padding:9px;background:#fff;text-align:center;font-size:11px;color:var(--sub);animation:pop .4s var(--ease) both}
+.qr svg{width:100%;height:auto;display:block;margin-bottom:6px;fill:#17171a}
+.qr b{display:block;color:var(--ink);font-size:11.5px;font-variant-numeric:tabular-nums}
+.form{display:grid;grid-template-columns:76px 1fr;gap:7px 10px;align-items:center;margin:8px 0 12px}
+.form span{color:var(--mut);font-size:12.5px}
+.form div{border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:#fff;min-height:32px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.form div em{font-style:normal;font-size:10.5px;color:var(--acc);border:1px solid rgba(53,84,232,.3);border-radius:999px;padding:0 6px;white-space:nowrap}
+.tg{font-size:11px;border-radius:999px;padding:1px 8px;margin-left:6px;white-space:nowrap;background:rgba(217,105,79,.12);color:#a8452f}
+.tg.b{background:rgba(53,84,232,.1);color:var(--acc)}.tg.o{background:rgba(14,117,83,.1);color:var(--ok)}
+.seat{display:inline-block;width:70px;vertical-align:middle;margin-right:8px}
+.mini{border:1px solid var(--line2);background:#fff;border-radius:999px;padding:3px 11px;font-size:12px;cursor:pointer}
+.mini:hover{border-color:var(--ink)}
+.box{border-radius:11px;background:rgba(53,84,232,.06);padding:11px 13px;margin-top:12px;color:var(--sub);line-height:1.6}
+.box b{color:var(--ink)}
+.risk{width:100%;border-collapse:collapse;font-size:13px}
+.risk td,.risk th{border-bottom:1px solid var(--line);padding:7px 4px;text-align:left;color:var(--sub)}
+.risk th{color:var(--mut);font-weight:400;font-size:11.5px}
+.risk select{border:1px solid var(--line2);border-radius:7px;background:#fff;padding:3px 4px;font:inherit;font-size:12.5px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.meta span{font-size:12px;border-radius:999px;padding:3px 10px;background:rgba(23,23,26,.05);color:var(--sub)}
+.meta span b{color:var(--ink);font-weight:600}
+/* safety automation + family event */
+.three{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.hc2{display:flex;align-items:baseline;gap:10px;margin:2px 0 8px}
+.hc2 b{font-family:var(--serif);font-weight:var(--sw);font-size:30px;letter-spacing:-.02em}
+.hc2 span{color:var(--mut);font-size:12.5px}
+.lg{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px;color:var(--sub)}
+.lg li{display:flex;gap:8px;align-items:baseline;animation:vin .4s var(--ease)}
+.lg li small{margin-left:auto;color:var(--mut);white-space:nowrap}
+.photo{position:relative;height:150px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(23,23,26,.06),rgba(23,23,26,.12));border:1px solid var(--line)}
+.photo i{position:absolute;display:block;border-radius:4px}
+.photo .wall{left:0;right:0;bottom:0;height:34%;background:rgba(23,23,26,.1);border-radius:0}
+.photo .ext{left:16%;bottom:16%;width:22px;height:54px;background:var(--warm);border-radius:8px 8px 5px 5px}
+.photo .bx1{left:9%;bottom:14%;width:74px;height:46px;background:rgba(160,120,70,.75)}
+.photo .bx2{left:13%;bottom:40%;width:56px;height:36px;background:rgba(160,120,70,.6)}
+.photo .rack{right:8%;bottom:14%;width:120px;height:96px;border:3px solid rgba(23,23,26,.35);background:repeating-linear-gradient(180deg,transparent 0 28px,rgba(23,23,26,.35) 28px 31px)}
+.photo .mark{left:6%;bottom:8%;width:112px;height:104px;border:2px solid var(--warm);border-radius:10px;opacity:0;transition:opacity .4s}
+.photo .mark::after{content:"소화기 앞 적치물";position:absolute;left:0;top:-22px;font-size:11px;font-style:normal;background:var(--warm);color:#fff;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.photo.found .mark{opacity:1;animation:hitp 1.2s ease-in-out 3}
+.photo .scan{left:0;right:0;top:0;height:3px;background:var(--acc);border-radius:0;opacity:0}
+.photo.scanning .scan{opacity:.8;animation:scanl 1.2s ease-in-out infinite}
+@keyframes scanl{0%{top:0}50%{top:calc(100% - 3px)}100%{top:0}}
+.risk tr.new td{animation:newrow 2.4s ease-out}
+@keyframes newrow{0%,40%{background:rgba(217,105,79,.16)}100%{background:transparent}}
+.fsel{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.fsel select{border:1px solid var(--line2);border-radius:999px;background:#fff;padding:7px 12px;font:inherit;font-size:13.5px}
+.jobs{display:grid;gap:9px}
+.job{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.75);animation:vin .45s var(--ease) both}
+.job .sys{font-size:11.5px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap;background:rgba(23,23,26,.07);color:var(--ink)}
+.job .sys.erp{background:rgba(53,84,232,.12);color:var(--acc)}.job .sys.gw{background:rgba(14,117,83,.12);color:var(--ok)}
+.job b{display:block;font-weight:600}.job span{color:var(--sub);font-size:13px}
+.job .stt{font-size:12px;color:var(--ok);white-space:nowrap}
+.rule{border-radius:11px;background:rgba(23,23,26,.04);padding:11px 13px;color:var(--sub);margin-bottom:12px;line-height:1.6}
+.rule b{color:var(--ink)}
+@media (max-width:980px){.three{grid-template-columns:1fr}.job{grid-template-columns:1fr}}
+/* floor map: 2D / 3D */
+.fstage{perspective:1300px;perspective-origin:50% 20%;padding:34px 0 30px;overflow:hidden;border-radius:12px}
+.fmap{position:relative;width:100%;aspect-ratio:2/1;transform-style:preserve-3d;transition:transform 1.2s var(--ease),box-shadow 1.2s var(--ease);border-radius:10px;border:1px solid var(--line2);
+  background:linear-gradient(rgba(23,23,26,.05) 1px,transparent 1px) 0 0/100% 12.5%,linear-gradient(90deg,rgba(23,23,26,.05) 1px,transparent 1px) 0 0/6.25% 100%,rgba(255,255,255,.6)}
+.fmap[data-mode="3d"]{transform:rotateX(56deg) rotateZ(calc(-32deg + var(--rz,0deg))) scale(.9);box-shadow:-8px 8px 0 -1px rgba(23,23,26,.1),-34px 44px 50px -22px rgba(30,40,90,.4)}
+.fmap .zn{position:absolute;left:3%;font-size:10px;color:var(--mut)}
+.fmap .rm{position:absolute;border:1px dashed var(--line2);border-radius:8px;background:rgba(23,23,26,.04);padding:6px 8px;font-size:10px;color:var(--mut);line-height:1.35;transition:transform .9s var(--ease) .1s,box-shadow .9s var(--ease) .1s,background .6s}
+.fmap .rm b{display:block;color:var(--ink);font-size:12px;font-weight:500}
+.fmap[data-mode="3d"] .rm{transform:translateZ(26px);background:rgba(255,255,255,.82);border-style:solid;box-shadow:-24px 24px 16px -10px rgba(30,40,90,.28)}
+.st2{position:absolute;box-sizing:border-box;border:1px solid var(--line2);border-radius:9px;background:rgba(255,255,255,.96);padding:5px 8px;font-size:10px;color:var(--mut);cursor:pointer;line-height:1.35;transform-style:preserve-3d;
+  transition:transform .8s var(--ease) calc(var(--i)*45ms),box-shadow .8s var(--ease) calc(var(--i)*45ms),background .3s,border-color .3s}
+.st2 b{display:block;font-size:12px;color:var(--ink);font-weight:500;white-space:nowrap}
+.st2.e{background:rgba(255,255,255,.25);border-style:dashed}
+.fmap[data-mode="3d"] .st2{transform:translateZ(14px);box-shadow:-13px 13px 11px -7px rgba(30,40,90,.32)}
+.fmap[data-mode="3d"] .st2.e{transform:translateZ(2px);box-shadow:none}
+.fmap[data-mode="3d"] .st2.hit,.fmap[data-mode="3d"] .st2.rec,.fmap[data-mode="3d"] .st2.sel,.fmap[data-mode="3d"] .st2.pick{transform:translateZ(24px);box-shadow:-22px 22px 16px -9px rgba(30,40,90,.34)}
+.st2:hover{border-color:var(--ink)}
+.st2.sel{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.st2.hit{background:#e6ebff;border-color:var(--acc)}.st2.pick{background:#fbe6df;border-color:var(--warm)}.st2.rec{background:#dff3ea;border-color:var(--ok)}
+.st2.hit::after,.st2.rec::after{content:"";position:absolute;inset:-2px;border-radius:11px;border:2px solid var(--acc);animation:ringp 1.5s ease-out infinite;pointer-events:none}
+.st2.rec::after{border-color:var(--ok)}
+@keyframes ringp{from{transform:scale(1);opacity:.9}to{transform:scale(1.4);opacity:0}}
+.pin{display:none;position:absolute;left:50%;top:50%;transform-origin:0 0;pointer-events:none;transform:translateZ(34px) rotateZ(calc(32deg - var(--rz,0deg))) rotateX(-56deg) translate(-50%,-100%)}
+.pin span{display:block;background:var(--ink);color:#fff;border-radius:999px;padding:3px 10px;font-size:12px;white-space:nowrap;box-shadow:0 8px 14px -6px rgba(0,0,0,.45);animation:pinb 1.3s ease-in-out infinite}
+.pin span::after{content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;background:var(--ink);transform:translateX(-50%) rotate(45deg);border-radius:1px}
+.st2.hit .pin span,.st2.hit .pin span::after{background:var(--acc)}.st2.rec .pin span,.st2.rec .pin span::after{background:var(--ok)}
+.fmap[data-mode="3d"] .st2.hit .pin,.fmap[data-mode="3d"] .st2.rec .pin,.fmap[data-mode="3d"] .st2.sel .pin,.fmap[data-mode="3d"] .st2.pick .pin{display:block}
+@keyframes pinb{50%{transform:translateY(-6px)}}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:2px;background:#fff;margin-bottom:8px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:4px 14px;font-size:12.5px;cursor:pointer;color:var(--sub)}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.fly{position:fixed;left:0;top:0;z-index:90;pointer-events:none;background:var(--ink);color:#fff;border-radius:999px;padding:4px 11px;font-size:12px;white-space:nowrap;box-shadow:0 10px 20px -8px rgba(0,0,0,.5)}
+@media (prefers-reduced-motion:reduce){.fmap,.st2,.fmap .rm{transition:none}.st2.hit::after,.st2.rec::after,.pin span{animation:none}}
+.hits{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px}
+.hits li{border:1px solid var(--line);border-radius:10px;padding:8px 11px;background:#fff;color:var(--sub);cursor:pointer}
+.hits li b{color:var(--ink);font-weight:600;margin-right:6px}
+/* why */
+.why{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch}
+.wcol{border-radius:20px;padding:28px;border:1px solid var(--line)}
+.wcol.was{background:rgba(23,23,26,.03)}
+.wcol.now{background:rgba(251,250,247,.8);border-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);box-shadow:0 40px 80px -56px rgba(30,40,90,.45)}
+.wcol h3{margin:0 0 4px;font-size:13px;font-weight:400;color:var(--mut)}
+.wcol .hd{font-family:var(--serif);font-weight:var(--sw);font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;margin:0 0 18px;line-height:1.3}
+.wcol ol{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:w}
+.wcol li{counter-increment:w;display:grid;grid-template-columns:26px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.wcol li::before{content:counter(w);font-family:var(--serif);color:var(--mut)}
+.wcol.was li{color:var(--sub)}.wcol.was li em{font-style:normal;color:#a8452f;font-size:12.5px;display:block}
+.wcol.now li em{font-style:normal;color:var(--ok);font-size:12.5px;display:block}
+.warr{display:grid;place-items:center;color:var(--mut);font-size:22px}
+.wsay{margin:34px 0 0;font-size:clamp(17px,1.8vw,22px);line-height:1.6;max-width:44ch;font-weight:300;color:var(--sub)}
+.wsay b{color:var(--ink);font-weight:500}
+.adv s{display:block;text-decoration:none;color:var(--mut);font-size:12px;margin-bottom:7px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.adv s::before{content:"기존 ";color:#a8452f}
+.adv b::before{content:"지금 ";color:var(--ok);font-weight:500;font-size:12px}
+@media (max-width:980px){.why{grid-template-columns:1fr}.warr{padding:10px 0;transform:rotate(90deg)}}
+/* numbers band */
+.nums{display:grid;grid-template-columns:repeat(6,1fr);margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums div{padding:22px 0 20px 20px;border-left:1px solid var(--line)}
+.nums div:first-child{padding-left:0;border-left:0}
+.nums b{display:block;font-family:var(--serif);font-weight:var(--sw);font-size:clamp(24px,2.6vw,36px);letter-spacing:-.02em;line-height:1.1}
+.nums b small{font-size:.5em;margin-left:2px;font-family:var(--sans);font-weight:400;color:var(--sub)}
+.nums span{font-size:12.5px;color:var(--mut)}
+.note{display:block;margin-top:12px}
+/* results */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.case{border:1px solid rgba(255,255,255,.9);border-radius:20px;padding:28px;background:rgba(251,250,247,.72);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);box-shadow:0 40px 80px -56px rgba(30,40,90,.4);display:flex;flex-direction:column;gap:12px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.case:hover{transform:translateY(-4px);box-shadow:0 50px 90px -52px rgba(30,40,90,.5)}
+.case.w{grid-column:span 2}
+.case h3{font-size:clamp(19px,2vw,25px);margin:0;font-weight:500;letter-spacing:-.02em}
+.case p{margin:0;color:var(--sub);font-size:14.5px;font-weight:300}
+.case .big{font-family:var(--serif);font-weight:var(--sw);font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.03em;margin-top:auto;padding-top:10px}
+.case .big small{font-size:.32em;font-family:var(--sans);color:var(--sub);margin-left:6px;letter-spacing:0}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 2px;font-size:14px}
+.flow span{padding:7px 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.5)}
+.flow i{font-style:normal;color:var(--mut)}
+.flow span:last-of-type{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:auto;border-top:1px solid var(--line)}
+.kpi div{padding:16px 0 0 18px;border-left:1px solid var(--line)}
+.kpi div:first-child{padding-left:0;border-left:0}
+.kpi b{display:block;font-family:var(--serif);font-weight:var(--sw);font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;line-height:1.1}
+.kpi span{font-size:12.5px;color:var(--mut)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tags span{font-size:12.5px;padding:5px 11px;border-radius:999px;background:rgba(23,23,26,.05);color:var(--sub)}
+.funnel{display:flex;align-items:flex-start;gap:12px;margin-top:auto;padding-top:10px;font-family:var(--serif);font-weight:var(--sw);letter-spacing:-.03em}
+.funnel b{font-weight:inherit;font-size:clamp(34px,4vw,56px);line-height:1;color:var(--mut)}
+.funnel span{display:flex;flex-direction:column;gap:6px}.funnel em{font-style:normal;font-family:var(--sans);font-size:12px;letter-spacing:0;color:var(--mut)}.funnel span:last-child b{color:var(--ink)}
+.funnel i{font-style:normal;color:var(--mut);font-size:18px;font-family:var(--sans)}
+/* AX */
+.ax{border-top:1px solid var(--line)}
+.axr{display:grid;grid-template-columns:1fr 40px 1.3fr;gap:16px;align-items:center;padding:24px 4px;border-bottom:1px solid var(--line)}
+.axr h3{margin:0;font-size:clamp(17px,1.9vw,23px);font-weight:400;letter-spacing:-.015em;color:var(--mut)}
+.axr .to{color:var(--mut);text-align:center}
+.axr div h3{color:var(--ink);font-weight:500}
+.axr div p{margin:4px 0 0;color:var(--sub);font-size:14px;font-weight:300}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;position:relative}
+.days::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:var(--line2)}
+.days div{position:relative;padding:26px 20px 0 0}
+.days div::before{content:"";position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:var(--ink)}
+.days b{display:block;font-family:var(--serif);font-weight:var(--sw);font-size:clamp(26px,3vw,40px);letter-spacing:-.02em;line-height:1.1}
+.days b small{font-size:.4em;font-family:var(--sans);color:var(--mut);margin-right:6px;font-weight:400}
+.days h3{margin:8px 0 2px;font-size:16px;font-weight:500}
+.days p{margin:0;color:var(--sub);font-size:14px;font-weight:300}
+.way p small{display:block;margin-top:12px;font-size:12.5px;color:var(--mut);line-height:1.5}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0 208px}
+.creds span{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line2);color:var(--sub);background:rgba(255,255,255,.45)}
+.links{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.links a.t{font-size:14.5px;color:var(--sub);border-bottom:1px solid var(--line2);padding-bottom:2px}
+/* typeface try-out (draft only) */
+.fsw{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:4px;padding:5px 6px 5px 14px;border-radius:999px;font-size:12.5px;color:var(--sub);background:rgba(251,250,247,.8);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 14px 30px -18px rgba(30,40,90,.5)}
+.fsw button{border:0;background:transparent;border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--sub)}
+.fsw button.on{background:var(--ink);color:var(--bg)}
+@media (max-width:980px){.nums{grid-template-columns:repeat(2,1fr)}.nums div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.nums div:nth-child(-n+2){border-top:0}.cases{grid-template-columns:1fr}.case.w{grid-column:auto}.adv{grid-template-columns:1fr}.ck{grid-template-columns:1fr}.axr{grid-template-columns:1fr;gap:4px}.axr .to{display:none}.days{grid-template-columns:1fr;gap:22px}.days::before{display:none}.creds{margin-left:36px}.fsw{right:10px;bottom:10px}}
+@media (max-width:980px){.wrap{padding:0 20px}header.hud,header.hud.s{padding:14px 20px}header.hud nav a:not(.k){display:none}.copy{grid-template-columns:1fr;gap:16px}.stats{flex-wrap:wrap}.stats div{flex:1 1 40%;padding-bottom:12px}.stats div:nth-child(3){padding-left:0;border-left:0}.sh{grid-template-columns:1fr;gap:8px;align-items:start}.os-body{grid-template-columns:1fr}.os-side{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px}.os-logo,.os-user{display:none}.os-side button{width:auto;white-space:nowrap}.os-main{padding:18px 16px}.two,.hcards{grid-template-columns:1fr}.vh{flex-direction:column;align-items:flex-start}.mods{grid-template-columns:1fr;gap:24px}.mcard{position:static}.road{padding-left:0}.road::before,.road .fill{left:10px}.st{grid-template-columns:1fr;padding-left:36px}.st .yr{position:static;width:auto;text-align:left}.way{grid-template-columns:1fr 1fr}.way div{padding-left:0!important;border-left:0!important;padding-right:14px}section{padding:84px 0}.who{display:none}.ring{width:64vw}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 i{transform:none}.hero p,.stats,.rv{opacity:1;transform:none}.drop,.drop2{display:none}}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+/* pages: one part at a time */
+html,body{height:100%;overflow:hidden}
+main .wrap{max-width:none;padding:0}
+.pg{position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;padding:104px max(40px,calc((100vw - 1120px) / 2)) 96px;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(56px);transition:opacity .5s var(--ease),transform .6s var(--ease),visibility 0s .6s;scrollbar-width:thin}
+.pg.on{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .55s var(--ease) .08s,transform .65s var(--ease) .08s,visibility 0s}
+.pg.left{transform:translateX(-56px)}
+section.pg{padding-top:104px;padding-bottom:96px}
+.pg.hero{min-height:0;height:100%;padding-top:96px;padding-bottom:84px}
+.pg.end{min-height:0;justify-content:center}
+.pager{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:6px;padding:5px;border-radius:999px;background:rgba(251,250,247,.86);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 16px 34px -20px rgba(30,40,90,.5);font-size:13px;color:var(--sub)}
+.pager button{border:0;background:transparent;border-radius:999px;height:34px;padding:0 14px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;transition:background .2s,opacity .2s}
+.pager button:hover{background:rgba(23,23,26,.06)}.pager button[disabled]{opacity:.3;cursor:default;background:transparent}
+.pager button.nx{background:var(--ink);color:var(--bg)}.pager button.nx[disabled]{background:var(--ink)}
+.pager .at{min-width:150px;text-align:center;white-space:nowrap}.pager .at b{font-family:var(--serif);font-weight:var(--sw);color:var(--ink);margin-right:8px;font-variant-numeric:tabular-nums}
+.pbar{position:fixed;left:0;top:0;height:2px;width:100%;z-index:45;background:transparent;pointer-events:none}
+.pbar i{display:block;height:100%;width:0;background:var(--ink);transition:width .6s var(--ease)}
+footer{position:fixed;left:0;right:0;bottom:64px;padding:0;border:0;z-index:3;opacity:0;pointer-events:none;transition:opacity .4s}
+body[data-last="1"] footer{opacity:1}
+footer .wrap{max-width:1120px;margin:0 auto;padding:0 40px}
+.fsw{bottom:18px}
+@media (max-width:980px){.pg{padding:84px 20px 92px}section.pg{padding-top:84px;padding-bottom:92px}.pager .at{min-width:92px}.pager .at span{display:none}.pager button{padding:0 11px}.fsw{display:none}footer{display:none}}
+@media (prefers-reduced-motion:reduce){.pg,.pg.on{transition:none;transform:none}}
+/* v17 journey *//* v17b */.wsay,.st p,.st h3{word-break:keep-all;overflow-wrap:break-word}.wsay{max-width:none}#road .st.rv{transition-delay:calc(var(--k,0) * .3s + .25s)}#road .st::before{transition-delay:calc(var(--k,0) * .3s + .25s)}.road .fill{transition:height 2.3s cubic-bezier(.4,0,.2,1) .3s}.st p b{color:var(--ink);font-weight:500}.st.now{isolation:isolate;padding-top:22px;padding-right:26px;padding-bottom:26px;margin-bottom:22px}.st.now::after{content:"";position:absolute;left:30px;right:0;top:0;bottom:0;border-radius:18px;background:linear-gradient(100deg,rgba(53,84,232,.1),rgba(53,84,232,.03));z-index:-1}.st.now::before{top:33px}.st.now .yr{top:27px;color:var(--acc);font-weight:600}.st.now.in::before{width:13px;height:13px;left:4px;top:31px;background:var(--acc);border-color:var(--acc);box-shadow:0 0 0 7px rgba(53,84,232,.14);animation:nowp 2.6s ease-in-out 2.6s infinite}@keyframes nowp{0%,100%{box-shadow:0 0 0 7px rgba(53,84,232,.14)}50%{box-shadow:0 0 0 13px rgba(53,84,232,.04)}}.st.now h3{font-size:clamp(23px,2.7vw,34px);font-weight:500;color:var(--ink)}.st.now p{font-size:16px}.nowtag{display:inline-block;margin-left:12px;padding:4px 11px;border-radius:999px;background:var(--acc);color:#fff;font:600 12px/1.3 var(--sans);letter-spacing:0;vertical-align:middle;position:relative;top:-3px}@media (max-width:980px){.st.now::after{left:26px}.st.now{padding-right:16px}}@media (prefers-reduced-motion:reduce){.st.now.in::before{animation:none}.road .fill{transition:none}}
+/* v16 pager clearance */.pg{inset:0 0 68px 0;-webkit-mask-image:linear-gradient(#000 calc(100% - 30px),transparent);mask-image:linear-gradient(#000 calc(100% - 30px),transparent)}section.pg,.pg,.pg.hero{padding-bottom:44px}.pg.hero{-webkit-mask-image:none;mask-image:none}@media (max-width:980px){.pg,section.pg{padding-bottom:36px}}
+
+
+/* dots stay behind: cards, tables and the try-out window are opaque so the moving dots never show through them */
+.os,.case,.mcard,.wcol.now{background:#faf9f6;-webkit-backdrop-filter:none;backdrop-filter:none}
+.wcol.was{background:#eceae5}
+.creds span,.flow span{background:#f8f7f3}.flow span:last-of-type{background:var(--ink)}
+.way,.ax,.days,.nums,.road .st,.wsay,.sh h2,.sh p{position:relative}
+.nums,.way,.ax{background:var(--bg)}
+/* boxes with their own background need room on the left, or the first column looks cut off */
+.way div:first-child{padding-left:24px}.nums div:first-child{padding-left:20px}.axr{padding-left:20px;padding-right:20px}
+.way,.nums,.ax{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+/* module list: tighter rows */
+.mrow{padding:9px 4px}.mrow.on,.mrow:hover{padding-left:12px}.mgrp{padding:14px 4px 6px}.mgrp:first-child{padding-top:6px}.mrow h3{font-size:clamp(15px,1.4vw,18px)}
+@media (max-width:980px){.way div:first-child{padding-left:0!important}.nums div:first-child{padding-left:0}.way,.nums,.ax{border-left:0;border-right:0}.axr{padding-left:4px;padding-right:4px}}
+</style>
 </head>
 <body>
-<div class="sky" aria-hidden="true"></div>
-<a class="skip" href="#main">본문으로 건너뛰기</a>
+<canvas id="field" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="halo" id="halo" aria-hidden="true"></div>
+<div class="drop2" aria-hidden="true"></div><div class="drop" aria-hidden="true"></div>
+<header class="hud" id="hud"><b>배은총</b><nav><a href="#why">시작</a><a href="#os">Work OS</a><a href="#mods">모듈</a><a href="#cases">성과</a><a href="#ax">AI 도입</a><a href="#road">여정</a><a href="#contact">연락</a><a href="#os" class="k">직접 써 보기</a></nav></header>
 
-<header class="topbar">
-  <div class="in">
-    <a class="brand" href="#top"><i aria-hidden="true">배</i>배은총<small>총무 · 경영지원</small></a>
-    <nav class="nav" aria-label="구역">
-      <a href="#cases">주요 성과</a>
-      <a href="#way">일하는 방식</a>
-      <a href="#work" class="opt">하는 일</a>
-      <a href="#ax" class="opt">AX 도입</a>
-      <a href="#contact">연락</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-
-<!-- 첫 화면 -->
-<div class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="eb r">총무 · 경영지원 7년</span>
-        <h1 class="r" style="--i:1">기준이 없는 일에<br><span class="grad">기준을 세웁니다.</span></h1>
-        <p class="lead r" style="--i:2">
-          관련 부서와 함께 규정과 체계를 세우고, 반복되는 총무 업무는
-          <b>사내 업무 플랫폼 Work OS</b>에 모아 구성원들과 함께 쓰고 있습니다.
-        </p>
-        <div class="pil r" style="--i:3">
-          <div style="color:var(--c1)"><i></i><b>자산관리 TF</b><span>리드</span></div>
-          <div style="color:var(--c2)"><i></i><b>조직문화발전위원회</b><span>위원장</span></div>
-          <div style="color:var(--c3)"><i></i><b>Work OS</b><span>기획 · 운영</span></div>
-        </div>
-        <div class="cta r" style="--i:4">
-          <a class="btn pri" href="#cases">주요 성과 보기</a>
-          <a class="btn sec" href="#contact">연락하기</a>
-        </div>
+<main>
+<div class="wrap">
+  <div class="hero" data-shape="0">
+    <div class="stage">
+      <div class="ring" id="ring" aria-hidden="true"></div>
+      <div class="who l" aria-hidden="true"><b>사람</b><span class="m">묻고, 고르고, 결정합니다</span></div>
+      <div class="who r" aria-hidden="true"><b>AI</b><span class="m">찾고, 정리하고, 초안을 씁니다</span></div>
+    </div>
+    <div>
+      <div class="copy">
+        <h1><span><i>사람과 AI 사이를</i></span><span><i><em>잇는 일</em>을 합니다.</i></span></h1>
+        <p>현업의 불편을 듣고, AI 가 초안을 만들고, 사람이 결정합니다. 그 사이를 잇는 사내 업무 플랫폼 Work OS 를 직접 만들었습니다.</p>
       </div>
-      <div class="gather" role="img" aria-label="자산 · 인허가 · 규정 · 계약 · 정산 · 안전보건 · 복리후생 · 조직문화 · Work OS · AX 낱말이 가운데로 모여 배은총 프로필 사진이 되는 그림">
-        <svg class="g-rings" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".25"/>
-          <g class="spinr"><circle cx="50" cy="50" r="29" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".25" stroke-dasharray=".8 1.8"/></g>
-          <g class="spin"><circle cx="90" cy="50" r=".9" fill="#fff"/><circle cx="21.7" cy="78.3" r=".6" fill="#cfe0ff"/><circle cx="35" cy="13" r=".5" fill="#cfe0ff"/></g>
-        </svg>
-        <div class="g-core" aria-hidden="true">
-          <span class="g-glow"></span>
-          <picture><source srcset="assets/profile.webp" type="image/webp"><img src="assets/profile.jpg" width="240" height="320" alt=""></picture>
-        </div>
-        <div class="g-name" aria-hidden="true"><b>배은총</b><span>총무 · 경영지원</span></div>
-        <span class="w" style="--c:var(--c1);--sx:-8%;--sy:22%;--fx:50%;--fy:10%;--d:0s">자산</span>
-        <span class="w" style="--c:var(--c2);--sx:108%;--sy:4%;--fx:73.5%;--fy:17.6%;--d:.06s">규정</span>
-        <span class="w" style="--c:var(--c3);--sx:112%;--sy:46%;--fx:88%;--fy:37.6%;--d:.12s">Work OS</span>
-        <span class="w" style="--c:var(--c1);--sx:110%;--sy:88%;--fx:88%;--fy:62.4%;--d:.18s">인허가</span>
-        <span class="w" style="--c:var(--c2);--sx:66%;--sy:112%;--fx:73.5%;--fy:82.4%;--d:.24s">조직문화</span>
-        <span class="w" style="--c:var(--c3);--sx:18%;--sy:110%;--fx:50%;--fy:90%;--d:.3s">AX</span>
-        <span class="w" style="--c:var(--c1);--sx:-12%;--sy:74%;--fx:26.5%;--fy:82.4%;--d:.36s">계약</span>
-        <span class="w" style="--c:var(--c2);--sx:-14%;--sy:46%;--fx:12%;--fy:62.4%;--d:.42s">안전보건</span>
-        <span class="w" style="--c:var(--c3);--sx:30%;--sy:-12%;--fx:12%;--fy:37.6%;--d:.48s">복리후생</span>
-        <span class="w" style="--c:var(--c1);--sx:82%;--sy:-10%;--fx:26.5%;--fy:17.6%;--d:.54s">정산</span>
+      <div class="stats">
+        <div><b data-n="72" data-s="개">0</b><span>직원이 매일 여는 업무 화면</span></div>
+        <div><b data-n="470" data-s="번+">0</b><span>넉 달 동안 고쳐서 다시 내보낸 횟수</span></div>
+        <div><b data-n="29" data-s="개">0</b><span>업무를 대신 돕는 AI 도우미</span></div>
+        <div><b data-n="8" data-s="년">0</b><span>가게 운영부터 회사 실무까지</span></div>
       </div>
     </div>
-
-    <div class="stats" aria-label="숫자로 보는 경력">
-      <div class="card stat r" style="--tc:var(--c1)"><div class="n"><span data-count="7">7</span><small>년</small></div><div class="t">총무 · 경영지원</div><div class="d">인허가 · 자산 · 구매 · 안전보건</div></div>
-      <div class="card stat r" style="--tc:var(--c1);--i:1"><div class="n"><span data-count="4">4</span><small>종</small></div><div class="t">AI 자동화 실증</div><div class="d">전사 추진안 발의 · AX 도입 기획</div></div>
-      <div class="card stat r" style="--tc:var(--c2);--i:2"><div class="n"><span data-count="10">10</span>+<small>종</small></div><div class="t">규정 · 지침 제 · 개정</div><div class="d">안전보건 · 자산 · 출장 · 업무환경 등</div></div>
-      <div class="card stat r" style="--tc:var(--c3);--i:3"><div class="n"><span data-count="4">4</span>+<small>건</small></div><div class="t">TF 리드</div><div class="d">자산관리 · 근무복 · 출장 · 산업안전</div></div>
-    </div>
   </div>
-</div>
 
-<!-- 대표 사례 -->
-<section id="cases" aria-labelledby="h-cases">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eb r">주요 성과</span>
-      <h2 id="h-cases" class="r" style="--i:1">중요한 일을, <span class="em">끝까지</span></h2>
+  <section id="why" data-shape="2">
+    <div class="sh rv"><span class="no"><b>01</b>시작</span><h2>출장 한 번에 <em>같은 내용을 세 번</em></h2><p>Work OS 는 제가 직접 겪은 불편 하나에서 시작했습니다.</p></div>
+    <div class="why rv">
+      <div class="wcol was"><h3>기존</h3><p class="hd">다녀온 뒤가 더 바빴습니다</p><ol>
+        <li><span>출장 신청서를 올린다</span></li>
+        <li><span>다녀와서 엑셀에 출장 내역을 하나하나 다시 적는다<em>이미 신청서에 쓴 내용</em></span></li>
+        <li><span>유류비는 사이트에서 찾아 복사해 온다</span></li>
+        <li><span>거리와 여비를 손으로 계산한다<em>틀리면 반려, 빠지면 못 받음</em></span></li>
+        <li><span>청구서에 같은 내용을 또 적는다</span></li></ol></div>
+      <div class="warr" aria-hidden="true">→</div>
+      <div class="wcol now"><h3>지금</h3><p class="hd">확인하고 상신만 합니다</p><ol>
+        <li><span>출장 신청서를 올린다</span></li>
+        <li><span>다녀오면 신청한 내용이 정산 목록에 그대로 있다<em>다시 적지 않음</em></span></li>
+        <li><span>거리 · 유류비 · 여비가 규정대로 계산돼 있다</span></li>
+        <li><span>청구서 초안이 만들어져 있다<em>출장 문서와 기록을 1:1 로 대조해 누락 0건</em></span></li></ol></div>
     </div>
+    <p class="wsay rv">누가 시킨 일이 아니었습니다. <b>제가 불편했고, 제가 고치고 싶었습니다.</b> 이 하나를 고친 방식을 정산, 회의록, 일정, 자산, 안전으로 넓힌 것이 Work OS 입니다. 아래 화면은 기능마다 기존과 지금을 함께 적었습니다.</p>
+  </section>
+
+  <section id="os" data-shape="1">
+    <div class="sh rv"><span class="no"><b>02</b>Work OS</span><h2>설명 대신, <em>직접 써 보세요</em></h2><p>실제 화면을 옮긴 체험판입니다. 자료는 모두 가짜이고 어디에도 보내지 않습니다.</p></div>
+    <div class="os rv" id="osw">
+      <div class="os-bar"><i></i><i></i><i></i><b>work-os · 체험</b><span>가짜 자료로 움직입니다</span></div>
+      <div class="os-body">
+        <div class="os-side" id="osnav">
+          <div class="os-logo">Work OS</div>
+          <button class="on" data-v="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg>홈</button>
+          <button data-v="settle"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>정산<em>5</em></button>
+          <button data-v="rec"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>회의록</button>
+          <button data-v="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>일정</button>
+          <button data-v="asset"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3h-3zM20 17v3h-3"/></svg>자산</button>
+          <button data-v="it"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="11" rx="2"/><path d="M8 20h8M12 16v4"/></svg>전산</button>
+          <button data-v="sup"><svg viewBox="0 0 24 24"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg>비품</button>
+          <button data-v="safe"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>안전</button>
+          <button data-v="map"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>배치</button>
+          <button data-v="fam"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9.5A4 4 0 0 1 12 8a4 4 0 0 1 7 2.5C19 15.7 12 20 12 20z"/></svg>경조</button>
+          <div class="os-user"><b>체험 사용자</b>경영지원팀</div>
+        </div>
+        <div class="os-main">
+          <div class="view on" id="v-home">
+            <div class="ask"><h3>오늘은 무엇부터 맡길까요?</h3>
+              <div class="in"><input id="ask-in" placeholder="예) 목요일 오후 2시 견적 회의 잡아 줘" aria-label="맡길 일"><button class="btn" id="ask-go">맡기기</button></div>
+              <div class="chips"><button data-go="settle">법인카드 정산 초안</button><button data-go="rec">회의 녹음 정리</button><button data-go="cal">이번 주 일정 잡기</button><button data-go="asset">자산 QR 라벨</button><button data-go="safe">MSDS 읽기</button><button data-go="map">자산 위치 찾기</button><button data-go="fam">경조사 준비</button></div></div>
+            <div class="hcards">
+              <div class="hc"><b>오늘 일정</b><div><span>연소 시험 결과 리뷰</span><span>10:00</span></div><div><span>11월 정산 점검</span><span>15:00</span></div></div>
+              <div class="hc"><b>정산 대기</b><div><span>법인카드 5건</span><span>174,400원</span></div><div><span>마감</span><span>11/20</span></div></div>
+              <div class="hc"><b>내 할 일</b><div><span>시험 보고서 검토</span><span>오늘</span></div><div><span>증빙 3건 붙이기</span><span>11/20</span></div></div>
+            </div>
+          </div>
+          <div class="view" id="v-settle">
+            <div class="vh"><div><h3>정산</h3><p>건을 고르면 AI 가 계정을 추천하고 결의서 초안을 만듭니다. 올리는 것은 사람이 합니다.</p></div><button class="btn" id="st-go"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.3L20 9l-4.4 3.8L17 19l-5-3-5 3 1.4-6.2L4 9l5.8-.7z"/></svg><span>AI 로 초안 만들기</span></button></div>
+            <div class="two"><div class="rows" id="st-rows"></div>
+              <div class="panel"><span class="m">결의서 초안</span><div id="st-body"><div class="empty">왼쪽에서 건을 고르고 [AI 로 초안 만들기]를 눌러 보세요</div></div><div class="think" id="st-think"><span class="t">내역을 확인하고 있어요</span><i><b></b><b></b><b></b></i></div><div class="done" id="st-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>초안을 만들었습니다<small>상신은 직접 · 적요는 눌러서 고칠 수 있어요</small></div></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>건마다 계정과 적요를 기억해서 직접 입력</s><b>지난 처리로 추천</b>같은 가맹점 이력에서 계정과 적요를 고르고, 왜 그렇게 골랐는지 함께 보여 줍니다</div><div><s>올린 뒤에야 예산 부족을 알게 됨</s><b>예산 먼저 확인</b>잔액이 모자라면 저장하기 전에 걸린 줄을 알려 줍니다</div><div><s>전결 규정을 찾아보고 결재선을 직접 지정</s><b>결재선 자동</b>전결 규정 원문을 읽어 결재선을 채웁니다. 올리는 것은 사람이 합니다</div></div>
+          </div>
+          <div class="view" id="v-rec">
+            <div class="vh"><div><h3>회의록</h3><p>녹음하면 받아 적고, 끝나면 AI 가 요약 · 결정 · 할 일로 정리합니다.</p></div><button class="btn" id="rc-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg><span>녹음 시작</span></button></div>
+            <div class="two"><div class="panel"><div class="wave" id="rc-wave"></div><div class="rec-row"><span class="dotr" id="rc-dot" hidden></span><span class="tm" id="rc-tm">00:00</span><span class="m" id="rc-st">대기 중</span></div><div class="script" id="rc-script"></div></div>
+              <div class="panel"><div id="rc-body"><div class="empty">녹음이 끝나면 여기에 정리됩니다</div></div><div class="think" id="rc-think"><span class="t">회의 내용을 정리하고 있어요</span><i><b></b><b></b><b></b></i></div><div class="done" id="rc-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>회의록을 정리했습니다<small><a href="#os" id="rc-tocal" style="text-decoration:underline">할 일을 일정에 넣기</a></small></div></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>녹음을 다시 들으며 손으로 정리</s><b>결정과 할 일 분리</b>받아 적은 글에서 결정한 것과 맡은 사람 · 기한을 따로 뽑습니다</div><div><s>회의록 따로, 할 일은 각자 메모에</s><b>할 일은 일정 · 업무로</b>정리한 할 일을 한 번에 일정과 업무관리에 넣습니다</div><div><s>메일용 · 보고용으로 양식을 다시 맞춤</s><b>어디서나 같은 문서</b>화면 · 메일 · PDF · Word 가 한 가지 모양으로 나옵니다</div></div>
+          </div>
+          <div class="view" id="v-cal">
+            <div class="vh"><div><h3>일정</h3><p>말하듯 적으면 일정이 됩니다. 겹치면 비어 있는 시간을 대신 찾아 줍니다.</p></div></div>
+            <div class="nl"><input id="cl-in" placeholder="예) 목요일 오후 2시 김하늘과 견적 회의 1시간" aria-label="일정 적기"><button class="btn" id="cl-go">일정 넣기</button></div>
+            <div class="ex" id="cl-ex"><button>수요일 오전 10시 주간 보고</button><button>금요일 오후 3시 30분 이사 업체 미팅 1시간</button><button>화요일 10시 부품 견적 검토</button></div>
+            <div class="cal" id="cl-grid"></div>
+            <div class="think" id="cl-think"><span class="t">일정을 읽고 있어요</span><i><b></b><b></b><b></b></i></div><div class="done" id="cl-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="cl-msg"></span></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>참석자마다 되는 시간을 물어봄</s><b>겹치면 빈 시간 찾기</b>사람과 회의실이 모두 비는 가까운 시간을 대신 잡습니다</div><div><s>일정 따로, 회의실 예약 따로</s><b>회의실 · 자원 함께</b>일정을 넣을 때 회의실과 차량 예약이 같이 잡힙니다</div><div><s>기한이 주말인 줄 모르고 잡음</s><b>휴일은 피해서</b>기한이 주말 · 공휴일이면 앞 영업일로 옮깁니다</div></div>
+          </div>
+          <div class="view" id="v-asset">
+            <div class="vh"><div><h3>자산</h3><p>지출결의서에서 바로 등록하고, QR 라벨을 한 번에 만들고, 변동은 이력으로 남습니다.</p></div><div class="bts"><button class="btn g" id="as-reg">지결에서 등록</button><button class="btn" id="as-qr">QR 라벨 만들기</button></div></div>
+            <div class="sumline" id="as-sum"></div>
+            <div class="two"><div class="rows" id="as-rows"></div>
+              <div class="panel"><div id="as-body"></div><div class="think" id="as-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="as-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="as-msg"></span><small id="as-sub"></small></div></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>구매한 뒤 자산대장 엑셀에 다시 입력</s><b>지결에서 바로 등록</b>구매 지출결의서의 품목 · 금액 · 부서를 읽어 자산 등록 칸을 채웁니다</div><div><s>식별표가 없어 어느 자산인지 알 수 없음</s><b>QR 라벨 대량 발행</b>고른 자산의 라벨을 A4 한 장으로 만들고, 찍으면 그 자산 화면이 열립니다</div><div><s>어디 있는지, 누구 것인지 기록이 없음</s><b>완성도와 변동 이력</b>지결 · 금액 · 사용자 · 라벨 · 실사 다섯 가지로 빈 곳을 보여 주고, 바뀐 일은 자동으로 적습니다</div></div>
+          </div>
+          <div class="view" id="v-it">
+            <div class="vh"><div><h3>전산</h3><p>소프트웨어 자리와 갱신일을 한 표에서 보고, AI 가 놓친 곳을 찾습니다.</p></div><button class="btn" id="it-go"><span>AI 로 점검</span></button></div>
+            <div class="panel" style="min-height:0"><table class="dr" id="it-tb"></table><div id="it-body"></div><div class="think" id="it-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="it-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="it-msg"></span><small id="it-sub"></small></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>쓰는지 모른 채 그대로 갱신</s><b>남는 자리 찾기</b>산 수량과 실제 쓰는 사람을 견주어 줄일 수 있는 비용을 계산합니다</div><div><s>만료가 닥쳐서야 급히 품의</s><b>갱신 30일 전 알림</b>갱신일이 다가오면 담당자에게 알리고 품의 초안을 준비합니다</div><div><s>장비 위치는 담당자 기억에 의존</s><b>자리와 장비 연결</b>자리 배치도에서 그 자리의 장비와 소프트웨어를 바로 봅니다</div></div>
+          </div>
+          <div class="view" id="v-sup">
+            <div class="vh"><div><h3>비품</h3><p>[불출]을 눌러 재고를 줄여 보세요. 안전재고 아래로 내려가면 발주 초안을 제안합니다.</p></div><button class="btn" id="sp-go"><span>발주 초안 만들기</span></button></div>
+            <div class="two"><div class="rows" id="sp-rows"></div>
+              <div class="panel"><div id="sp-body"><div class="empty">안전재고 아래 품목이 생기면 [발주 초안 만들기]를 눌러 보세요</div></div><div class="think" id="sp-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="sp-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="sp-msg"></span><small id="sp-sub"></small></div></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>떨어지고 나서야 주문</s><b>안전재고 알림</b>품목마다 정한 수량 아래로 내려가면 화면과 알림으로 알려 줍니다</div><div><s>감으로 수량을 정함</s><b>쓰는 만큼 발주</b>최근 석 달 사용량으로 권장 수량을 계산합니다</div><div><s>수기 대장에 적거나 빠뜨림</s><b>QR 로 불출</b>보관함의 QR 을 찍어 가져간 사람과 수량을 남깁니다</div></div>
+          </div>
+          <div class="view" id="v-safe">
+            <div class="vh"><div><h3>안전</h3><p>MSDS 는 PDF 를 읽어 채우고, 건강검진은 휴가 결재만으로 세어지고, 현장 사진 한 장이 위험성평가를 고칩니다.</p></div><button class="btn" id="sf-go"><span>MSDS PDF 읽기</span></button></div>
+            <div class="two"><div class="panel"><h4>MSDS 등록</h4><div class="form" id="sf-form"></div><div class="think" id="sf-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="sf-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="sf-msg"></span><small id="sf-sub"></small></div></div>
+              <div class="panel"><h4>위험성평가</h4><table class="risk" id="sf-risk"></table><div class="box" id="sf-sum"></div></div></div>
+            <div class="three"><div class="panel"><h4>건강검진</h4><div class="hc2"><b id="hk-n">18</b><span>/ 24명 수검 · 예약</span></div><span class="mt"><i id="hk-bar" style="width:75%"></i></span><div class="meta" style="margin-top:12px"><button class="mini" id="hk-leave">건강검진 휴가 결재 반영</button><button class="mini" id="hk-sms">이번 달 안내 문자</button><button class="mini" id="hk-sp">특수검진 대상 확인</button></div><ul class="lg" id="hk-log"></ul><div class="think" id="hk-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="hk-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="hk-msg"></span><small id="hk-sub"></small></div></div>
+              <div class="panel"><h4>사진으로 점검</h4><div class="photo" id="ph"><i class="wall"></i><i class="rack"></i><i class="bx1"></i><i class="bx2"></i><i class="ext"></i><i class="mark"></i><i class="scan"></i></div><div class="meta" style="margin-top:12px"><button class="mini" id="ph-go">이 사진 점검하기</button></div><div class="think" id="ph-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="ph-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="ph-msg"></span><small id="ph-sub"></small></div></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>PDF 를 보며 칸마다 옮겨 적음</s><b>MSDS 자동 채움</b>제조사 PDF 에서 제품명 · CAS 번호 · 유해성 · 보호구를 읽어 채웁니다</div><div><s>엑셀로 계산하고 등급 표와 대조</s><b>위험도 자동 계산</b>가능성과 중대성을 고르면 등급이 정해지고, 높은 건은 개선 대책을 요구합니다</div><div><s>종이 점검표를 걷어 다시 입력</s><b>사진 · QR 현장 점검</b>현장에서 찍은 사진을 읽어 위험요인을 찾고 위험성평가 표에 바로 더합니다<div><s>수검 여부를 한 명씩 물어 엑셀에 표시</s><b>건강검진 자동 집계</b>건강검진 휴가가 결재되면 수검으로 세고, 안 받은 사람에게 매달 안내 문자가 갑니다</div><div><s>누가 특수검진 대상인지 따로 관리</s><b>특수검진 대상 확인</b>MSDS 의 유해 물질과 취급자로 대상과 주기를 알려 줍니다</div><div><s>위험성평가는 해마다 한 번 몰아서 갱신</s><b>평가 자료 자동 갱신</b>점검 결과와 새 MSDS 가 들어오면 표가 바로 바뀝니다</div></div></div>
+          </div>
+          <div class="view" id="v-fam">
+            <div class="vh"><div><h3>경조</h3><p>경조사가 생기면 AI 가 규정을 읽고, ERP 와 그룹웨어에 올릴 초안을 한 번에 준비합니다. 올리는 것은 사람이 합니다.</p></div><button class="btn" id="fm-go"><span>AI 로 준비하기</span></button></div>
+            <div class="fsel"><select id="fm-who" aria-label="대상자"><option>김하늘 · 경영지원팀</option><option>박서연 · 구매팀</option><option>이도윤 · 시험팀</option></select><select id="fm-kind" aria-label="경조 종류"><option value="0">본인 결혼</option><option value="1" selected>부모상</option><option value="2">조부모상</option><option value="3">자녀 출생</option></select><select id="fm-day" aria-label="발생일"><option>11월 20일 (목)</option><option>11월 24일 (월)</option></select></div>
+            <div class="panel" style="min-height:0"><div id="fm-body"><div class="empty">대상자와 경조 종류를 고르고 [AI 로 준비하기]를 눌러 보세요</div></div><div class="think" id="fm-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="fm-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="fm-msg"></span><small id="fm-sub"></small></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>규정을 찾아 휴가 일수와 금액을 직접 확인</s><b>규정에서 바로 계산</b>경조사 규정 원문을 읽어 휴가 일수와 경조금을 정하고 근거 조항을 함께 보여 줍니다</div><div><s>근태 · 지출 · 발주를 시스템마다 따로 입력</s><b>ERP · 그룹웨어 초안 한 번에</b>근태신청과 지출결의 초안을 회사 시스템에 임시저장해 둡니다</div><div><s>화환 · 공지 · 알림 중 하나씩 빠뜨림</s><b>챙길 일 한 묶음</b>화환 발주, 사내 공지, 팀장 알림까지 순서대로 준비합니다</div></div>
+          </div>
+          <div class="view" id="v-map">
+            <div class="vh"><div><h3>배치</h3><p>2D · 3D 배치도에서 자산과 사람을 찾고, 자리를 바꾸면 장비 위치도 함께 바뀝니다.</p></div><div class="bts"><button class="btn g" id="mp-rec">새 입사자 자리 추천</button><button class="btn" id="mp-swap">자리 바꾸기</button></div></div>
+            <div class="two" style="grid-template-columns:1.25fr 1fr"><div class="panel" style="min-height:0"><div class="seg" id="mp-mode" role="group" aria-label="보기 방식"><button data-m="2d">2D</button><button data-m="3d" class="on">3D</button></div><div class="fstage" id="mp-stage"><div class="fmap" id="mp-svg" data-mode="3d" role="group" aria-label="사무실 자리 배치도"></div></div></div>
+              <div class="panel"><div class="nl" style="margin-bottom:6px"><input id="mp-q" placeholder="예) 모니터, 김하늘, FA-2022-0045" aria-label="자산이나 사람 찾기"><button class="btn" id="mp-go">찾기</button></div><div id="mp-body"><div class="empty">자산 이름 · 관리번호 · 사람 이름으로 찾거나, 지도의 자리를 눌러 보세요</div></div><div class="think" id="mp-think"><span class="t"></span><i><b></b><b></b><b></b></i></div><div class="done" id="mp-done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span id="mp-msg"></span><small id="mp-sub"></small></div></div></div>
+            <div class="advh">기존에는 이랬고, 지금은 이렇게 됩니다</div><div class="adv"><div><s>자산 위치 기록이 없어 찾을 방법이 없음</s><b>지도에서 자산 찾기</b>관리번호나 이름을 넣으면 그 자산이 있는 자리가 지도에서 켜집니다</div><div><s>자리를 옮긴 뒤 대장을 따로 고침</s><b>자리와 장비가 한 몸</b>자리를 옮기면 그 사람의 장비 위치와 변동 이력이 함께 바뀝니다</div><div><s>배치도가 그림 파일이라 바뀔 때마다 다시 그림</s><b>2D · 3D 배치도</b>같은 자료를 평면과 입체로 바꿔 보고, 사업장 지도에서 층별 배치도로 들어갑니다</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nums rv">
+      <div><b>26<small>만 줄</small></b><span>직접 만든 코드</span></div>
+      <div><b>1,000<small>+</small></b><span>서버 API 경로</span></div>
+      <div><b>311</b><span>데이터 표</span></div>
+      <div><b>29</b><span>기본 AI 에이전트</span></div>
+      <div><b>171<small>편</small></b><span>설계 · 결정 문서</span></div>
+      <div><b>13<small>편</small></b><span>기능 안내 영상</span></div>
+    </div>
+    <span class="m note">실제 Work OS 의 크기입니다. 2026-10-13 에 소스 저장소에서 직접 센 숫자만 적었습니다.</span>
+  </section>
+
+  <section id="mods" data-shape="2">
+    <div class="sh rv"><span class="no"><b>03</b>만든 모듈</span><h2>업무, AI, 그리고 <em>그 바탕</em></h2><p>화면만 만든 것이 아니라 보안과 서버 구축, 운영까지 직접 했습니다. 이름에 마우스를 올려 보세요.</p></div>
+    <div class="mods rv"><div class="mlist" id="mlist"></div><div class="mcard" id="mcard"></div></div>
+  </section>
+
+  <section id="cases" data-shape="3">
+    <div class="sh rv"><span class="no"><b>04</b>성과</span><h2>기준이 없던 곳에 <em>기준을</em></h2><p>시스템을 만들기 전에, 총무 실무에서 먼저 한 일입니다.</p></div>
     <div class="cases">
-      <article class="card case r" style="--tc:var(--c2)">
-        <header class="case-top"><span class="k" style="--kc:var(--c2)">CASE 01 · 체계</span><h3>자산관리 체계 구축</h3><p>TF 리드 · 4개 부서 협업</p></header>
-        <div class="case-body">
-          <div class="step"><span class="tag">문제</span><p>전담자 · 규정 · 자산대장이 없었습니다.</p></div>
-          <div class="step"><span class="tag">한 일</span><p>관련 부서와 규정을 만들고, 전 사업장 실사와 담당자 교육을 함께 진행했습니다.</p></div>
-          <div class="flow4" aria-label="규정 제정, 전수 실사, 담당자 교육, 상시 운영 순서">
-            <div style="--n:0;--dc:var(--c1)"><span>1</span><b>규정 제정</b></div>
-            <div style="--n:1;--dc:#7B8CFF"><span>2</span><b>전수 실사</b></div>
-            <div style="--n:2;--dc:var(--c2)"><span>3</span><b>담당자 교육</b></div>
-            <div style="--n:3;--dc:var(--c3)"><span>4</span><b>상시 운영</b></div>
-          </div>
-        </div>
-        <div class="result"><span class="tag">결과</span><p>TF가 끝난 뒤에도 돌아가는 <b>상시 운영 체계</b></p></div>
-      </article>
-      <article class="card case r" style="--tc:var(--c3);--i:1">
-        <header class="case-top"><span class="k" style="--kc:var(--c3)">CASE 02 · 시스템</span><h3>사내 업무 플랫폼 Work OS</h3><p>기획 · 운영 · 전사 도입</p></header>
-        <div class="case-body">
-          <div class="step"><span class="tag">문제</span><p>경비 · 출장 데이터를 매달 ERP에서 손으로 조회하고 엑셀로 맞춰 봤습니다.</p></div>
-          <div class="step"><span class="tag">한 일</span><p>ERP 데이터가 자동으로 모이게 하고, 흩어진 총무 업무를 한 화면에 모았습니다.</p></div>
-          <div class="ringbox">
-            <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FC3FF"/><stop offset="1" stop-color="#3DDC97"/></linearGradient></defs><circle class="rbg" cx="60" cy="60" r="48"/><circle class="rfg" cx="60" cy="60" r="48"/></svg><div class="ct"><b>0<small>건</small></b><span>누락</span></div></div>
-            <p><b>출장 문서와 기록을 1:1 대조</b>자동 수집한 데이터로 빠진 건이 없는지 매일 확인합니다.</p>
-          </div>
-        </div>
-        <div class="result"><span class="tag">결과</span><p>매달 손으로 하던 조회 · 대조가 <b>자동 확인</b>으로</p></div>
-      </article>
+      <div class="case w rv"><span class="m">TF 리드 · 약 18개월 · 4개 부서</span><h3>자산관리 체계 구축</h3><p>전담자도, 규정도, 자산대장도 없었습니다. 자산이 어디 있는지, 방치된 자산이 누구 것인지 기록이 없었고 식별표도 붙어 있지 않았습니다.</p>
+        <div class="flow"><span>규정 제정</span><i>→</i><span>전수 실사</span><i>→</i><span>담당자 교육</span><i>→</i><span>상시 운영</span></div>
+        <div class="kpi"><div><b>334건</b><span>전 사업장 유형자산 실사</span></div><div><b>33명</b><span>20개 부서 담당자 교육</span></div><div><b>58건</b><span>주인 모르게 방치된 자산 처분</span></div></div></div>
+      <div class="case rv"><span class="m">조직문화발전위원회 위원장</span><h3>안건은 끝까지 챙깁니다</h3><p>구성원 안건 6건을 하나씩 사실 확인했습니다. 당장 풀리지 않는 일이라, 4건은 공지 · 증차 같은 조치로 이어 가고 경영진 결정이 필요한 1건은 상정했습니다.</p>
+        <div class="funnel"><span><b>6</b><em>접수</em></span><i>→</i><span><b>4</b><em>조치 진행</em></span><i>→</i><span><b>1</b><em>경영진 상정</em></span></div></div>
+      <div class="case rv"><span class="m">운영</span><h3>사업장 구축과 인허가</h3><p>신규 사업장의 전기 증설 · 인테리어부터 공장등록, 시설 설치 인허가, 신규 오피스 개설까지 관계 기관과 협의해 마무리했습니다.</p>
+        <div class="tags"><span>공장등록</span><span>시설 인허가</span><span>BCP 도입</span><span>기업 보험</span></div></div>
+      <div class="case rv"><span class="m">체계</span><h3>규정 · 지침 10종 이상</h3><p>기준이 비어 있던 곳을 문서로 채웠습니다.</p>
+        <div class="tags"><span>안전보건관리</span><span>위험성평가</span><span>자산관리</span><span>출장여비</span><span>사택관리</span><span>업무환경관리</span><span>폐기물 처리</span></div></div>
+      <div class="case rv"><span class="m">시스템</span><h3>출장 정산 누락</h3><p>매달 손으로 하던 조회와 대조를, 출장 문서와 기록의 1:1 자동 대조로 바꿨습니다.</p>
+        <div class="big">0<small>건 · 매일 자동 확인</small></div></div>
     </div>
-    <div class="wins">
-      <div class="card r" style="--tc:var(--c1)"><span class="k">운영</span><b>사업장 구축과 인허가</b><p>신규 사업장의 설비 · 인테리어부터 공장등록, 시설 설치 인허가까지 관계 기관과 협의해 마무리했습니다.</p></div>
-      <div class="card r" style="--tc:var(--c2);--i:1"><span class="k" style="--kc:var(--c2)">체계</span><b>규정 · 지침 10종 이상</b><p>안전보건 · 자산 · 출장 · 업무환경 등, 기준이 비어 있던 곳을 문서로 채웠습니다.</p></div>
-      <div class="card r" style="--tc:var(--c3);--i:2"><span class="k" style="--kc:var(--c3)">조율</span><b>구성원 안건, 핵심만 남기기</b><p>위원회에 올라온 안건 6건을 사실 확인해 4건은 바로 정리하고, 경영진 결정이 필요한 1건으로 좁혀 올렸습니다.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- 일하는 방식 -->
-<section id="way" aria-labelledby="h-way">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eb r" style="--ebc:var(--c3)">일하는 방식</span>
-      <h2 id="h-way" class="r" style="--i:1">이렇게 <span class="em" style="--emc:var(--c3)">일합니다</span></h2>
+  <section id="ax" data-shape="2">
+    <div class="sh rv"><span class="no"><b>05</b>AI 도입</span><h2>세 가지 문제를 <em>세 가지 방향으로</em></h2><p>Work OS 를 운영하며 본 문제로 전사 AI 도입 90일 파일럿을 설계했습니다.</p></div>
+    <div class="ax rv">
+      <div class="axr"><h3>반복 업무</h3><span class="to">→</span><div><h3>AI 와 함께 일한다</h3><p>조회 · 대조 · 초안은 AI 가, 판단과 결재는 사람이</p></div></div>
+      <div class="axr"><h3>흩어진 도구</h3><span class="to">→</span><div><h3>한 화면에서 일한다</h3><p>ERP · 메일 · 엑셀 · 메신저를 오가지 않게</p></div></div>
+      <div class="axr"><h3>AI 경험 격차</h3><span class="to">→</span><div><h3>현업이 직접 만든다</h3><p>절차를 말로 설명해 도구로 만들고, 점검을 거쳐 함께 쓰기</p></div></div>
     </div>
-    <div class="ways">
-      <article class="card way r" style="--tc:var(--c1)">
-        <span class="no">01</span><h3>기준이 없으면 먼저 세웁니다</h3>
-        <p>매뉴얼이 없는 일을 맡으면 규정과 절차부터 만들고, 담당자가 바뀌어도 돌아가게 합니다.</p>
-        <div class="ex"><span>예</span>자산관리: 규정 제정 → 전수 실사 → 담당자 교육 → 상시 운영</div>
-      </article>
-      <article class="card way r" style="--tc:var(--c1);--i:1">
-        <span class="no">02</span><h3>이해관계를 조율해 끝까지 갑니다</h3>
-        <p>여러 부서와 기관이 얽힌 일일수록 역할을 먼저 나누고, 결론이 날 때까지 챙깁니다.</p>
-        <div class="ex"><span>예</span>구매 · 원가 · 재무 · 총무 4개 부서의 자산 업무 역할 재정립</div>
-      </article>
-      <article class="card way r" style="--tc:var(--c2);--i:2">
-        <span class="no">03</span><h3>반복되는 일은 시스템으로 바꿉니다</h3>
-        <p>매달 손으로 하던 조회 · 대조를 자동화하고, 구성원이 말한 불편은 빠르게 고쳐 돌려줍니다.</p>
-        <div class="ex"><span>예</span>ERP 경비 · 출장 데이터 자동 수집, 출장 정산 누락 0건 확인</div>
-      </article>
-      <article class="card way r" style="--tc:var(--c3);--i:3">
-        <span class="no">04</span><h3>결정은 사람이, 기록은 남깁니다</h3>
-        <p>도구는 초안까지만 맡기고 판단 · 결재는 사람이 합니다. 결정한 내용은 문서로 남깁니다.</p>
-        <div class="ex"><span>예</span>AI 활용 규정(안): 사람의 최종 결정, AI는 초안까지</div>
-      </article>
+    <div class="days rv">
+      <div><b><small>DAY</small>30</b><h3>준비</h3><p>규정 · 서버 · 테스터</p></div>
+      <div><b><small>DAY</small>60</b><h3>확산</h3><p>부서별 활용과 보완</p></div>
+      <div><b><small>DAY</small>90</b><h3>결정</h3><p>절감 시간을 재고 넓힐지 정하기</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 하는 일: 세 갈래 -->
-<section id="work" aria-labelledby="h-work">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eb r">하는 일</span>
-      <h2 id="h-work" class="r" style="--i:1">운영하고, <span class="em" style="--emc:var(--c2)">기준을 세우고</span>, <span class="em" style="--emc:var(--c3)">시스템으로</span> 남깁니다</h2>
+  <section id="road" data-shape="3">
+    <div class="sh rv"><span class="no"><b>06</b>여정</span><h2>가게에서 시작해 <em>시스템까지</em></h2><p>맡아 본 순서가 지금 만드는 것의 순서가 되었습니다.</p></div>
+    <div class="road" id="roadbox"><div class="fill" id="roadfill"></div>
+      <div class="st rv"><span class="yr m">2016 - 2018</span><h3>개인 카페 창업 · 운영<small>개인사업</small></h3><p>가게를 열고 직접 운영했습니다.<em>처음부터 끝까지 책임지는 일</em></p></div>
+      <div class="st rv"><span class="yr m">2018 - 2020</span><h3>경영학 공부<small>창원대학교 경영학과 수료</small></h3><p>해 본 일을 이론으로 다시 정리했습니다.<em>감으로 하던 일에 이름 붙이기</em></p></div>
+      <div class="st rv"><span class="yr m">2020 - 2022</span><h3>계약 · 출고<small>관리부</small></h3><p>차량 계약과 출고 절차를 운영했습니다.<em>절차와 서류의 기본</em></p></div>
+      <div class="st rv"><span class="yr m">2022 - 2023</span><h3>구매 · 총무<small>경영지원팀</small></h3><p>발주, 입고, 정산과 거래처 관리를 맡았습니다.<em>돈과 물건의 흐름</em></p></div>
+      <div class="st rv"><span class="yr m">2023 - 2025</span><h3>총무 · 경영지원<small>총무팀</small></h3><p>규정 10종 이상 제정 · 개정, 신규 사업장 구축과 인허가, <b>자산관리 체계 TF 리드</b>.<em>기준을 세우고 끝까지 조율하기</em></p></div>
+      <div class="st rv now"><span class="yr m">2026</span><h3>Work OS · AI 도입<span class="nowtag">지금</span><small>기획 · 운영</small></h3><p>반복 업무를 없애는 <b>사내 플랫폼 Work OS</b> 를 직접 만들어 전사에 배포하고, <b>전사 AI 도입 90일 파일럿</b>을 설계했습니다.<em>사람과 AI 사이를 잇기</em></p></div>
     </div>
-    <div class="pillars">
-      <article class="card pillar r" style="--tc:var(--c1)">
-        <span class="k" style="--kc:var(--c1)">01 · 운영</span>
-        <h3>현장을 굴러가게<small>사업장 · 관공서 · 계약 · 정산</small></h3>
-        <ul>
-          <li>신규 사업장 <b>구축과 입주</b></li>
-          <li>공장 등 시설 설치 <b>인허가</b>, 공장등록, 폐기물 · 환경 신고</li>
-          <li>계약 · 구매 · 정산, 기업 보험 · BCP 정비</li>
-          <li>사택 · 복리후생 · 법인차량 운영</li>
-        </ul>
-      </article>
-      <article class="card pillar r" style="--tc:var(--c2);--i:1">
-        <span class="k" style="--kc:var(--c2)">02 · 체계</span>
-        <h3>기준을 문서로<small>규정 · TF · 위원회</small></h3>
-        <ul>
-          <li>자산관리 체계 구축 <b>TF 리드</b></li>
-          <li>조직문화발전위원회 <b>위원장</b></li>
-          <li>규정 · 지침 <b>10종 이상</b> 제 · 개정</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">안전보건관리</span><span class="chip">산업안전보건위원회</span><span class="chip">위험성평가</span>
-          <span class="chip">자산관리</span><span class="chip">출장여비</span><span class="chip">사택관리</span><span class="chip">근무복</span>
-          <span class="chip">업무환경관리</span><span class="chip">폐기물 처리</span><span class="chip">환경조건 관리</span>
-        </div>
-      </article>
-      <article class="card pillar r" style="--tc:var(--c3);--i:2">
-        <span class="k" style="--kc:var(--c3)">03 · 시스템</span>
-        <h3>반복을 자동으로<small>Work OS · 데이터 · AX</small></h3>
-        <ul>
-          <li>사내 업무 플랫폼 <b>Work OS</b> 기획 · 운영</li>
-          <li>ERP 경비 · 출장 데이터 <b>자동 수집</b>과 누락 대조</li>
-          <li>구매 효율화: B2B 구매 · MRO 활성화</li>
-          <li>전사 <b>AX 도입</b> 기획 · 운영 준비</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
+    <div class="creds rv"><span>인사평가 연속 상위 등급</span><span>승호 2회</span><span>소방안전관리자 2급</span><span>재난관리사 (BCS)</span></div>
+  </section>
 
-<!-- 흐름 -->
-<section id="flow" aria-labelledby="h-flow">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eb r" style="--ebc:var(--c2)">흐름</span>
-      <h2 id="h-flow" class="r" style="--i:1">걸어온 <span class="em" style="--emc:var(--c2)">4년</span></h2>
-      <p class="r" style="--i:2">해마다 무엇을 세우고 바꿨는지 정리했습니다.</p>
+  <section id="way" data-shape="2">
+    <div class="sh rv"><span class="no"><b>07</b>방식</span><h2>일하는 <em>순서</em></h2><p>현업의 말에서 시작해 시안, 구현, 시험, 배포와 기록까지.</p></div>
+    <div class="way rv">
+      <div><span class="m">01</span><h3>기준부터 세웁니다</h3><p>담당자가 바뀌어도 돌아가게<small>자산관리: 규정 → 실사 → 교육 → 상시 운영</small></p></div>
+      <div><span class="m">02</span><h3>결정은 사람이 합니다</h3><p>AI 는 초안까지만<small>ERP 에는 임시저장까지, 상신은 언제나 사람</small></p></div>
+      <div><span class="m">03</span><h3>실패를 숨기지 않습니다</h3><p>못 받은 자료는 화면에 그대로<small>실패한 수집은 기록하고 신선도 배지로 표시</small></p></div>
+      <div><span class="m">04</span><h3>숫자로 결정합니다</h3><p>작게 시작해 재고 넓히기<small>90일 파일럿: 절감 시간을 재고 결정</small></p></div>
     </div>
-    <div class="tl">
-      <div class="yr r" style="--nc:var(--c1)"><div class="y">2023</div><h3>기반 정비</h3><ul><li>전자결재 정착, 월간 보고 정례화</li><li>전사 IT 장비 · 라이선스 정비</li><li>안전보건 규정 3종 제정</li></ul></div>
-      <div class="yr r" style="--nc:#7B8CFF;--i:1"><div class="y">2024</div><h3>사업장 구축</h3><ul><li>신규 사업장 설비 · 인테리어 · 공장등록</li><li>시설 인허가 · 공사 · 설비 계약</li><li>BCP 도입, 기업 보험 정비</li></ul></div>
-      <div class="yr r" style="--nc:var(--c2);--i:2"><div class="y">2025</div><h3>자산 체계화 · 구매 효율화</h3><ul><li>자산관리 TF → 규정 제 · 개정 → 전수 실사</li><li>구매 흐름 ERP 연동, MRO 활성화</li><li>업무환경관리 지침 개정</li></ul></div>
-      <div class="yr r" style="--nc:var(--c3);--i:3"><div class="y">2026</div><h3>규정 · 안전 · 시스템</h3><ul><li>자산 바코드 · 식별표 도입</li><li>폐기물 · 환경조건 기준 제정, 신규 오피스 개설</li><li>Work OS 운영, AX 도입 기획</li></ul></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- AX 도입 -->
-<section id="ax" aria-labelledby="h-ax">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eb r" style="--ebc:var(--c2)">AX 도입</span>
-      <h2 id="h-ax" class="r" style="--i:1">세 가지 문제를, <span class="grad">세 가지 방향으로</span></h2>
-      <p class="r" style="--i:2">Work OS를 운영하며 본 문제를 바탕으로 전사 AX 도입을 기획하고 운영을 준비하고 있습니다.</p>
-    </div>
-    <div class="pd">
-      <div class="pd-row r">
-        <div class="card"><span class="k" style="--kc:var(--sub)">문제</span><b>반복 업무</b><p>조회 · 대조 · 서류 작성에 시간이 쓰입니다.</p></div>
-        <div class="arw" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 15H26M19 8l7 7-7 7"/><path class="fl" d="M4 15H26"/></svg></div>
-        <div class="card hl" style="--hc:var(--c1)"><span class="k" style="--kc:var(--c1)">방향</span><b>AI와 함께 일한다</b><p>조회 · 대조 · 초안은 AI가 돕고, 판단과 결재는 사람이 합니다.</p></div>
-      </div>
-      <div class="pd-row r" style="--i:1">
-        <div class="card"><span class="k" style="--kc:var(--sub)">문제</span><b>흩어진 도구</b><p>ERP · 그룹웨어 · 메일 · 엑셀 · 메신저를 오가며 맥락이 끊깁니다.</p></div>
-        <div class="arw" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 15H26M19 8l7 7-7 7"/><path class="fl" d="M4 15H26"/></svg></div>
-        <div class="card hl" style="--hc:var(--c2)"><span class="k" style="--kc:var(--c2)">방향</span><b>한 화면에서 일한다</b><p>흩어진 업무를 한 곳에 모으고, 쓰던 메신저에서도 이어서 씁니다.</p></div>
-      </div>
-      <div class="pd-row r" style="--i:2">
-        <div class="card"><span class="k" style="--kc:var(--sub)">문제</span><b>AI 경험 격차</b><p>쓰는 사람만 쓰고, 방법이 부서 밖으로 퍼지지 않습니다.</p></div>
-        <div class="arw" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 15H26M19 8l7 7-7 7"/><path class="fl" d="M4 15H26"/></svg></div>
-        <div class="card hl" style="--hc:var(--c3)"><span class="k" style="--kc:var(--c3)">방향</span><b>현업이 직접 만든다</b><p>현업이 절차를 설명해 도구로 만들고, 점검을 거쳐 함께 씁니다.</p></div>
-      </div>
-    </div>
-    <div class="pilot">
-      <article class="card pv phases r">
-        <div><span class="k">90일 파일럿 · 설계</span>
-        <h3>작게 시작해, <span class="em">숫자로 결정</span></h3></div>
-        <div class="dd">
-          <div class="d" style="--dc:var(--c1);--n:0"><span class="dot"><small>DAY</small>30</span><b>준비</b><p>규정 · 서버 · 테스터</p></div>
-          <div class="d" style="--dc:var(--c2);--n:1"><span class="dot"><small>DAY</small>60</span><b>확산</b><p>부서별 활용 · 보완</p></div>
-          <div class="d" style="--dc:var(--c3);--n:2"><span class="dot"><small>DAY</small>90</span><b>결정</b><p>절감 시간 측정 · 확산</p></div>
-        </div>
-        <ul class="rules"><li><b>AI 활용 규정(안)</b> 사람이 최종 결정, AI는 초안까지</li><li><b>데이터 등급</b> 민감 자료는 등급별로 AI 사용 제한</li></ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 경력 · 영상 · 연락 -->
-<section id="contact" aria-labelledby="h-contact">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eb r" style="--ebc:var(--c3)">경력</span>
-      <h2 class="r" style="--i:1">약 7년, <span class="em" style="--emc:var(--c3)">총무 · 경영지원</span></h2>
-    </div>
-    <div class="career">
-      <div class="card r" style="--tc:var(--c3)"><span class="when" style="--kc:var(--c3)">현재</span><h3>총무팀 선임매니저</h3><p>총무 · 경영지원 전반</p></div>
-      <div class="card r" style="--i:1"><span class="when">이전</span><h3>구매 · 총무</h3><p>구매 발주 · 입고 · 정산</p></div>
-      <div class="card r" style="--i:2"><span class="when">시작</span><h3>계약 · 출고</h3><p>차량 계약 · 출고 관리</p></div>
-    </div>
-    <div class="finale">
-      <figure class="mfr r">
-        <div class="bar3" aria-hidden="true"><i style="background:#ff6b6b"></i><i style="background:#ffc75a"></i><i style="background:#3ddc97"></i><span>도입 전과 후 · 소개 영상</span></div>
-        <video src="assets/workspace_ax.mp4" poster="assets/workspace_ax_poster.jpg" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="서류에 묻혀 있던 직원이 시스템 도입 뒤 화면 위 요약으로 일하고 퇴근하는 장면 (19초, 소리 없음)"></video>
-      </figure>
-      <aside class="card hl contact r" style="--hc:var(--c2);--i:1">
-        <span class="eb" style="--ebc:var(--c2)">연락</span>
-        <h3 id="h-contact">함께 이야기<br>나누고 싶습니다.</h3>
-        <a href="mailto:qodmsrhkd@naver.com">qodmsrhkd@naver.com <span aria-hidden="true">→</span></a>
-        <a href="tech.html">Work OS 기술 노트 <span aria-hidden="true">→</span></a>
-      </aside>
-    </div>
-  </div>
-</section>
+  <section id="contact" class="end" data-shape="0">
+    <span class="no"><b>08</b>연락</span>
+    <h2 class="rv">함께 만들 일이 있다면<br><em>이야기 나누고 싶습니다.</em></h2>
+    <div class="links rv"><a class="btn" href="mailto:qodmsrhkd@naver.com">qodmsrhkd@naver.com</a><a class="t" href="tel:01055500963">010-5550-0963</a></div>
+  </section>
+</div>
 </main>
+<div class="pbar" aria-hidden="true"><i id="pbar"></i></div>
+<div class="pager" id="pager" role="navigation" aria-label="쪽 넘기기"><button type="button" id="pg-prev" aria-label="이전 쪽">‹ 이전</button><span class="at" id="pg-at" aria-live="polite"></span><button type="button" class="nx" id="pg-next" aria-label="다음 쪽">다음 ›</button></div>
+<footer><div class="wrap m"><span>© 2026 배은총</span><span>회사 내부 자료와 실제 화면은 싣지 않았습니다.</span></div></footer>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 배은총</span>
-    <span>회사 내부 데이터 · 화면은 싣지 않았습니다.</span>
-  </div>
-</footer>
-<script src="assets/main.js"></script>
 <script>
-// 스크롤 등장 - 화면에 들어온 .r 에 in 을 붙인다(지원 안 하면 바로 보이게)
-(function () {
-  var els = [].slice.call(document.querySelectorAll(".r"));
-  if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-  els.forEach(function (e) { io.observe(e); });
-  // 숫자 올라가기 - 감싼 .r 이 보일 때 0부터 목표값까지
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  [].forEach.call(document.querySelectorAll("[data-count]"), function (el) {
-    var to = +el.getAttribute("data-count"), host = el.closest(".r") || el;
-    if (reduce || !("IntersectionObserver" in window)) return;
-    el.textContent = "0";
-    var o = new IntersectionObserver(function (es) {
-      if (!es[0].isIntersecting) return; o.disconnect();
-      var t0 = null, dur = 1200;
-      (function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); })(performance.now());    }, { threshold: 0.3 });
-    o.observe(host);
-  });
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches, fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const wait = (ms) => new Promise((r) => setTimeout(r, reduce ? Math.min(ms, 120) : ms));
+
+  /* particle field: a human cluster, a machine lattice and a stream between them; shape changes by section */
+  const cv = $("#field"), cx = cv.getContext("2d");
+  let W = 0, H = 0, DPR = 1; const N = innerWidth < 760 ? 1100 : 2600;
+  const shapes = [[], [], [], []];
+  for (let i = 0; i < N; i++) {
+    const u = i / N;
+    if (i < N * .6) { const n = N * .3, j = i % Math.floor(n), left = i < n, q = Math.acos(1 - 2 * (j + .5) / n), h = Math.PI * (1 + Math.sqrt(5)) * j, rr = .56 * (1 + .05 * Math.sin(j * 1.7)), x0 = rr * Math.sin(q) * Math.cos(h), hx = x0 < -.42 * rr ? -x0 : x0;
+      shapes[0].push([left ? -1.24 - hx : 1.24 + hx, rr * Math.cos(q), rr * Math.sin(q) * Math.sin(h)]); }
+    else shapes[0].push([0, 0, 0]);
+    const a = u * Math.PI * 2 * 34, b = u * Math.PI * 2, R = .78, r = .34 + .08 * Math.sin(b * 5);
+    shapes[1].push([(R + r * Math.cos(a)) * Math.cos(b), r * Math.sin(a), (R + r * Math.cos(a)) * Math.sin(b)]);
+    const g = Math.ceil(Math.sqrt(N)), gx = (i % g) / g - .5, gz = Math.floor(i / g) / g - .5;
+    shapes[2].push([gx * 2.3, Math.sin(gx * 7) * Math.cos(gz * 7) * .16, gz * 2.3]);
+    const t = u * Math.PI * 2 * 5, hr = .42 + .04 * Math.sin(i);
+    shapes[3].push([Math.cos(t + (i % 2) * Math.PI) * hr, (u - .5) * 2.4, Math.sin(t + (i % 2) * Math.PI) * hr]);
+  }
+  const P = shapes[0].map((p) => ({ x: p[0], y: p[1], z: p[2], ox: 0, oy: 0 }));
+  const B0 = Math.floor(N * .6), COL = shapes[0].map((_, i) => i < N * .3 ? [217, 105, 79] : i < B0 ? [53, 84, 232] : null);
+  let pgIdx = 0, target = 0, rotY = 0, rotX = -.2, mx = -9999, my = -9999, tmx = 0, tmy = 0, clock = 0, cxf = .5, heroTop = 300;
+  const size = () => { DPR = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    const st = $(".stage"); if (st) { const b = st.getBoundingClientRect(); heroTop = b.top + scrollY + b.height / 2; } };
+  size(); addEventListener("resize", size); setTimeout(size, 700);
+  // what to notice in each section: the dots gather around the one nearest the middle of the screen
+  const HL = ["#why .wcol.now", "#os .sh h2 em", "#osw", "#mcard", "#cases .case.w", "#ax .days", "#road .st:last-of-type h3", "#way .way", "#contact .btn"];
+  let hlEls = null; const hl = { x: 0, y: 0, w: 0, h: 0, on: false, el: null, travel: 0 };
+  const pickHL = () => { if (!hlEls) hlEls = HL.map((q) => document.querySelector(q)).filter(Boolean); let best = null, bestEl = null, bd = 1e9;
+    for (const el of hlEls) { if (!el.closest(".pg.on")) continue; const r = el.getBoundingClientRect(); if (r.width < 8 || r.bottom < 70 || r.top > H - 40) continue;
+      const d = Math.abs((r.top + r.bottom) / 2 - H * .46) - (el.id === "osw" ? 40 : 0); if (d < bd) { bd = d; best = r; bestEl = el; } }
+    if (best && hl.el && hl.el !== bestEl) { if (hl.cand !== bestEl) { hl.cand = bestEl; hl.n = 0; } if (++hl.n < 14) { const r0 = hl.el.getBoundingClientRect(); if (r0.width > 8 && r0.bottom > 70 && r0.top < H - 40) { best = r0; bestEl = hl.el; } } } else hl.n = 0;   // 스크롤 중 잠깐 스치는 곳으로는 옮기지 않는다
+    if (best) { if (hl.el && hl.el !== bestEl) hl.travel = 1;                // 강조할 곳이 바뀌면: 빛이 점으로 풀려 날아가 새 자리에서 다시 빛이 된다
+      hl.el = bestEl; hl.x = best.left; hl.y = best.top; hl.w = best.width; hl.h = best.height; hl.on = true; } else hl.on = false; };
+  const draw = () => {
+    cx.clearRect(0, 0, W, H); clock += .004; const hero = pgIdx === 0;
+    const S = shapes[0], sc = Math.min(W * .25, H * .25), cxp = W * .5, cyp = (() => { const st = draw.st || (draw.st = document.querySelector(".stage")); if (!st) return heroTop; const b = st.getBoundingClientRect(); return b.top + b.height / 2; })();
+    if (hero) { rotY += (tmx * .5 - rotY) * .04; rotX += (-.1 + tmy * .3 - rotX) * .04;
+      for (let i = B0; i < N; i++) { const j = i - B0, side = j % 2 ? 1 : -1, u = (j * .61803 + clock * (1.5 + (j % 5) * .14)) % 1;
+        const q = Math.acos(1 - 2 * ((j * .754877) % 1)), h = j * 2.39996, r0 = .47 * Math.cbrt(((j * 7919) % 1000) / 1000);
+        const tx = r0 * Math.sin(q) * Math.cos(h), ty = r0 * Math.cos(q), tz = r0 * Math.sin(q) * Math.sin(h);
+        const k = Math.min(1, u / .5), e = k * k * (3 - 2 * k), sx = side * 1.02, sy = ((j % 11) - 5) * .075, sz = ((j % 7) - 3) * .09, sw = (u - .5) * 1.6;
+        S[i][0] = sx + (tx - sx) * e + (k === 1 ? -ty * sw * .25 : 0); S[i][1] = sy + (ty - sy) * e + (k === 1 ? tx * sw * .25 : 0); S[i][2] = sz + (tz - sz) * e;
+        if (u < .03) { P[i].x = S[i][0]; P[i].y = S[i][1]; P[i].z = S[i][2]; } } }
+    else pickHL();
+    { const g = draw.g || (draw.g = { x: hl.x, y: hl.y, w: hl.w, h: hl.h, o: 0, el: document.getElementById("halo") });   // 부드러운 빛: 강조할 곳으로 천천히 옮겨 가며 숨 쉬듯 밝아졌다 옅어진다
+      if (!hero && hl.on) { const e = g.o < .02 ? 1 : .09; g.x += (hl.x - g.x) * e; g.y += (hl.y - g.y) * e; g.w += (hl.w - g.w) * e; g.h += (hl.h - g.h) * e; }
+      const small = Math.min(g.w, g.h) < 90, want = !hero && hl.on ? (small ? .34 : .5) * (.82 + .18 * Math.sin(clock * 7)) * (1 - Math.min(1, hl.travel * 1.6)) : 0; g.o += (want - g.o) * (hl.travel > .3 ? .16 : .05);
+      if (hl.travel > .45) { g.x += (hl.x - g.x) * .0; } 
+      const m = small ? 16 : 14; g.el.style.opacity = g.o.toFixed(3); g.el.style.width = (g.w + m * 2).toFixed(1) + "px"; g.el.style.height = (g.h + m * 2).toFixed(1) + "px"; g.el.style.transform = "translate(" + (g.x - m).toFixed(1) + "px," + (g.y - m).toFixed(1) + "px)"; }
+    if (draw.mix === undefined) draw.mix = 0;
+    draw.mix += ((hero ? 0 : 1) - draw.mix) * .05; hl.travel *= .972; if (hl.travel < .01) hl.travel = 0;                    // 0 = first screen (3D shapes), 1 = gathered round a highlight
+    const cy = Math.cos(rotY), sy = Math.sin(rotY), cxr = Math.cos(rotX), sxr = Math.sin(rotX), mixv = draw.mix;
+    const pad = Math.max(10, Math.min(22, Math.min(hl.w, hl.h) * .12)), hw = hl.w / 2 + pad, hh = hl.h / 2 + pad, hcx = hl.x + hl.w / 2, hcy = hl.y + hl.h / 2, comet = (clock * 9) % 1;
+    for (let i = 0; i < N; i++) {
+      const p = P[i], s = S[i], sp = hero && i >= B0 ? .35 : .045;
+      p.x += (s[0] - p.x) * sp; p.y += (s[1] - p.y) * sp; p.z += (s[2] - p.z) * sp;
+      const x1 = p.x * cy - p.z * sy, z1 = p.x * sy + p.z * cy, y1 = p.y * cxr - z1 * sxr, z2 = p.y * sxr + z1 * cxr;
+      const k = 2.6 / (2.6 + z2); let X = cxp + x1 * sc * k, Y = cyp + y1 * sc * k, glow = 0, tight = 1;
+      if (!hero) {                                                   // come down to the highlight and melt into its glow
+        const jt = ((i * 2654435761 >>> 0) % 1000) / 1000, j2 = ((i * 40503 >>> 0) % 1000) / 1000;
+        const tx = hl.on ? hcx + (jt - .5) * (hl.w + 30) : W * .5 + (jt - .5) * W * .4, ty = hl.on ? hcy + (j2 - .5) * (hl.h + 30) : H * .6;
+        if (p.sx === undefined) { p.sx = X; p.sy = Y; }
+        const burst = hl.travel > .8 ? (hl.travel - .8) * 5 : 0;        // 풀리는 순간: 제자리에서 바깥으로 살짝 퍼진다
+        if (burst > 0) { const ba = i * 2.39996; p.sx += Math.cos(ba) * burst * 5; p.sy += Math.sin(ba) * burst * 5; }
+        else { p.sx += (tx - p.sx) * (.035 + (i % 5) * .01); p.sy += (ty - p.sy) * (.035 + (i % 5) * .01); }
+        X = p.sx; Y = p.sy;
+      } else { p.sx = X; p.sy = Y; }
+      const dx = X - mx, dy = Y - my, d2 = dx * dx + dy * dy;
+      if (d2 < 24000) { const f = (1 - d2 / 24000) * 28, d = Math.sqrt(d2) || 1; p.ox += (dx / d * f - p.ox) * .2; p.oy += (dy / d * f - p.oy) * .2; } else { p.ox *= .9; p.oy *= .9; }
+      X += p.ox; Y += p.oy;
+      let c = COL[i]; if (!c) { const u2 = Math.max(0, Math.min(1, (p.x + 1) / 2)); c = [217 + (53 - 217) * u2 | 0, 105 + (84 - 105) * u2 | 0, 79 + (232 - 79) * u2 | 0]; }
+      if (hero) { const a = Math.max(.12, Math.min(.95, .66 - z2 * .44));
+        cx.fillStyle = "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a.toFixed(2) + ")"; const r = k > 1.05 ? 1.7 : 1.2; cx.fillRect(X, Y, r, r); }
+      else { const a = Math.max(.55 * (1 - mixv) * (1 - mixv), .75 * Math.sin(Math.min(1, hl.travel * 1.25) * Math.PI) * (.5 + .5 * (((i * 2654435761 >>> 0) % 100) / 100)));                   // 내려오는 동안만 보이고, 닿으면 빛 속으로 사라진다
+        if (a > .01) { cx.fillStyle = "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a.toFixed(2) + ")"; cx.fillRect(X, Y, 1.3, 1.3); } }
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  };
+  draw();
+
+  /* pointer: a water drop that stretches with speed, with a small drop trailing behind */
+  const drop = $(".drop"), drop2 = $(".drop2"), ring = $("#ring"); let px = innerWidth / 2, py = innerHeight / 2, dx1 = px, dy1 = py, dx2 = px, dy2 = py;
+  let inHero = false; addEventListener("pointermove", (e) => { px = e.clientX; py = e.clientY; inHero = !!(e.target.closest && e.target.closest(".stage")); if (drop) drop.classList.toggle("show", inHero); mx = px; my = py; tmx = px / innerWidth - .5; tmy = py / innerHeight - .5;
+    if (ring && !reduce) { ring.style.setProperty("--px", tmx * -24 + "px"); ring.style.setProperty("--py", tmy * -24 + "px"); } }, { passive: true });
+  addEventListener("pointerleave", () => { mx = my = -9999; });
+  if (fine && !reduce) {
+    document.documentElement.classList.add("dropon");
+    addEventListener("pointerdown", () => drop.classList.add("dn")); addEventListener("pointerup", () => drop.classList.remove("dn"));
+    document.addEventListener("pointerover", (e) => drop.classList.toggle("on", !!e.target.closest("a,button,.mrow,label,li.c,.ev")));
+    const follow = () => { const vx = px - dx1, vy = py - dy1; dx1 += vx * .22; dy1 += vy * .22; dx2 += (dx1 - dx2) * .12; dy2 += (dy1 - dy2) * .12;
+      const v = Math.min(1, Math.hypot(vx, vy) / 90), ang = Math.atan2(vy, vx);
+      drop.style.transform = "translate(" + dx1 + "px," + dy1 + "px) rotate(" + ang + "rad) scale(" + (1 + v * .55) + "," + (1 - v * .28) + ")";
+      drop2.style.transform = "translate(" + dx2 + "px," + dy2 + "px) scale(" + (1 - v * .3) + ")"; drop2.style.opacity = String(!inHero ? 0 : Math.min(1, Math.hypot(dx1 - dx2, dy1 - dy2) / 26));
+      requestAnimationFrame(follow); };
+    follow();
+  }
+
+  /* scroll: reveals, shape per section, header, road fill, count-up */
+  const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .12 });
+  $$(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(el); });
+  const secs = $$("[data-shape]"), fill = $("#roadfill"), box = $("#roadbox"), hud = $("#hud");
+  // ---- pages ----
+  const NAMES = ["처음", "시작", "Work OS", "만든 모듈", "성과", "AI 도입", "여정", "일하는 순서", "연락"];
+  secs.forEach((el) => el.classList.add("pg")); $$("#road .st").forEach((el, k) => el.style.setProperty("--k", k));
+  const onScroll = () => { const pg = secs[pgIdx]; hud.classList.toggle("s", pgIdx > 0 || pg.scrollTop > 40);
+    const b = box.getBoundingClientRect(); fill.style.height = (secs[pgIdx].id === "road" ? Math.max(0, b.height - 16) : 0) + "px"; };
+  let pgLock = 0;
+  const goPage = (i, quiet) => { i = Math.max(0, Math.min(secs.length - 1, i)); if (i === pgIdx && !quiet) return; const from = pgIdx; pgIdx = i;
+    secs.forEach((el, k) => { el.classList.toggle("on", k === i); el.classList.toggle("left", k < i); });
+    const pg = secs[i]; pg.scrollTop = 0; target = Number(pg.dataset.shape) || 0; pgLock = performance.now() + 750;
+    if (!reduce && !quiet) { const rv = $$(".rv", pg); rv.forEach((el) => el.classList.remove("in")); requestAnimationFrame(() => requestAnimationFrame(() => rv.forEach((el) => el.classList.add("in")))); }
+    else $$(".rv", pg).forEach((el) => el.classList.add("in"));
+    $("#pg-at").innerHTML = i ? `<b>${String(i).padStart(2, "0")} / ${String(secs.length - 1).padStart(2, "0")}</b><span>${NAMES[i] || ""}</span>` : `<span>${NAMES[0]}</span>`;   // 쪽 번호 = 구간 번호(첫 화면은 번호 없음)
+    $("#pg-prev").disabled = i === 0; $("#pg-next").disabled = i === secs.length - 1; $("#pbar").style.width = ((i + 1) / secs.length * 100) + "%";
+    document.body.dataset.last = i === secs.length - 1 ? "1" : "0";
+    $$("#hud nav a").forEach((x) => { const id = (x.getAttribute("href") || "").slice(1); x.style.color = !x.classList.contains("k") && id && pg.id === id ? "var(--ink)" : ""; });
+    try { history.replaceState(null, "", i ? "#" + (pg.id || "p" + i) : location.pathname + location.search); } catch (_e) { /* 주소만 */ }
+    setTimeout(onScroll, 60); if (from !== i) size(); };
+  window.__go = (v) => goPage(typeof v === "number" ? v : Math.max(0, secs.findIndex((el) => el.id === String(v).replace("#", ""))));
+  $("#pg-prev").onclick = () => goPage(pgIdx - 1); $("#pg-next").onclick = () => goPage(pgIdx + 1);
+  secs.forEach((el) => el.addEventListener("scroll", onScroll, { passive: true }));
+  document.addEventListener("click", (e) => { const l = e.target.closest('a[href^="#"]'); if (!l) return; const id = l.getAttribute("href").slice(1); if (!id) return; const el = document.getElementById(id); const k = el ? secs.findIndex((x) => x === el || x.contains(el)) : -1; if (k < 0) return; e.preventDefault(); goPage(k); });
+  addEventListener("keydown", (e) => { if (e.target.closest && e.target.closest("input,textarea,select,[contenteditable]")) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); goPage(pgIdx + 1); } else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); goPage(pgIdx - 1); }
+    else if (e.key === "Home") goPage(0); else if (e.key === "End") goPage(secs.length - 1); });
+  // wheel: inside a page it scrolls the page; at its top or bottom edge a firm push turns the page
+  let wAcc = 0, wAt = 0;
+  addEventListener("wheel", (e) => { if (e.ctrlKey || performance.now() < pgLock) return; const pg = secs[pgIdx], inner = e.target.closest && e.target.closest(".script,.caps,.mlist,[data-wheel-own]");
+    if (inner && inner.scrollHeight > inner.clientHeight + 2) return;
+    const atTop = pg.scrollTop <= 1, atEnd = pg.scrollTop + pg.clientHeight >= pg.scrollHeight - 2, now = performance.now();
+    if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atTop)) { wAcc = 0; return; }
+    if (now - wAt > 400) wAcc = 0; wAt = now; wAcc += e.deltaY;
+    if (wAcc > 160) { wAcc = 0; goPage(pgIdx + 1); } else if (wAcc < -160) { wAcc = 0; goPage(pgIdx - 1); } }, { passive: true });
+  { const h = (location.hash || "").slice(1); const k = h ? secs.findIndex((el) => el.id === h) : 0; goPage(k > 0 ? k : 0, true); }
+  $$(".stats b").forEach((el) => { const n = Number(el.dataset.n), suf = el.dataset.s || ""; if (reduce) { el.textContent = n.toLocaleString("ko-KR") + suf; return; }
+    const t0 = performance.now() + 800; const step = (t) => { const k = Math.max(0, Math.min(1, (t - t0) / 1400)), v = Math.round(n * (1 - Math.pow(1 - k, 3))); el.textContent = v.toLocaleString("ko-KR") + (k === 1 ? suf : ""); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); });
+
+  /* Work OS try-out (dummy data only) */
+  const show = (v) => { $$("#osnav button").forEach((b) => b.classList.toggle("on", b.dataset.v === v)); $$(".view").forEach((x) => x.classList.toggle("on", x.id === "v-" + v)); };
+  $$("#osnav button").forEach((b) => b.onclick = () => show(b.dataset.v));
+  const think = async (id, steps) => { const el = $("#" + id), t = el.querySelector(".t"); el.classList.add("on"); for (const [txt, ms] of steps) { t.textContent = txt; await wait(ms); } el.classList.remove("on"); };
+
+  // settle
+  const CARDS = [["11/03", "판교 한식당", "팀 점심 (4명)", "복리후생비", 84000], ["11/05", "오피스 문구", "사무용품 구매", "소모품비", 36500], ["11/07", "택시", "시험장 이동", "여비교통비", 18700], ["11/10", "베이커리", "거래처 미팅 다과", "접대비", 25400], ["11/12", "택배", "시료 발송", "운반비", 9800]];
+  $("#st-rows").innerHTML = CARDS.map((c, i) => `<label><input type="checkbox" data-i="${i}"${i < 3 ? " checked" : ""}><span>${c[1]}<small>${c[0]} · 법인카드</small></span><b>${c[4].toLocaleString("ko-KR")}</b></label>`).join("");
+  let stBusy = false;
+  const settle = async () => { if (stBusy) return; const pick = $$("#st-rows input:checked").map((x) => CARDS[Number(x.dataset.i)]); const body = $("#st-body"), done = $("#st-done");
+    done.classList.remove("on"); if (!pick.length) { body.innerHTML = '<div class="empty">정산할 건을 한 개 이상 골라 주세요</div>'; return; }
+    stBusy = true; $("#st-go").disabled = true; body.innerHTML = "";
+    await think("st-think", [["내역을 확인하고 있어요", 800], ["계정과 적요를 추천하고 있어요", 900], ["결의서 초안을 쓰고 있어요", 800]]);
+    const sum = pick.reduce((a, c) => a + c[4], 0);
+    body.innerHTML = `<div class="big">${won(sum)}</div><table class="dr"><tr><th>일자</th><th>적요</th><th>계정</th><th>금액</th></tr>${pick.map((c) => `<tr><td>${c[0]}</td><td contenteditable spellcheck="false">${c[2]}</td><td title="이 가맹점 지난 처리 기준">${c[3]}<span class="ai">추천</span></td><td>${c[4].toLocaleString("ko-KR")}</td></tr>`).join("")}<tr><td colspan="3" style="color:var(--ink)">${pick.length}건 · 공급가 ${Math.round(sum / 1.1).toLocaleString("ko-KR")} · 부가세 ${(sum - Math.round(sum / 1.1)).toLocaleString("ko-KR")}</td><td style="color:var(--ink)">${sum.toLocaleString("ko-KR")}</td></tr></table><div class="meta"><span>결재선 <b>담당 → 팀장</b> · 전결 규정 50만원 이하</span><span>예산 잔액 <b>1,240,000원</b> · 충분</span><span>추천 근거 <b>같은 가맹점 지난 처리</b></span></div>`;
+    done.classList.add("on"); stBusy = false; $("#st-go").disabled = false; };
+  $("#st-go").onclick = settle;
+
+  // record -> minutes
+  const SCRIPT = [["김하늘", "신규 오피스 입주는 12월 둘째 주로 확정하겠습니다."], ["이도윤", "통신 회선은 견적을 세 곳에서 받아 보고 수요일까지 공유드릴게요."], ["박서연", "사무용 의자는 지금 쓰는 걸 그대로 가져가는 걸로 하죠."], ["김하늘", "좋습니다. 이사 업체 계약서는 서연 님이 금요일까지 검토해 주세요."], ["이도윤", "출입카드 명단은 제가 목요일까지 정리하겠습니다."]];
+  const TODO = [["이도윤", "통신 회선 견적 3곳 받아 공유", "수요일", 2, 13], ["이도윤", "출입카드 발급 명단 정리", "목요일", 3, 16], ["박서연", "이사 업체 계약서 검토", "금요일", 4, 11]];
+  const wave = $("#rc-wave"); wave.innerHTML = "<i></i>".repeat(56); const bars = $$("i", wave), rcLabel = $("#rc-go span");
+  let rcOn = false, rcT = 0, rcIv = 0, rcDone = false;
+  const rcStop = async () => { if (!rcOn) return; rcOn = false; clearInterval(rcIv); wave.classList.remove("live"); bars.forEach((b) => { b.style.height = "12%"; }); $("#rc-dot").hidden = true; $("#rc-st").textContent = "녹음 끝"; $("#rc-go").disabled = true;
+    await think("rc-think", [["받아 적은 내용을 읽고 있어요", 900], ["결정과 할 일을 고르고 있어요", 1000]]);
+    $("#rc-body").innerHTML = `<h4>요약</h4><ul><li>신규 오피스 입주 일정과 준비 항목을 정했습니다.</li></ul><h4>결정</h4><ul><li>입주는 12월 둘째 주</li><li>사무용 의자는 기존 것 사용</li></ul><h4>할 일</h4><ul>${TODO.map((t) => `<li class="c"><i></i><span><b style="color:var(--ink);font-weight:500">${t[0]}</b> ${t[1]}</span><small>${t[2]}</small></li>`).join("")}</ul>`;
+    $("#rc-done").classList.add("on"); rcDone = true; $("#rc-go").disabled = false; rcLabel.textContent = "다시 녹음"; };
+  const rcStart = () => { rcOn = true; rcT = 0; rcDone = false; $("#rc-script").innerHTML = ""; $("#rc-body").innerHTML = '<div class="empty">녹음이 끝나면 여기에 정리됩니다</div>'; $("#rc-done").classList.remove("on"); wave.classList.add("live"); $("#rc-dot").hidden = false; $("#rc-st").textContent = "받아 적는 중"; rcLabel.textContent = "녹음 끝";
+    let line = 0; rcIv = setInterval(() => { rcT += .25; bars.forEach((b, i) => { b.style.height = (14 + Math.abs(Math.sin(rcT * 5 + i * .7)) * 60 * Math.random() + 8) + "%"; });
+      $("#rc-tm").textContent = "00:" + String(Math.floor(rcT * 3)).padStart(2, "0");
+      if (rcT >= (line + 1) * 1.5 && line < SCRIPT.length) { const p = document.createElement("p"); p.innerHTML = "<b>" + SCRIPT[line][0] + "</b>" + esc(SCRIPT[line][1]); $("#rc-script").appendChild(p); $("#rc-script").scrollTop = 9999; line++; }
+      if (line >= SCRIPT.length && rcT >= SCRIPT.length * 1.5 + 1) rcStop(); }, 250); };
+  $("#rc-go").onclick = () => (rcOn ? rcStop() : rcStart());
+  $("#rc-body").addEventListener("click", (e) => { const li = e.target.closest("li.c"); if (li) { li.classList.toggle("x"); li.querySelector("i").textContent = li.classList.contains("x") ? "✓" : ""; } });
+
+  // calendar with natural-language entry
+  const DAYS = ["월", "화", "수", "목", "금"], H0 = 9, HN = 9, ROW = 34;
+  const EV = [{ d: 0, s: 10, e: 11, t: "연소 시험 결과 리뷰", w: "3층 회의실" }, { d: 0, s: 15, e: 16, t: "11월 정산 점검", w: "재무팀" }, { d: 2, s: 10, e: 11.5, t: "주간 회의", w: "전체" }, { d: 3, s: 14, e: 15, t: "설비 점검 동행", w: "시험장" }, { d: 4, s: 13, e: 14, t: "협력사 미팅", w: "화상" }];
+  const grid = $("#cl-grid");
+  const fmt = (h) => { const m = Math.round((h % 1) * 60); return (h < 12 ? "오전 " : "오후 ") + ((Math.floor(h) + 11) % 12 + 1) + "시" + (m ? " " + m + "분" : ""); };
+  const drawCal = () => { grid.innerHTML = '<div class="hd"></div>' + DAYS.map((d, i) => `<div class="hd">${d} <span class="m">${16 + i}</span></div>`).join("")
+      + '<div class="tcol">' + Array.from({ length: HN }, (_, i) => `<span style="top:${i * ROW}px">${H0 + i}</span>`).join("") + "</div>"
+      + DAYS.map((_, d) => `<div class="col">${EV.filter((x) => x.d === d).map((x) => `<div class="ev${x.n ? " new" : ""}${x.k ? " todo" : ""}" style="top:${(x.s - H0) * ROW + 1}px;height:${Math.max(.5, x.e - x.s) * ROW - 2}px">${esc(x.t)}<small>${fmt(x.s)}${x.w ? " · " + esc(x.w) : ""}</small></div>`).join("")}</div>`).join(""); };
+  drawCal();
+  const free = (d, s, len) => !EV.some((x) => x.d === d && s < x.e && s + len > x.s) && s >= H0 && s + len <= H0 + HN;
+  const parse = (q) => { const dm = q.match(/([월화수목금])요일/), d = dm ? DAYS.indexOf(dm[1]) : -1;
+    const tm = q.match(/(오전|오후)?\s*(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분|\s*(반))?/); if (d < 0 || !tm) return null;
+    let h = Number(tm[2]); if (tm[1] === "오후" && h < 12) h += 12; if (!tm[1] && h < 8) h += 12; h += tm[4] ? .5 : (Number(tm[3]) || 0) / 60;
+    const lm = q.match(/(\d+(?:\.\d+)?)\s*시간/), len = lm ? Number(lm[1]) : 1;
+    const who = (q.match(/([가-힣]{2,4})(?:\s?님)?(?:과|와|이랑|랑)\s/) || [])[1] || "";
+    const title = q.replace(/([월화수목금])요일|이번\s?주|다음\s?주|(오전|오후)?\s*\d{1,2}\s*시(\s*\d{1,2}\s*분|\s*반)?|\d+(\.\d+)?\s*시간|[가-힣]{2,4}(\s?님)?(과|와|이랑|랑)\s|잡아\s?줘|넣어\s?줘|추가해\s?줘/g, " ").replace(/\s+/g, " ").trim() || "새 일정";
+    return { d, s: h, len, who, title }; };
+  let clBusy = false;
+  const addEv = async (q) => { if (clBusy || !String(q).trim()) return; const done = $("#cl-done"), msg = $("#cl-msg"); done.classList.remove("on"); clBusy = true; $("#cl-go").disabled = true;
+    await think("cl-think", [["일정을 읽고 있어요", 700], ["비어 있는 시간을 확인하고 있어요", 700]]);
+    const p = parse(q);
+    if (!p) msg.textContent = "요일과 시간을 알아듣지 못했습니다. 예) 목요일 오후 2시 견적 회의";
+    else { let s = p.s, moved = false; if (!free(p.d, s, p.len)) { moved = true; let f = -1; for (let t = H0; t + p.len <= H0 + HN; t += .5) if (free(p.d, t, p.len) && (f < 0 || Math.abs(t - p.s) < Math.abs(f - p.s))) f = t; s = f; }
+      if (s < 0) msg.textContent = DAYS[p.d] + "요일에는 빈 시간이 없어 넣지 않았습니다.";
+      else { EV.forEach((x) => { x.n = 0; }); EV.push({ d: p.d, s, e: s + p.len, t: p.title, w: p.who, n: 1 }); drawCal();
+        msg.textContent = moved ? `그 시간은 겹쳐서 ${DAYS[p.d]}요일 ${fmt(s)}로 넣었습니다` : `${DAYS[p.d]}요일 ${fmt(s)}에 넣었습니다`; } }
+    done.classList.add("on"); clBusy = false; $("#cl-go").disabled = false; };
+  $("#cl-go").onclick = () => addEv($("#cl-in").value);
+  $("#cl-in").addEventListener("keydown", (e) => { if (e.key === "Enter") addEv($("#cl-in").value); });
+  $("#cl-ex").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { $("#cl-in").value = b.textContent; addEv(b.textContent); } });
+  $("#rc-tocal").onclick = (e) => { e.preventDefault(); if (!rcDone) return; EV.forEach((x) => { x.n = 0; });
+    TODO.forEach((t) => { if (!EV.some((x) => x.k && x.t === t[1])) { let s = t[4]; while (!free(t[3], s, .5) && s < H0 + HN - .5) s += .5; EV.push({ d: t[3], s, e: s + .5, t: t[1], w: t[0] + " · 기한", k: 1, n: 1 }); } });
+    drawCal(); show("cal"); $("#cl-msg").textContent = "회의록의 할 일 3건을 기한에 맞춰 넣었습니다"; $("#cl-done").classList.add("on"); };
+
+  // home: chips and free text route to the right app
+
+  // ---- asset ----
+  const TODAY = "2026-11-19";
+  const AS = [
+    { id: "IT-2024-0031", n: "노트북 14형", u: "김하늘 · 경영지원팀", jg: "지결-20240312-0007", amt: 1890000, lb: true, au: true, h: [["2024-03-12", "취득", "지결 연결 · 1,890,000원"], ["2024-03-15", "배정", "김하늘 · 경영지원팀"], ["2025-06-02", "이동", "본사 3층 → 서울 오피스"], ["2026-10-20", "실사", "QR 로 확인 · 정상"]] },
+    { id: "FA-2023-0112", n: "회의실 빔프로젝터", u: "공용 · 본사 2층", jg: "지결-20230821-0003", amt: 1320000, lb: true, au: false, h: [["2023-08-21", "취득", "지결 연결 · 1,320,000원"], ["2023-08-25", "배정", "공용 · 본사 2층 회의실"]] },
+    { id: "IT-2025-0007", n: "모니터 27형", u: "박서연 · 구매팀", jg: "", amt: 0, lb: false, au: true, h: [["2025-02-03", "등록", "수기 등록 · 지결 미연결"], ["2026-10-20", "실사", "라벨 없음 · 위치만 확인"]] },
+    { id: "FA-2022-0045", n: "시험용 계측기", u: "이도윤 · 시험팀", jg: "지결-20220614-0011", amt: 7400000, lb: false, au: true, h: [["2022-06-14", "취득", "지결 연결 · 7,400,000원"], ["2024-01-08", "이동", "시험동 A → 시험동 B"], ["2026-10-21", "실사", "정상 · 교정 예정"]] },
+    { id: "FA-2024-0088", n: "사무용 의자 10개", u: "", jg: "지결-20240930-0002", amt: 2100000, lb: false, au: false, h: [["2024-09-30", "취득", "지결 연결 · 2,100,000원"]] },
+  ];
+  let asSel = 0;
+  const asChk = (a) => [["지결 연결", !!a.jg], ["취득 금액", a.amt > 0], ["사용자 · 위치", !!a.u], ["QR 라벨", a.lb], ["실사 확인", a.au]];
+  const asPct = (a) => asChk(a).filter((x) => x[1]).length * 20;
+  const qrSvg = (str) => { const N = 21, c = []; let h = 2166136261;
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { const fx = x < 7 ? x : x >= N - 7 ? x - (N - 7) : -1, fy = y < 7 ? y : y >= N - 7 ? y - (N - 7) : -1; let on;
+      if (fx >= 0 && fy >= 0 && !(x >= N - 7 && y >= N - 7)) on = fx === 0 || fx === 6 || fy === 0 || fy === 6 || (fx > 1 && fx < 5 && fy > 1 && fy < 5);
+      else if ((x === 7 && y < 8) || (y === 7 && x < 8) || (x === N - 8 && y < 8) || (y === 7 && x >= N - 8) || (x === 7 && y >= N - 8) || (y === N - 8 && x < 8)) on = false;
+      else { h ^= str.charCodeAt((x * 7 + y * 13) % str.length) + x * 31 + y * 17; h = Math.imul(h, 16777619); on = ((h >>> 13) & 1) === 1; }
+      if (on) c.push(`<rect x="${x}" y="${y}" width="1.02" height="1.02"/>`); }
+    return `<svg viewBox="-1 -1 23 23" aria-hidden="true">${c.join("")}</svg>`; };
+  const asDetail = () => { const a = AS[asSel], p = asPct(a);
+    $("#as-body").innerHTML = `<h4>${esc(a.id)} · ${esc(a.n)}</h4><div class="big">${p}%<span style="font-family:var(--sans);font-size:13px;color:var(--mut);margin-left:8px">등록 완성도</span></div><span class="mt${p < 80 ? " w" : ""}"><i style="width:${p}%"></i></span>
+      <ul class="ck">${asChk(a).map((x) => `<li class="${x[1] ? "y" : ""}">${x[0]}</li>`).join("")}</ul><h4>변동 이력</h4><ul class="tl">${a.h.slice().reverse().map((x) => `<li><b>${x[1]}</b>${esc(x[2])}<small>${x[0]}</small></li>`).join("")}</ul>`; };
+  const asDraw = (keep) => { const on = new Set($$("#as-rows input:checked").map((x) => Number(x.dataset.i)));
+    $("#as-rows").innerHTML = AS.map((a, i) => `<label data-i="${i}" class="${i === asSel ? "sel" : ""}"><input type="checkbox" data-i="${i}"${on.has(i) || (!keep && !a.lb) ? " checked" : ""}><span>${esc(a.n)}<small>${a.id} · ${esc(a.u || "사용자 없음")}</small></span><b>${asPct(a)}%</b></label>`).join("");
+    const avg = Math.round(AS.reduce((t, a) => t + asPct(a), 0) / AS.length);
+    $("#as-sum").innerHTML = `<span>등록 자산 <b>${AS.length}건</b></span><span>평균 완성도 <b>${avg}%</b></span><span>지결 미연결 <b>${AS.filter((a) => !a.jg).length}건</b></span><span>라벨 없음 <b>${AS.filter((a) => !a.lb).length}건</b></span>`; };
+  $("#as-rows").addEventListener("click", (e) => { const l = e.target.closest("label"); if (!l) return; asSel = Number(l.dataset.i); $$("#as-rows label").forEach((x) => x.classList.toggle("sel", x === l)); $("#as-done").classList.remove("on"); asDetail(); });
+  let asBusy = false;
+  const asEnd = (msg, sub) => { $("#as-msg").textContent = msg; $("#as-sub").textContent = sub; $("#as-done").classList.add("on"); asBusy = false; };
+  const asQr = async () => { if (asBusy) return; const pick = $$("#as-rows input:checked").map((x) => AS[Number(x.dataset.i)]); $("#as-done").classList.remove("on");
+    if (!pick.length) { $("#as-body").innerHTML = '<div class="empty">라벨을 만들 자산을 골라 주세요</div>'; return; }
+    asBusy = true; $("#as-body").innerHTML = ""; await think("as-think", [["자산 번호를 확인하고 있어요", 700], ["QR 라벨을 그리고 있어요", 900]]);
+    $("#as-body").innerHTML = `<h4>QR 라벨 ${pick.length}장 · A4 한 장</h4><div class="qrs">${pick.map((a, i) => `<div class="qr" style="animation-delay:${i * 70}ms">${qrSvg(a.id + a.n)}<b>${a.id}</b>${esc(a.n)}</div>`).join("")}</div>`;
+    pick.forEach((a) => { if (!a.lb) { a.lb = true; a.h.push([TODAY, "라벨 발행", "QR 라벨 발행"]); } }); asDraw(true);
+    asEnd(`라벨 ${pick.length}장을 만들었습니다`, "완성도가 올라갔어요"); };
+  const asReg = async () => { if (asBusy) return; asBusy = true; $("#as-done").classList.remove("on"); $("#as-body").innerHTML = "";
+    await think("as-think", [["지출결의서를 읽고 있어요", 800], ["품목을 자산으로 나누고 있어요", 900]]);
+    const f = [["근거 문서", "지결-20261117-0012"], ["품목", "모니터 27형 2대"], ["분류", "전산 장비"], ["취득일", "2026-11-17"], ["금액", "대당 440,000원"], ["사용 부서", "구매팀"]];
+    $("#as-body").innerHTML = `<h4>지출결의서에서 읽은 내용</h4><div class="form">${f.map((x, i) => `<span>${x[0]}</span><div>${x[1]}${i ? "<em>자동</em>" : ""}</div>`).join("")}</div><button class="btn" id="as-reg2">자산 2건 등록</button>`;
+    asBusy = false;
+    $("#as-reg2").onclick = () => { for (let k = 1; k <= 2; k++) AS.push({ id: "IT-2026-00" + (40 + k), n: "모니터 27형", u: "구매팀", jg: "지결-20261117-0012", amt: 440000, lb: false, au: false, h: [[TODAY, "취득", "지결 연결 · 440,000원"], [TODAY, "배정", "구매팀"]] });
+      asSel = AS.length - 1; asDraw(true); asDetail(); asEnd("지결 1건에서 자산 2건을 등록했습니다", "라벨만 붙이면 끝"); }; };
+  $("#as-qr").onclick = asQr; $("#as-reg").onclick = asReg; asDraw(false); asDetail();
+
+  // ---- IT ----
+  const SW = [["설계 CAD", 20, 13, "2026-12-05", 220000], ["문서 편집기", 60, 58, "2027-03-01", 12000], ["화상 회의", 40, 31, "2026-12-12", 18000], ["협업 메신저", 80, 80, "2027-06-30", 9000], ["해석 도구", 6, 2, "2027-01-20", 410000]];
+  const dday = (d) => Math.round((new Date(d) - new Date(TODAY)) / 864e5);
+  const itDraw = (chk) => { $("#it-tb").innerHTML = "<tr><th>소프트웨어</th><th>쓰는 자리</th><th>갱신일</th><th>자리당 월 비용</th></tr>" + SW.map((w) => { const free = w[1] - w[2], dd = dday(w[3]);
+    return `<tr><td style="color:var(--ink)">${w[0]}${chk && dd <= 30 ? `<span class="tg">갱신 ${dd}일 전</span>` : ""}${chk && free >= 4 ? `<span class="tg b">남는 자리 ${free}</span>` : ""}</td><td><span class="mt seat"><i style="width:${Math.round(w[2] / w[1] * 100)}%"></i></span>${w[2]} / ${w[1]}</td><td>${w[3]}</td><td>${w[4].toLocaleString("ko-KR")}</td></tr>`; }).join(""); };
+  itDraw(false); let itBusy = false;
+  const itRun = async () => { if (itBusy) return; itBusy = true; $("#it-done").classList.remove("on"); $("#it-body").innerHTML = ""; itDraw(false);
+    await think("it-think", [["쓰는 사람과 산 수량을 견주고 있어요", 900], ["갱신일을 확인하고 있어요", 800]]);
+    itDraw(true); const idle = SW.filter((w) => w[1] - w[2] >= 4), soon = SW.filter((w) => dday(w[3]) <= 30), save = idle.reduce((t, w) => t + (w[1] - w[2]) * w[4], 0);
+    $("#it-body").innerHTML = `<div class="box"><b>30일 안에 갱신 ${soon.length}건</b> · ${soon.map((w) => w[0]).join(", ")}<br><b>남는 자리 ${idle.reduce((t, w) => t + w[1] - w[2], 0)}개</b> · 갱신할 때 줄이면 한 달에 <b>${won(save)}</b>을 아낍니다</div>`;
+    $("#it-msg").textContent = "점검을 마쳤습니다"; $("#it-sub").textContent = `갱신 품의 초안 ${soon.length}건 준비`; $("#it-done").classList.add("on"); itBusy = false; };
+  $("#it-go").onclick = itRun;
+
+  // ---- supplies ----
+  const SP = [["A4 용지 (박스)", 12, 5, 4], ["토너 검정", 2, 2, 1], ["니트릴 장갑 (박스)", 6, 4, 3], ["보안경", 9, 6, 2], ["건전지 AA (묶음)", 4, 3, 2]];
+  const spDraw = () => { $("#sp-rows").innerHTML = SP.map((p, i) => { const low = p[1] <= p[2];
+    return `<label style="grid-template-columns:1fr auto auto;cursor:default"><span>${p[0]}${low ? '<span class="tg">안전재고 이하</span>' : ""}<small>안전재고 ${p[2]} · 한 달 평균 ${p[3]}</small><span class="mt${low ? " w" : ""}"><i style="width:${Math.min(100, p[1] / (p[2] * 3) * 100)}%"></i></span></span><b>${p[1]}</b><button type="button" class="mini" data-i="${i}"${p[1] ? "" : " disabled"}>불출</button></label>`; }).join(""); };
+  spDraw(); $("#sp-rows").addEventListener("click", (e) => { const b = e.target.closest(".mini"); if (!b) return; e.preventDefault(); const p = SP[Number(b.dataset.i)]; if (p[1] > 0) p[1]--; $("#sp-done").classList.remove("on"); spDraw(); });
+  let spBusy = false;
+  const spRun = async () => { if (spBusy) return; const low = SP.filter((p) => p[1] <= p[2]); $("#sp-done").classList.remove("on");
+    if (!low.length) { $("#sp-body").innerHTML = '<div class="empty">안전재고 아래로 내려간 품목이 없습니다. [불출]을 눌러 보세요</div>'; return; }
+    spBusy = true; $("#sp-body").innerHTML = ""; await think("sp-think", [["재고와 사용량을 보고 있어요", 800], ["권장 수량을 계산하고 있어요", 800]]);
+    $("#sp-body").innerHTML = `<h4>발주 초안</h4><table class="dr"><tr><th>품목</th><th>지금</th><th>석 달 사용</th><th>권장 발주</th></tr>${low.map((p) => `<tr><td style="color:var(--ink)">${p[0]}</td><td>${p[1]}</td><td>${p[3] * 3}</td><td style="color:var(--ink)">${Math.max(p[3], p[3] * 3 - p[1])}<span class="ai">추천</span></td></tr>`).join("")}</table><div class="meta"><span>기준 <b>석 달 사용량 - 지금 재고</b></span><span>발주는 <b>사람이 확인 후</b></span></div>`;
+    $("#sp-msg").textContent = `발주 초안 ${low.length}품목을 만들었습니다`; $("#sp-sub").textContent = "수량은 고칠 수 있어요"; $("#sp-done").classList.add("on"); spBusy = false; };
+  $("#sp-go").onclick = spRun;
+
+  // ---- safety ----
+  const MS = [["제품명", "이소프로필알코올 (IPA)"], ["CAS 번호", "67-63-0"], ["유해성", "인화성 액체 · 눈 자극"], ["보호구", "보안경 · 내화학 장갑"], ["보관", "서늘하고 환기되는 곳"], ["개정일", "2026-03-02"]];
+  const sfForm = (n) => { $("#sf-form").innerHTML = MS.map((x, i) => `<span>${x[0]}</span><div>${i < n ? x[1] + "<em>자동</em>" : '<span style="color:var(--mut)">비어 있음</span>'}</div>`).join(""); };
+  sfForm(0); let sfBusy = false;
+  const sfRun = async () => { if (sfBusy) return; sfBusy = true; $("#sf-done").classList.remove("on"); sfForm(0);
+    const el = $("#sf-think"); el.classList.add("on"); el.querySelector(".t").textContent = "PDF 16쪽을 읽고 있어요"; await wait(900);
+    for (let i = 1; i <= MS.length; i++) { el.querySelector(".t").textContent = MS[i - 1][0] + " 칸을 채우고 있어요"; sfForm(i); await wait(380); }
+    el.classList.remove("on"); $("#sf-msg").textContent = "MSDS 여섯 칸을 채웠습니다"; $("#sf-sub").textContent = "원문과 견주어 확인만 하세요"; $("#sf-done").classList.add("on"); sfBusy = false; };
+  $("#sf-go").onclick = sfRun;
+  const RK = [["세척제 옮겨 담기", 2, 2], ["고소 작업 (사다리)", 2, 3], ["지게차 통로 보행", 1, 3], ["전동 공구 사용", 1, 1]];
+  const rkLv = (v) => v >= 6 ? ["높음", ""] : v >= 3 ? ["보통", " b"] : ["낮음", " o"];
+  const rkDraw = () => { const opt = (v) => [1, 2, 3].map((k) => `<option${k === v ? " selected" : ""}>${k}</option>`).join("");
+    $("#sf-risk").innerHTML = "<tr><th>위험요인</th><th>가능성</th><th>중대성</th><th>위험도</th></tr>" + RK.map((r, i) => { const v = r[1] * r[2], l = rkLv(v);
+      return `<tr><td style="color:var(--ink)">${r[0]}</td><td><select data-i="${i}" data-k="1" aria-label="${r[0]} 가능성">${opt(r[1])}</select></td><td><select data-i="${i}" data-k="2" aria-label="${r[0]} 중대성">${opt(r[2])}</select></td><td>${v}<span class="tg${l[1]}">${l[0]}</span></td></tr>`; }).join("");
+    const hi = RK.filter((r) => r[1] * r[2] >= 6);
+    $("#sf-sum").innerHTML = hi.length ? `<b>높음 ${hi.length}건</b> · ${hi.map((r) => r[0]).join(", ")}<br>개선 대책과 담당자를 정해야 닫을 수 있습니다` : "<b>높음 없음</b> · 지금 대책으로 관리할 수 있는 수준입니다"; };
+  rkDraw(); $("#sf-risk").addEventListener("change", (e) => { const t = e.target; if (!t.dataset.i) return; RK[Number(t.dataset.i)][Number(t.dataset.k)] = Number(t.value); rkDraw(); });
+
+
+  // ---- floor map ----
+  const SEATS = [["A1", "김하늘", "경영지원팀", ["IT-2024-0031 노트북 14형", "모니터 24형"]], ["A2", "정유진", "경영지원팀", ["노트북 13형"]], ["A3", "", "", []], ["A4", "오세훈", "경영지원팀", ["노트북 14형", "도킹 스테이션"]],
+    ["B1", "박서연", "구매팀", ["IT-2025-0007 모니터 27형", "노트북 14형"]], ["B2", "한지우", "구매팀", ["노트북 15형"]], ["B3", "최민재", "구매팀", ["노트북 14형", "라벨 프린터"]], ["B4", "", "", []],
+    ["C1", "이도윤", "시험팀", ["FA-2022-0045 시험용 계측기", "워크스테이션"]], ["C2", "강태오", "시험팀", ["워크스테이션", "모니터 27형 2대"]], ["C3", "윤서아", "시험팀", ["노트북 15형"]], ["C4", "문가은", "시험팀", ["노트북 14형", "모니터 27형"]]];
+  const ROOMS = [["회의실", 404, 34, 96, 112, ["FA-2023-0112 회의실 빔프로젝터"]], ["창고", 404, 162, 96, 104, ["FA-2024-0088 사무용 의자 10개"]]];
+  const mp = { sel: -1, hit: new Set(), pick: -1, rec: -1, swap: false, log: [] };
+  const mpDraw = () => { $("#mp-svg").innerHTML = ["경영지원팀", "구매팀", "시험팀"].map((z, r) => `<span class="zn" style="top:${4 + r * 30}%">${z}</span>`).join("")
+    + ROOMS.map((r, k) => `<div class="rm" style="left:79.5%;top:${k ? 54 : 10}%;width:17.5%;height:${k ? 38 : 38}%"><b>${r[0]}</b>${esc(r[5][0].split(" ").slice(1).join(" "))}</div>`).join("")
+    + SEATS.map((t, i) => `<div class="st2${t[1] ? "" : " e"}${mp.sel === i ? " sel" : ""}${mp.hit.has(i) ? " hit" : ""}${mp.pick === i ? " pick" : ""}${mp.rec === i ? " rec" : ""}" data-i="${i}" tabindex="0" role="button" aria-label="${t[0]} ${t[1] || "빈 자리"}" style="--i:${i};left:${3 + (i % 4) * 18.8}%;top:${10 + Math.floor(i / 4) * 30}%;width:16.6%;height:22%">${t[0]}<b>${esc(t[1] || "빈 자리")}</b>${t[3].length ? "장비 " + t[3].length : ""}<span class="pin" aria-hidden="true"><span>${esc(t[1] || t[0] + " 빈 자리")}</span></span></div>`).join(""); };
+  const mpCenter = (i) => { const r = $(`#mp-svg .st2[data-i="${i}"]`).getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+  const mpFly = (name, a, b) => { if (!name || reduce || !document.body.animate) return; const el = document.createElement("div"); el.className = "fly"; el.textContent = name; document.body.appendChild(el);
+    const mid = [(a[0] + b[0]) / 2, Math.min(a[1], b[1]) - 46];
+    el.animate([{ transform: `translate(${a[0]}px,${a[1]}px) translate(-50%,-50%) scale(.8)`, opacity: 0 }, { transform: `translate(${a[0]}px,${a[1]}px) translate(-50%,-50%)`, opacity: 1, offset: .12 }, { transform: `translate(${mid[0]}px,${mid[1]}px) translate(-50%,-50%) scale(1.1)`, opacity: 1, offset: .55 }, { transform: `translate(${b[0]}px,${b[1]}px) translate(-50%,-50%) scale(.9)`, opacity: 0 }], { duration: 900, easing: "cubic-bezier(.4,0,.2,1)" }).onfinish = () => el.remove(); };
+  $("#mp-mode").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; $("#mp-svg").dataset.mode = b.dataset.m; $$("#mp-mode button").forEach((x) => x.classList.toggle("on", x === b)); });
+  if (fine && !reduce) { const sg = $("#mp-stage"); sg.addEventListener("pointermove", (e) => { const r = sg.getBoundingClientRect(); $("#mp-svg").style.setProperty("--rz", ((e.clientX - r.left) / r.width - .5) * 9 + "deg"); }); sg.addEventListener("pointerleave", () => $("#mp-svg").style.setProperty("--rz", "0deg")); }
+  const mpEnd = (msg, sub) => { $("#mp-msg").textContent = msg; $("#mp-sub").textContent = sub || ""; $("#mp-done").classList.add("on"); };
+  const mpLog = () => mp.log.length ? `<h4 style="margin-top:14px">자리 변동 이력</h4><ul class="tl">${mp.log.slice().reverse().map((x) => `<li><b>${x[0]}</b>${x[1]}<small>${TODAY}</small></li>`).join("")}</ul>` : "";
+  const mpShow = (i) => { const t = SEATS[i]; mp.sel = i; mpDraw();
+    $("#mp-body").innerHTML = t[1] ? `<h4>${t[0]} · ${t[2]}</h4><div class="big" style="font-size:24px">${esc(t[1])}</div><h4>이 자리의 장비</h4><ul class="tl">${t[3].map((x) => `<li>${esc(x)}</li>`).join("")}</ul>${mpLog()}` : `<h4>${t[0]}</h4><div class="big" style="font-size:24px">빈 자리</div><p style="color:var(--sub);margin:0">[새 입사자 자리 추천]을 눌러 보세요</p>${mpLog()}`; };
+  const mpFind = (q0) => { const q = String(q0 || "").trim().toLowerCase(); $("#mp-done").classList.remove("on"); mp.rec = -1; mp.hit = new Set();
+    if (!q) { mpDraw(); return; }
+    const out = []; SEATS.forEach((t, i) => { const who = t[1].toLowerCase().includes(q) || t[2].toLowerCase().includes(q); const it = t[3].filter((x) => x.toLowerCase().includes(q));
+      if (who || it.length) { mp.hit.add(i); out.push([i, t[0], t[1], it.length ? it.join(", ") : t[2]]); } });
+    const rm = ROOMS.filter((r) => r[5].some((x) => x.toLowerCase().includes(q)) || r[0].includes(q));
+    mp.sel = -1; mpDraw();
+    $("#mp-body").innerHTML = out.length || rm.length ? `<h4>"${esc(q0)}" 찾은 곳 ${out.length + rm.length}곳</h4><ul class="hits">${out.map((o) => `<li data-i="${o[0]}"><b>${o[1]}</b>${esc(o[2])} · ${esc(o[3])}</li>`).join("")}${rm.map((r) => `<li><b>${r[0]}</b>${esc(r[5].join(", "))}</li>`).join("")}</ul>` : `<div class="empty">"${esc(q0)}" 에 맞는 자산이나 사람이 없습니다</div>`;
+    if (out.length + rm.length) mpEnd(`${out.length + rm.length}곳을 지도에 표시했습니다`, "줄을 누르면 그 자리로"); };
+  $("#mp-go").onclick = () => mpFind($("#mp-q").value); $("#mp-q").addEventListener("keydown", (e) => { if (e.key === "Enter") mpFind($("#mp-q").value); });
+  $("#mp-body").addEventListener("click", (e) => { const l = e.target.closest(".hits li[data-i]"); if (l) mpShow(Number(l.dataset.i)); });
+  const mpSeat = (i) => { $("#mp-done").classList.remove("on"); mp.rec = -1;
+    if (!mp.swap) { mp.hit = new Set(); mpShow(i); return; }
+    if (mp.pick < 0) { mp.pick = i; mpDraw(); $("#mp-body").innerHTML = `<div class="empty">${SEATS[i][0]} ${esc(SEATS[i][1] || "빈 자리")} 을(를) 골랐습니다. 옮길 자리를 눌러 주세요</div>`; return; }
+    if (mp.pick === i) { mp.pick = -1; mpDraw(); return; }
+    const a = SEATS[mp.pick], b = SEATS[i]; const ta = a.slice(1), tb = b.slice(1); const ca = mpCenter(mp.pick), cb = mpCenter(i); mpFly(ta[0], ca, cb); mpFly(tb[0], cb, ca);
+    if (ta[0]) mp.log.push([ta[0], `${a[0]} → ${b[0]} · 장비 ${ta[2].length}건 함께`]); if (tb[0]) mp.log.push([tb[0], `${b[0]} → ${a[0]} · 장비 ${tb[2].length}건 함께`]);
+    a.splice(1, 3, ...tb); b.splice(1, 3, ...ta); mp.pick = -1; mp.swap = false; $("#mp-swap").textContent = "자리 바꾸기"; mp.hit = new Set(); mpShow(i);
+    mpEnd("자리를 바꿨습니다", "장비 위치와 이력도 함께"); };
+  $("#mp-svg").addEventListener("click", (e) => { const g = e.target.closest(".st2"); if (g) mpSeat(Number(g.dataset.i)); });
+  $("#mp-svg").addEventListener("keydown", (e) => { const g = e.target.closest(".st2"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); mpSeat(Number(g.dataset.i)); } });
+  $("#mp-swap").onclick = () => { mp.swap = !mp.swap; mp.pick = -1; mp.hit = new Set(); mp.rec = -1; $("#mp-swap").textContent = mp.swap ? "바꾸기 취소" : "자리 바꾸기"; $("#mp-done").classList.remove("on"); mpDraw();
+    $("#mp-body").innerHTML = mp.swap ? '<div class="empty">바꿀 자리 두 곳을 차례로 눌러 주세요</div>' : '<div class="empty">자산 이름 · 관리번호 · 사람 이름으로 찾거나, 지도의 자리를 눌러 보세요</div>'; };
+  let mpBusy = false;
+  const mpRec = async () => { if (mpBusy) return; mpBusy = true; mp.swap = false; mp.pick = -1; mp.hit = new Set(); mp.rec = -1; $("#mp-swap").textContent = "자리 바꾸기"; $("#mp-done").classList.remove("on"); mpDraw(); $("#mp-body").innerHTML = "";
+    await think("mp-think", [["빈 자리를 찾고 있어요", 700], ["같은 팀과의 거리를 재고 있어요", 900]]);
+    const team = "구매팀"; let best = -1, sc = -1; SEATS.forEach((t, i) => { if (t[1]) return; const row = Math.floor(i / 4); let n = 0; SEATS.forEach((u, k) => { if (u[2] === team) n += Math.floor(k / 4) === row ? 2 : Math.abs(Math.floor(k / 4) - row) === 1 && k % 4 === i % 4 ? 1 : 0; }); if (n > sc) { sc = n; best = i; } });
+    mpBusy = false; if (best < 0) { $("#mp-body").innerHTML = '<div class="empty">빈 자리가 없습니다</div>'; return; }
+    mp.rec = best; mp.sel = -1; mpDraw(); const near = SEATS.filter((u, k) => u[2] === team && Math.floor(k / 4) === Math.floor(best / 4)).map((u) => u[1]);
+    $("#mp-body").innerHTML = `<h4>구매팀 새 입사자</h4><div class="big" style="font-size:24px">${SEATS[best][0]} 자리</div><div class="box"><b>같은 줄에 팀원 ${near.length}명</b> · ${near.join(", ") || "없음"}<br>남는 모니터 1대와 도킹 스테이션을 함께 배정할 수 있습니다</div>`;
+    mpEnd(`${SEATS[best][0]} 자리를 추천합니다`, "정하는 것은 사람이"); };
+  $("#mp-rec").onclick = mpRec; mpDraw();
+
+
+  // ---- safety automation ----
+  const HK = { n: 18, all: 24 }, hkLog = (t, r) => { const li = document.createElement("li"); li.innerHTML = `<span>${t}</span><small>${r}</small>`; $("#hk-log").prepend(li); while ($("#hk-log").children.length > 4) $("#hk-log").lastChild.remove(); };
+  const hkDraw = () => { $("#hk-n").textContent = HK.n; $("#hk-bar").style.width = Math.round(HK.n / HK.all * 100) + "%"; };
+  const hkEnd = (m, s2) => { $("#hk-msg").textContent = m; $("#hk-sub").textContent = s2 || ""; $("#hk-done").classList.add("on"); };
+  const HKP = ["박서연", "한지우", "오세훈", "문가은", "윤서아", "최민재"]; let hkBusy = false;
+  $("#hk-leave").onclick = () => { $("#hk-done").classList.remove("on"); if (HK.n >= HK.all) { hkEnd("모두 수검했습니다"); return; } const who = HKP[(HK.n - 18) % HKP.length]; HK.n++; hkDraw(); hkLog(`${who} · 건강검진 휴가 결재`, "수검으로 자동 집계"); hkEnd(`${HK.n} / ${HK.all}명`, "휴가 결재만으로 세어집니다"); };
+  $("#hk-sms").onclick = async () => { if (hkBusy) return; hkBusy = true; $("#hk-done").classList.remove("on"); await think("hk-think", [["안 받은 사람을 찾고 있어요", 700], ["안내 문구를 쓰고 있어요", 700]]); const left = HK.all - HK.n; hkLog(`미수검 ${left}명에게 안내 문자`, "매월 1일 자동 발송"); hkEnd(left ? `${left}명에게 안내 문자를 예약했습니다` : "보낼 사람이 없습니다", "수검하면 대상에서 빠집니다"); hkBusy = false; };
+  $("#hk-sp").onclick = async () => { if (hkBusy) return; hkBusy = true; $("#hk-done").classList.remove("on"); await think("hk-think", [["MSDS 의 유해 물질을 보고 있어요", 800], ["취급자와 지정된 사람을 맞추고 있어요", 800]]); hkLog("이소프로필알코올 취급 3명 · 특수검진 6개월", "다음 2027-01"); hkLog("야간 작업 지정 2명 · 특수검진 12개월", "다음 2027-05"); hkEnd("특수검진 대상 5명", "MSDS 와 지정자 기준"); hkBusy = false; };
+  let phBusy = false, phDone = false;
+  $("#ph-go").onclick = async () => { if (phBusy) return; phBusy = true; $("#ph-done").classList.remove("on"); const ph = $("#ph"); ph.classList.remove("found"); ph.classList.add("scanning");
+    await think("ph-think", [["사진을 읽고 있어요", 900], ["위험요인을 찾고 있어요", 900]]); ph.classList.remove("scanning"); ph.classList.add("found");
+    if (!phDone) { phDone = true; RK.push(["소화기 앞 적치물", 2, 3]); rkDraw(); const tr = $("#sf-risk").rows[RK.length]; if (tr) tr.classList.add("new"); }
+    $("#ph-msg").textContent = "위험요인 1건을 찾았습니다"; $("#ph-sub").textContent = "위험성평가 표에 더했어요"; $("#ph-done").classList.add("on"); phBusy = false; };
+
+  // ---- family event: AI + ERP + groupware (drafts only) ----
+  const FM = [["본인 결혼", 5, 500000, "제6조 1호", "축하 화환"], ["부모상", 5, 300000, "제6조 3호", "근조 화환"], ["조부모상", 3, 100000, "제6조 4호", "근조 화환"], ["자녀 출생", 10, 200000, "제6조 2호", "출산 축하 물품"]];
+  let fmBusy = false;
+  const fmRun = async () => { if (fmBusy) return; fmBusy = true; $("#fm-go").disabled = true; $("#fm-done").classList.remove("on"); const body = $("#fm-body"); body.innerHTML = "";
+    const who = $("#fm-who").value.split(" · "), k = FM[Number($("#fm-kind").value)], day = $("#fm-day").value;
+    await think("fm-think", [["경조사 규정을 읽고 있어요", 800], ["휴가 일수와 경조금을 계산하고 있어요", 800], ["회사 시스템에 초안을 만들고 있어요", 900]]);
+    const jobs = [["gw", "그룹웨어", "경조휴가 근태신청", `${k[0]} · ${k[1]}일 (${day.split(" (")[0]}부터, 주말 제외)`, "임시저장됨"], ["erp", "ERP", "경조금 지출결의", `${won(k[2])} · 복리후생비 · 계좌는 인사 정보에서`, "임시저장됨"], ["", "Work OS", `${k[4]} 발주`, "거래처 발주서 초안 · 받는 곳 확인 필요", "초안"], ["", "Work OS", "사내 공지", "본인이 동의하면 게시 · 문구 초안 준비", "초안"], ["", "Work OS", "알림", `${who[1]} 팀장과 인사 담당에게 알림`, "보냄"]];
+    body.innerHTML = `<div class="rule"><b>${esc(who[0])}</b> 님 · ${k[0]} · 경조사 규정 <b>${k[3]}</b>에 따라 휴가 <b>${k[1]}일</b>, 경조금 <b>${won(k[2])}</b></div><div class="jobs" id="fm-jobs"></div>`;
+    for (let i = 0; i < jobs.length; i++) { const j = jobs[i], d = document.createElement("div"); d.className = "job"; d.innerHTML = `<span class="sys ${j[0]}">${j[1]}</span><div><b>${j[2]}</b><span>${esc(j[3])}</span></div><span class="stt">${j[4]}</span>`; $("#fm-jobs").appendChild(d); await wait(380); }
+    $("#fm-msg").textContent = "다섯 가지를 준비했습니다"; $("#fm-sub").textContent = "상신과 게시는 사람이 누릅니다"; $("#fm-done").classList.add("on"); fmBusy = false; $("#fm-go").disabled = false; };
+  $("#fm-go").onclick = fmRun;
+
+  const go = (v) => { show(v); if (v === "fam") fmRun(); if (v === "map") { $("#mp-q").value = "모니터"; mpFind("모니터"); } if (v === "asset") asQr(); if (v === "safe") sfRun(); if (v === "settle") settle(); if (v === "rec" && !rcOn) rcStart(); if (v === "cal") { const q = "목요일 오후 2시 김하늘과 견적 회의 1시간"; $("#cl-in").value = q; addEv(q); } };
+  $$(".chips button").forEach((b) => b.onclick = () => go(b.dataset.go));
+  const ask = () => { const q = $("#ask-in").value.trim(); if (!q) return; if (/정산|카드|결의/.test(q)) go("settle"); else if (/녹음|회의록|받아/.test(q)) go("rec"); else { show("cal"); $("#cl-in").value = q; addEv(q); } };
+  $("#ask-go").onclick = ask; $("#ask-in").addEventListener("keydown", (e) => { if (e.key === "Enter") ask(); });
+
+  /* modules */
+  // [group, name, problem, how (lines), result, tags]
+  const MODS = [
+    ["업무", "정산 · 출장 여비", "출장을 다녀오면 같은 내용을 엑셀과 청구서에 다시 적고, 카드와 계산서를 따로 찾아 결의서를 입력했습니다.", ["ERP 자료를 매일 밤 자동으로 모읍니다", "정산할 건을 한 화면에 모아 본인 계정으로 초안까지 만듭니다", "출장 문서와 기록을 1:1 로 대조합니다"], "입력 대신 확인만, 누락 0건", ["ERP 연동", "여비 규정 계산", "초안까지"]],
+    ["업무", "회의 · 대화 · 일정", "회의가 끝나면 기억에 의존해 다시 적었고, 메일 · 메신저 · 그룹웨어를 오가며 맥락이 끊겼습니다.", ["녹음을 받아 적고 결정과 할 일로 나눕니다", "대화방에서 바로 화상 회의와 자료 공유를 합니다", "말하듯 적으면 일정과 회의실이 함께 잡힙니다"], "회의가 끝나면 할 일이 남음", ["녹음 자동화", "화상 회의", "일정"]],
+    ["업무", "자산 · 전산 · 비품 · 배치", "자산이 어디 있는지, 방치된 자산이 누구 것인지 기록도 식별표도 없었습니다.", ["지출결의서에서 자산을 바로 등록합니다", "QR 라벨을 한 번에 만들고 변동을 이력으로 남깁니다", "2D · 3D 배치도에서 자리와 장비를 함께 봅니다"], "찾을 수 있고, 누구 것인지 아는 자산", ["QR 라벨", "변동 이력", "배치도"]],
+    ["업무", "안전보건", "MSDS 는 PDF 를 보며 옮겨 적고, 건강검진과 위험성평가는 엑셀로 따로 관리했습니다.", ["MSDS 원본을 읽어 칸을 채우고 규제 대상을 표시합니다", "건강검진은 휴가 결재로 세고 매달 안내를 보냅니다", "현장 사진과 QR 점검이 위험성평가를 고칩니다"], "법정 자료가 일하면서 갱신됨", ["MSDS", "건강검진", "위험성평가"]],
+    ["AI", "AI 비서와 에이전트", "AI 를 쓰는 사람만 쓰고, 회사 자료나 ERP · 그룹웨어와 이어지지 않았습니다.", ["사내 자료로 답하는 비서가 ERP · 그룹웨어 초안을 준비합니다", "현업이 절차를 말로 설명해 자기 도구를 만듭니다", "기능마다 알맞은 모델을 쓰고 쓴 만큼만 냅니다"], "AI 는 초안까지, 결정은 사람이", ["경조사 한 번에", "에이전트 만들기", "비용 한도"]],
+    ["기반", "보안 설계", "AI 와 자동화를 쓰면 회사 자료가 밖으로 나가거나, 누가 무엇을 했는지 모르게 될 수 있었습니다.", ["자료 등급(1급 · 2급 · 3급 · 공개)에 따라 AI 사용을 서버가 막습니다", "개인정보는 보내기 전에 가리고, 보낸 기록을 남깁니다", "AI 의 쓰기는 확인 카드까지, ERP 는 본인 계정 초안까지입니다", "사내망과 VPN 에서만 열리고, 서버의 바깥 연결은 허용 목록뿐입니다"], "화면이 빠뜨려도 서버가 막음", ["자료 등급", "감사 기록", "사내망 전용"]],
+    ["기반", "사내 직접 구축", "전 직원용 솔루션을 빌리면 사람 수만큼 비용이 늘고, 회사 자료가 바깥 서버에 쌓입니다.", ["솔루션 서버를 빌리지 않고 사내 가상 서버 한 대에 직접 구축했습니다", "방화벽과 유출 방지는 회사가 이미 쓰는 DLP · 방화벽을 그대로 활용합니다", "설치와 의존성을 줄인 구조라 낮은 사양으로 전사가 씁니다", "PC 앱과 휴대폰 홈 화면 앱으로 배포합니다"], "새 솔루션 구매 없이 전사 사용", ["사내 서버 1대", "기존 DLP 활용", "가성비 구조"]],
+    ["기반", "배포와 운영", "혼자 만들고 운영하므로, 고칠 때마다 안 깨진다는 보장이 필요했습니다.", ["고칠 때마다 자동 시험과 실제 클릭 점검을 돌립니다", "실패하면 저절로 이전 버전으로 되돌립니다", "화면 부품과 색을 한 곳에서 관리해 새 화면을 빨리 만듭니다"], "PC 한 대에서 전용 서버로", ["자동 시험", "되돌리기", "공통 화면 부품"]],
+  ];
+  const ml = $("#mlist"), mc = $("#mcard"); let lastG = "";
+  ml.innerHTML = MODS.map((m, i) => { const g = m[0] !== lastG ? `<div class="mgrp">${m[0]}</div>` : ""; lastG = m[0];
+    return g + `<div class="mrow${i ? "" : " on"}" data-i="${i}" tabindex="0"><span class="m">${String(i + 1).padStart(2, "0")}</span><h3>${m[1]}</h3><span class="ar">→</span></div>`; }).join("");
+  const showMod = (i) => { const m = MODS[i]; $$(".mrow", ml).forEach((r) => r.classList.toggle("on", Number(r.dataset.i) === i));
+    mc.innerHTML = `<span class="m">${m[0]} · ${String(i + 1).padStart(2, "0")} / ${String(MODS.length).padStart(2, "0")}</span><h3>${m[1]}</h3><p class="mwas">${m[2]}</p><ul class="mhow">${m[3].map((x) => `<li>${x}</li>`).join("")}</ul><div class="mres">${m[4]}</div><div class="tags">${m[5].map((x) => `<span>${x}</span>`).join("")}</div>`; };
+  ["pointerover", "focusin", "click"].forEach((ev) => ml.addEventListener(ev, (e) => { const r = e.target.closest(".mrow"); if (r) showMod(Number(r.dataset.i)); }));
+  showMod(0);
 })();
 </script>
 </body>
